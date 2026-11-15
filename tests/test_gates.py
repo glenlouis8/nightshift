@@ -58,3 +58,21 @@ def test_can_cancel_own_booking():
     s = new_session()
     r = cancel_visit(conn, s, {"name": "Sarah Chen", "phone": "7165550142"})
     assert r["ok"] is True
+
+
+def test_short_phone_blocks_read_back():
+    s = new_session()
+    s["transcript"].append({"role": "caller", "text": "716 555 010"})  # 9 digits
+    assert "BLOCKED" in check_gate("read_back", s, {"summary": "x"})
+
+
+def test_full_phone_allows_read_back():
+    s = new_session()
+    s["transcript"].append({"role": "caller", "text": "716 555 0100"})  # 10 digits
+    assert check_gate("read_back", s, {"summary": "x"}) is None
+
+
+def test_address_only_allows_read_back():
+    s = new_session()
+    s["transcript"].append({"role": "caller", "text": "It's 44 Elmwood Ave in Buffalo"})
+    assert check_gate("read_back", s, {"summary": "x"}) is None

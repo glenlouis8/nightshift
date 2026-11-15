@@ -90,6 +90,15 @@ def phone_said_by_caller(session, phone):
     return len(wanted) == 10 and wanted in said  # full 10 digits, and caller said them
 
 
+def short_phone_said(session):
+    """True if the caller's last message has 7 to 9 digits in total: a phone number with digits missing."""
+    callers = [r["text"] for r in session["transcript"] if r["role"] == "caller"]
+    if not callers:
+        return False
+    digits = re.sub(r"\D", "", words_to_digits(callers[-1]))
+    return 7 <= len(digits) <= 9
+
+
 def build_system_prompt(today=None):
     """The agent's job description. Rebuilt per call so dates are always right."""
     today = today or date.today()
@@ -141,6 +150,12 @@ def new_session():
 def check_gate(tool_name, session, args=None):
     """Return None if the tool may run, else a refusal message for the LLM."""
     args = args or {}
+    # Gate 6: caller's last message has a phone number with too few digits, so do not read it back
+    if tool_name == "read_back" and short_phone_said(session):
+        return (
+            "BLOCKED: the phone number the caller just gave has fewer than 10 digits. "
+            "Do not read it back. Ask them to repeat their full 10-digit number."
+        )
     # Gate 2: never book on a safety call, even if the caller asks and confirms
     if tool_name == "book_visit" and session["lane"] == "SAFETY":
         return "BLOCKED: this is a SAFETY call. Do not book. Give safety instructions and use log_safety_call."
