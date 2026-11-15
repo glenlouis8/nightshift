@@ -1,0 +1,15 @@
+[project]
+name = "nightshift"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = [
+    "google-genai>=3.3.0",
+    "pipecat-ai[deepgram,elevenlabs,runner,silero,webrtc]>=1.16.0",
+    "python-dotenv>=1.2.4",
+    "pyyaml>=6.0.3",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.2.0",
+]

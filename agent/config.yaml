@@ -1,0 +1,31 @@
+shop:
+  name: Lakeside Plumbing & Heating
+  city: Buffalo, NY
+  hours: Monday to Friday, 8 AM to 6 PM
+
+pricing:
+  diagnostic_visit: 89
+  after_hours_emergency_fee: 150
+  drain_cleaning: 175
+  water_heater_flush: 120
+
+oncall:
+  tech_name: Mike
+  callback_window_minutes: 30
+
+slot_starts: [9, 11, 13, 15]   # 2-hour visit windows each business day
+
+llm:
+  model: gemini-3.5-flash
+  thinking_level: low          # less "thinking" = faster replies, matters for voice
+
+safety_keywords:
+  - smell gas
+  - gas smell
+  - gas leak
+  - rotten egg
+  - carbon monoxide
+  - co alarm
+  - sparking
+  - burning smell
+  - smoke
