@@ -1,8 +1,32 @@
+# Secrets
 .env
-.venv/
+.env.*
+!.env.example
+
+# Python
 __pycache__/
-*.pyc
-logs/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+*.egg-info/
+build/
+dist/
+
+# Runtime data (regenerated every run)
 *.db
+*.db-journal
+logs/
+
+# Personal notes and assistant config (not part of the project)
 CLAUDE.md
+DESIGN.md
+HANDOFF.md
+scratch/
+play.py
+
+# Editors and OS
+.vscode/
+.idea/
 .DS_Store
