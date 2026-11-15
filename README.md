@@ -156,14 +156,19 @@ flowchart LR
 
 ## Status
 
-- [x] Text mode: routine booking and emergency page, end to end
-- [x] Voice mode in the browser: full emergency call
-- [x] Code-enforced gates and reply guards
-- [x] Repeat-caller detection (a second page within 60 minutes is flagged as a repeat)
-- [x] Eval harness: 40 simulated-caller scenarios scored on final database state
-- [ ] Unit tests for each gate
-- [ ] LLM judge for tone and repetition, checked against hand labels
-- [ ] Voice latency measurements (p50 / p90)
+**Working**
+
+- Text mode: routine booking and emergency page, end to end
+- Voice mode in the browser: full emergency call
+- Code-enforced gates and reply guards
+- Repeat-caller detection (a second page within 60 minutes is flagged as a repeat)
+- Eval harness: 40 simulated-caller scenarios scored on final database state
+- Unit tests for the 4 gates enforced in code (8 tests, `uv run pytest`)
+
+**Not done yet**
+
+- LLM judge for tone and repetition, checked against hand labels
+- Voice latency measurements (p50 / p90)
 
 Results are added here only once they are measured.
 
