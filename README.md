@@ -153,24 +153,8 @@ flowchart LR
 - Runs locally. There is no phone number; voice mode uses the browser.
 - Safety detection in code is a keyword list plus a "gas near smell/leak" pattern. Unusual phrasing still relies on the model calling `log_safety_call`, which then locks the lane.
 - The evals use a simulated caller in text mode. They don't cover speech recognition errors or turn-taking.
-
-## Status
-
-**Working**
-
-- Text mode: routine booking and emergency page, end to end
-- Voice mode in the browser: full emergency call
-- Code-enforced gates and reply guards
-- Repeat-caller detection (a second page within 60 minutes is flagged as a repeat)
-- Eval harness: 40 simulated-caller scenarios scored on final database state
-- Unit tests for the 4 gates enforced in code (8 tests, `uv run pytest`)
-
-**Not done yet**
-
-- LLM judge for tone and repetition, checked against hand labels
-- Voice latency measurements (p50 / p90)
-
-Results are added here only once they are measured.
+- Voice latency (p50 / p90) is not measured yet, and there is no tone or repetition judge yet. Numbers go in this README only once they are measured.
+- The 4 code-enforced gates have unit tests (`uv run pytest`). The price rule is checked by the evals only.
 
 ## Run it
 
