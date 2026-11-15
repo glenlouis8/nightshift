@@ -82,7 +82,10 @@ async def run_bot(transport, runner_args: RunnerArguments):
     session = new_session()  # blank call memory
 
     # ---- the stations ----
-    stt = DeepgramSTTService(api_key=os.environ["DEEPGRAM_API_KEY"])  # voice -> text
+    stt = DeepgramSTTService(
+        api_key=os.environ["DEEPGRAM_API_KEY"],
+        settings=DeepgramSTTService.Settings(numerals=True),
+    )  # voice -> text
     tts = ElevenLabsTTSService(  # text -> voice
         api_key=os.environ["ELEVENLABS_API_KEY"],
         settings=ElevenLabsTTSService.Settings(

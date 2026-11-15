@@ -18,6 +18,7 @@ An agent that books jobs and wakes people up at 2 AM can't rely on "the prompt t
 2. **No booking on a safety call.** If the caller mentions a gas smell, sparking, and so on, the call is locked into the safety lane and booking is blocked.
 3. **Callers only touch their own bookings.** Reschedule and cancel need a name and phone number that match the same customer.
 4. **Prices only from the price list.** The agent quotes numbers from `get_pricing()` and nowhere else.
+5. **Phone numbers must come from the caller.** Before any booking or page, the code checks that the phone number the model passed actually appears in what the caller said. If the model changed or invented a digit, the action is blocked and the agent asks the caller to repeat the number.
 
 There is also a read-back guard: if the agent calls `read_back` but forgets to actually say the details out loud, the code says them for it. This was found during voice testing (see below).
 
@@ -93,7 +94,7 @@ voice/
 
 - **Turn cut off mid-sentence.** A short pause after "My..." was treated as the end of the turn, and the agent replied to half a sentence. This is the usual trade-off in voice activity detection: wait longer and the bot feels slow, wait less and it interrupts.
 - **Read-back never spoken.** The agent recorded the details for confirmation but only said "Is that correct?", so the caller confirmed details they never heard. Fixed with the read-back guard in code.
-- **A digit filled in by the model.** The transcript had a phone number ending in three zeros. The agent read it back with four. The read-back is the place to catch this, which is why confirming before acting matters.
+- **A digit filled in by the model.** The caller said a phone number ending in three zeros. The model "corrected" it to four and tried to page with the wrong number. In a later call it even read the number back correctly and still sent four zeros to the tool. Fixed with gate 5: Deepgram now writes spoken numbers as digits, and the code blocks any phone number the caller never said. Re-tested by voice: the page was blocked and the agent asked for the number again.
 
 ## Status
 

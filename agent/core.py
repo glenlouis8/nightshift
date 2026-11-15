@@ -54,6 +54,16 @@ MENU = [
 ]
 
 
+def phone_said_by_caller(session, phone):
+    """Grounding check: did the caller actually say these exact digits at some point in the call?"""
+    wanted = re.sub(r"\D", "", phone)[-10:]  # LLM's number, digits only
+    caller_words = " ".join(
+        r["text"] for r in session["transcript"] if r["role"] == "caller"
+    )
+    said = re.sub(r"\D", "", caller_words)  # everything caller said, digits only
+    return len(wanted) == 10 and wanted in said  # full 10 digits, and caller said them
+
+
 def build_system_prompt(today=None):
     """The agent's job description. Rebuilt per call so dates are always right."""
     today = today or date.today()
@@ -78,6 +88,7 @@ Put every call in one lane:
 
 Confirming: before ANY book_visit, reschedule_visit, cancel_visit or page_oncall, call read_back with the details,
 read them aloud, ask "Is that correct?", and STOP to wait for the caller's answer. Only after they say yes, call the action.
+Read phone numbers back digit by digit in groups, like "7 1 6, 5 5 5, 0 1 4 2", so the caller can catch mistakes.
 If a tool result says BLOCKED, do what it says.
 
 Prices: only quote numbers returned by get_pricing. Never guess a price.
@@ -101,8 +112,9 @@ def new_session():
 
 
 # ---------- Gates ----------
-def check_gate(tool_name, session):
+def check_gate(tool_name, session, args=None):
     """Return None if the tool may run, else a refusal message for the LLM."""
+    args = args or {}
     # Gate 2: never book on a safety call, even if the caller asks and confirms
     if tool_name == "book_visit" and session["lane"] == "SAFETY":
         return "BLOCKED: this is a SAFETY call. Do not book. Give safety instructions and use log_safety_call."
@@ -111,6 +123,13 @@ def check_gate(tool_name, session):
     # Gate 1: writes need a read-back + clear yes
     if not session["caller_confirmed"]:
         return "BLOCKED: read the details back to the caller and get a clear yes before this action."
+    # Gate 5 (grounding): the phone number must be one the caller actually said
+    phone = args.get("phone") or args.get("callback")
+    if phone and not phone_said_by_caller(session, phone):
+        return (
+            "BLOCKED: that phone number does not match what the caller said. "
+            "Ask them to repeat their full 10-digit number, then read it back digit by digit."
+        )
     return None
 
 
@@ -137,7 +156,7 @@ def on_caller_turn(session, caller_text):
 
 def run_tool(conn, session, name, args):
     """Bouncer + kitchen: gate check, then run the real function."""
-    refusal = check_gate(name, session)
+    refusal = check_gate(name, session, args)
     if refusal:
         return {"ok": False, "error": refusal}
     fn = getattr(tools, name)  # "book_visit" -> tools.book_visit
