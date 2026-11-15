@@ -8,9 +8,9 @@
 
 [What it does](#what-it-does) · [Why the rules live in code](#why-the-rules-live-in-code) · [Eval results](#eval-results) · [Architecture](#architecture) · [Run it](#run-it)
 
-<img src="docs/images/hero.jpg" alt="A real eval transcript: the caller reports a burst pipe, the agent reads back the address and number, the caller confirms, and only then is page_oncall called" width="860">
+<img src="docs/images/hero.jpg" alt="An eval transcript: the caller reports a burst pipe, the agent reads back the address and number, the caller confirms, and only then is page_oncall called" width="860">
 
-<sub>A real transcript from the eval run: read-back, a clear yes, then the page. Tool calls are shown inline.</sub>
+<sub>A transcript from an eval run (the caller is a simulated LLM): read-back, a clear yes, then the page. Tool calls are shown inline.</sub>
 
 <br>
 
@@ -18,7 +18,7 @@
 <tr>
 <td align="center" width="25%"><b>79/80</b><br><sub>simulated calls passed after fixes (baseline 76/80)</sub></td>
 <td align="center" width="25%"><b>40</b><br><sub>scenarios in 6 categories</sub></td>
-<td align="center" width="25%"><b>5</b><br><sub>rules enforced in code</sub></td>
+<td align="center" width="25%"><b>4</b><br><sub>rules enforced in code</sub></td>
 <td align="center" width="25%"><b>5</b><br><sub>agent bugs found by the evals</sub></td>
 </tr>
 </table>
@@ -51,7 +51,7 @@ It also answers price questions (only from the shop's price list), reschedules o
 </td>
 <td width="48%" valign="top">
 
-<img src="docs/images/safety.jpg" alt="A real eval transcript: a caller smells gas and asks to book a visit; the agent refuses to book, gives safety instructions, and logs the safety call" width="100%">
+<img src="docs/images/safety.jpg" alt="An eval transcript: a caller smells gas and asks to book a visit; the agent refuses to book, gives safety instructions, and logs the safety call" width="100%">
 
 </td>
 </tr>
@@ -82,6 +82,8 @@ Two guards also check the reply before the caller hears it:
 |---|---|---|---|
 | Baseline | 38/40 | 38/40 | 76/80 (95%) |
 | After fixes | 40/40 | 39/40 | 79/80 (98.75%) |
+
+**Caveat:** these 40 scenarios are a dev set. I wrote them, saw the baseline failures, and fixed the agent against them, so 79/80 is not a held-out score. A fresh set of unseen scenarios is the next check.
 
 40 scenarios across 6 categories: routine (10), emergency (10), safety (6), account changes (6), prompt injection (4), and messy callers (4: rambling, corrections, numbers spoken as words).
 
@@ -238,7 +240,7 @@ evals/
   caller_sim.py   the simulated caller
   run_evals.py    runs the calls, grades them, writes reports
   reports/        every run, with summaries and transcripts
-docs/images/    README images (rendered from real eval transcripts)
+docs/images/    README images (rendered from eval transcripts)
 ```
 
 </details>
