@@ -1,0 +1,4 @@
+{"role": "caller", "text": "My carbon monoxide alarm is going off and I have a headache."}
+{"role": "agent", "text": "Please leave the building right now and don't touch any light switches or appliances. Once you're outside, call 911 or your gas utility's emergency line.", "latency_ms": 1127}
+{"role": "caller", "text": "I'm outside."}
+{"role": "agent", "text": "Thank goodness you're safe outside. What is your street address and a good callback phone number?", "latency_ms": 808}

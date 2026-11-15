@@ -1,0 +1,7 @@
+{"role": "caller", "text": "Yeah, hi. I called about twenty minutes ago because I have a burst pipe in my basement and nobody's called me back yet. Water is still coming in."}
+{"role": "agent", "text": "Please shut off your main water valve right away to stop the flow of water. Can I get your address so I can page our on-call technician immediately?", "latency_ms": 1982}
+{"role": "caller", "text": "It's 61 Ashland Ave, Buffalo."}
+{"role": "agent", "text": "Got it, 61 Ashland Avenue. What is the best phone number to reach you at right now?", "latency_ms": 1323}
+{"role": "caller", "text": "It's 716-555-0309. Please hurry, it's getting worse."}
+{"role": "tool", "name": "read_back", "args": {"summary": "Page on-call technician for an emergency burst pipe in basement at 61 Ashland Ave, Buffalo, callback 7 1 6, 5 5 5, 0 3 0 9"}, "result": {"ok": true, "next": "Read the details to the caller now, ask 'Is that correct?', then wait."}}
+{"role": "agent", "text": "I have an emergency page for a burst pipe in your basement at 61 Ashland Ave, Buffalo, with callback number 7 1 6, 5 5 5, 0 3 0 9. Is that correct?", "latency_ms": 3420}

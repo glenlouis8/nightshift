@@ -54,13 +54,39 @@ MENU = [
 ]
 
 
+NUMBER_WORDS = {
+    "zero": "0",
+    "oh": "0",
+    "o": "0",
+    "one": "1",
+    "two": "2",
+    "three": "3",
+    "four": "4",
+    "five": "5",
+    "six": "6",
+    "seven": "7",
+    "eight": "8",
+    "nine": "9",
+}
+
+
+def words_to_digits(text):
+    """'seven one six' -> '7 1 6'. Every other word stays as is."""
+    words = re.findall(r"[a-z]+|\d+", text.lower())  # split into words and digit chunks
+    return " ".join(
+        NUMBER_WORDS.get(w, w) for w in words
+    )  # swap number words, keep rest
+
+
 def phone_said_by_caller(session, phone):
     """Grounding check: did the caller actually say these exact digits at some point in the call?"""
     wanted = re.sub(r"\D", "", phone)[-10:]  # LLM's number, digits only
     caller_words = " ".join(
         r["text"] for r in session["transcript"] if r["role"] == "caller"
     )
-    said = re.sub(r"\D", "", caller_words)  # everything caller said, digits only
+    said = re.sub(
+        r"\D", "", words_to_digits(caller_words)
+    )  # words → digits, then digits only
     return len(wanted) == 10 and wanted in said  # full 10 digits, and caller said them
 
 
@@ -133,10 +159,20 @@ def check_gate(tool_name, session, args=None):
     return None
 
 
+GAS_NEAR = re.compile(
+    r"\b(smell|smells|smelling|odor|odour|stink|stinks|leak|leaking)\b.{0,30}\bgas\b|\bgas\b.{0,30}\b(smell|smells|odor|odour|stink|leak|leaking)\b"
+)
+EXTRA_HAZARD = re.compile(r"\b(sulfur|sulphur)\b")
+
+
 def update_lane(session, caller_text):
-    """Code-level safety classifier. Any safety keyword locks the call into SAFETY for good."""
+    """Code-level safety classifier. Any hazard match locks the call into SAFETY for good."""
     text = caller_text.lower()
-    if any(word in text for word in CONFIG["safety_keywords"]):
+    exact = any(word in text for word in CONFIG["safety_keywords"])  # old phrase list
+    near = GAS_NEAR.search(text) or EXTRA_HAZARD.search(
+        text
+    )  # "gas" within 30 chars of smell/leak words
+    if exact or near:
         session["lane"] = "SAFETY"
     return session["lane"]
 
@@ -160,7 +196,16 @@ def run_tool(conn, session, name, args):
     if refusal:
         return {"ok": False, "error": refusal}
     fn = getattr(tools, name)  # "book_visit" -> tools.book_visit
-    result = fn(conn, session, args)
+    try:
+        result = fn(conn, session, args)  # run real tool
+    except Exception as e:  # missing arg, bad value, anything
+        print(
+            f"[tool error] {name}: {type(e).__name__}: {e}"
+        )  # so we see it in console
+        return {
+            "ok": False,
+            "error": f"Tool failed ({type(e).__name__}: {e}). Check the arguments and ask the caller for anything missing.",
+        }
     if name in WRITE_TOOLS:
         session["caller_confirmed"] = False  # yes is used up
     return result
@@ -211,6 +256,9 @@ def handle_turn(conn, session, caller_text):
         text = "Sorry, I'm having trouble. Let me get someone to call you back."
 
     latency_ms = round((time.time() - start) * 1000)
+    # Lie guard: a write was blocked but the reply says it's done? Replace with the truth.
+    if false_success(session["transcript"][turn_start:], text):
+        text = "Sorry, I haven't been able to do that yet. Let me confirm your details first."
     # Read-back guard: read_back ran this turn but the reply skipped the details? Say them ourselves.
     readbacks = [
         r for r in session["transcript"][turn_start:] if r.get("name") == "read_back"
@@ -234,9 +282,40 @@ def save_log(session, folder="logs"):
 
 
 def spoke_details(summary, reply):
-    """True if every number in the read-back (address, phone) also appears in the spoken reply."""
-    numbers = re.findall(
-        r"\d+", summary
-    )  # "44 Elmwood, 716-555-0000" -> ["44","716","555","0000"]
-    reply_digits = re.sub(r"\D", "", reply)  # keep only the digits of the reply
-    return all(n in reply_digits for n in numbers)  # was every number said out loud?
+    """True if the phone number and street number from the read-back were said out loud."""
+    phones = [
+        re.sub(r"\D", "", p)
+        for p in re.findall(r"\d{3}\D{0,2}\d{3}\D{0,2}\d{4}", summary)
+    ]  # "716-555-0199" -> "7165550199"
+    streets = re.findall(
+        r"\b(\d+)\s+[A-Z][a-z]+", summary
+    )  # "42 Elmwood" -> "42" (number before a capital word)
+    reply_digits = re.sub(
+        r"\D", "", reply
+    )  # digits only, so "7 1 6, 5 5 5" still matches
+    rest = reply_digits
+    for p in phones:
+        rest = rest.replace(p, "", 1)  # cross out phone digits, so "42" can't hide inside "...0142"
+    phones_said = all(p in reply_digits for p in phones)
+    streets_said = all(s in rest for s in streets)
+    return phones_said and streets_said  # times and dates ignored
+
+
+SUCCESS_WORDS = re.compile(
+    r"\b(paged|booked|cancell?ed|rescheduled|moved|all set|on (his|the) way|is coming)\b",
+    re.I,
+)
+
+
+def false_success(turn_rows, reply):
+    """True if a write was blocked this turn, none worked, but the reply claims it's done."""
+    writes = [
+        r for r in turn_rows if r.get("name") in WRITE_TOOLS
+    ]  # write tool calls this turn
+    blocked = any(
+        not r["result"].get("ok") for r in writes
+    )  # at least one refused/failed
+    worked = any(r["result"].get("ok") for r in writes)  # at least one succeeded
+    return (
+        blocked and not worked and bool(SUCCESS_WORDS.search(reply))
+    )  # lying about success?

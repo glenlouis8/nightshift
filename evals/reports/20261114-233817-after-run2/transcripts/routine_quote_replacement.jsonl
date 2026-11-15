@@ -1,0 +1,17 @@
+{"role": "caller", "text": "Hi, I'd like to get someone out to give me a quote on replacing my old water heater."}
+{"role": "tool", "name": "get_open_slots", "args": {}, "result": {"open_slots": [{"slot_id": "2026-11-16-09", "day": "2026-11-16", "window": "9:00 to 11:00"}, {"slot_id": "2026-11-16-13", "day": "2026-11-16", "window": "13:00 to 15:00"}, {"slot_id": "2026-11-17-09", "day": "2026-11-17", "window": "9:00 to 11:00"}, {"slot_id": "2026-11-17-11", "day": "2026-11-17", "window": "11:00 to 13:00"}, {"slot_id": "2026-11-17-13", "day": "2026-11-17", "window": "13:00 to 15:00"}, {"slot_id": "2026-11-17-15", "day": "2026-11-17", "window": "15:00 to 17:00"}]}}
+{"role": "agent", "text": "I can help you schedule a visit for a water heater replacement quote. May I have your full name, please?", "latency_ms": 1367}
+{"role": "caller", "text": "Linda Park."}
+{"role": "agent", "text": "Thanks, Linda. What is a good phone number to reach you at?", "latency_ms": 828}
+{"role": "caller", "text": "716-555-0205."}
+{"role": "agent", "text": "Thank you. And what is the address for the service visit?", "latency_ms": 890}
+{"role": "caller", "text": "302 Amherst St, Buffalo."}
+{"role": "agent", "text": "Got it. We have openings on Monday, November 16th from 9 to 11 in the morning or 1 to 3 in the afternoon. Which of those works better for you?", "latency_ms": 1038}
+{"role": "caller", "text": "I'll take the morning slot, 9 to 11."}
+{"role": "tool", "name": "read_back", "args": {"summary": "Linda Park, 7 1 6, 5 5 5, 0 2 0 5, 302 Amherst St, Buffalo, routine quote for water heater replacement on Monday, November 16th from 9 to 11 in the morning."}, "result": {"ok": true, "next": "Read the details to the caller now, ask 'Is that correct?', then wait."}}
+{"role": "agent", "text": "I have a visit for Linda Park at 302 Amherst St, Buffalo, phone number 7 1 6, 5 5 5, 0 2 0 5, for a water heater replacement quote on Monday, November 16th from 9 to 11 in the morning. Is that correct?", "latency_ms": 2175}
+{"role": "caller", "text": "Yes, that's right."}
+{"role": "tool", "name": "book_visit", "args": {"slot_id": "2026-11-16-09", "address": "302 Amherst St, Buffalo", "issue": "Water heater replacement quote", "phone": "716-555-0205", "name": "Linda Park"}, "result": {"ok": true, "visit_id": 3, "day": "2026-11-16", "start_hour": 9}}
+{"role": "agent", "text": "You are all set for Monday, November 16th, between 9 and 11 in the morning. Is there anything else I can help you with today?", "latency_ms": 1757}
+{"role": "caller", "text": "No, that's everything. Thank you so much!"}
+{"role": "agent", "text": "You're very welcome. Have a wonderful weekend!", "latency_ms": 614}

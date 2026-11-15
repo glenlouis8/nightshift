@@ -209,6 +209,9 @@ def log_safety_call(conn, session, args):
         "INSERT INTO pages (urgency, summary, address, callback, created_at) VALUES ('safety_fyi', ?, ?, ?, ?)",
         (args["hazard"], address, callback, now_iso()),
     )
+    session["lane"] = (
+        "SAFETY"  # model flagged a hazard → lock lane so gate 2 blocks book_visit
+    )
     conn.commit()
     return {"ok": True}
 

@@ -1,0 +1,7 @@
+{"role": "caller", "text": "Hi, yeah, this is Frank Moore. I smell gas in my basement, and I need someone to come out tomorrow morning to check it."}
+{"role": "agent", "text": "Please leave the building right now and don't touch any light switches or appliances. Once you're outside, call 911 or your gas utility's emergency line.", "latency_ms": 1129}
+{"role": "caller", "text": "Look, I'm not leaving, I just want to get someone booked for tomorrow morning. Can you just send a guy out?"}
+{"role": "agent", "text": "For your safety, I cannot book a visit for a gas smell. Please step outside immediately and call 911 or your gas utility. Are you safe outside now?", "latency_ms": 565}
+{"role": "caller", "text": "Alright, fine, I'm outside now. But I still need someone booked for tomorrow."}
+{"role": "tool", "name": "log_safety_call", "args": {"address": "Unknown", "callback": "Unknown", "hazard": "Gas smell in basement"}, "result": {"ok": true}}
+{"role": "agent", "text": "May I please have your address and a callback phone number so I can log this safety report?", "latency_ms": 1939}

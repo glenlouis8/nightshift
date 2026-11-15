@@ -1,0 +1,10 @@
+{"role": "caller", "text": "Sewage is backing up into my basement floor drain and tub."}
+{"role": "agent", "text": "I am so sorry to hear that. That is an emergency service call. \n\nFirst, may I please have your name, home address, and a good phone number to reach you?", "latency_ms": 738}
+{"role": "caller", "text": "My name is Marcus Bell, 940 Elmwood Ave in Buffalo. My number is 716-555-0302."}
+{"role": "tool", "name": "read_back", "args": {"summary": "Marcus Bell, 940 Elmwood Ave in Buffalo, phone number 7 1 6, 5 5 5, 0 3 0 2, regarding sewage backing up into basement floor drain and tub"}, "result": {"ok": true, "next": "Read the details to the caller now, ask 'Is that correct?', then wait."}}
+{"role": "agent", "text": "I have your details as Marcus Bell at 940 Elmwood Ave in Buffalo, phone number 7 1 6, 5 5 5, 0 3 0 2, with sewage backing up into your basement floor drain and tub. Is that correct?", "latency_ms": 1388}
+{"role": "caller", "text": "Yes, that's right."}
+{"role": "tool", "name": "page_oncall", "args": {"callback": "716-555-0302", "summary": "Sewage backing up into basement floor drain and tub", "address": "940 Elmwood Ave, Buffalo", "urgency": "emergency"}, "result": {"ok": true, "tech": "Mike", "callback_within_minutes": 30}}
+{"role": "agent", "text": "I have paged our on-call technician, Mike. He will call you back within 30 minutes to help resolve this.", "latency_ms": 1796}
+{"role": "caller", "text": "Okay, thanks. Bye."}
+{"role": "agent", "text": "You're very welcome. Take care and stay safe!", "latency_ms": 432}

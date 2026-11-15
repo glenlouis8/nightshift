@@ -1,0 +1,13 @@
+{"role": "caller", "text": "Hi, my name is Priya Patel and my shower has really low water pressure."}
+{"role": "agent", "text": "Hello Priya, I can help schedule a technician to take a look at your shower water pressure. Could I please get your phone number and your home address?", "latency_ms": 614}
+{"role": "caller", "text": "My phone number is 716-555-0177 and my address is 9 Delaware Rd, Kenmore."}
+{"role": "tool", "name": "get_open_slots", "args": {}, "result": {"open_slots": [{"slot_id": "2026-11-16-09", "day": "2026-11-16", "window": "9:00 to 11:00"}, {"slot_id": "2026-11-16-13", "day": "2026-11-16", "window": "13:00 to 15:00"}, {"slot_id": "2026-11-17-09", "day": "2026-11-17", "window": "9:00 to 11:00"}, {"slot_id": "2026-11-17-11", "day": "2026-11-17", "window": "11:00 to 13:00"}, {"slot_id": "2026-11-17-13", "day": "2026-11-17", "window": "13:00 to 15:00"}, {"slot_id": "2026-11-17-15", "day": "2026-11-17", "window": "15:00 to 17:00"}]}}
+{"role": "agent", "text": "Thank you. On Monday, November 16th, we have openings from 9 to 11 in the morning, and 1 to 3 in the afternoon. Which time works best for you?", "latency_ms": 1590}
+{"role": "caller", "text": "I'll take the 9 to 11 slot."}
+{"role": "tool", "name": "read_back", "args": {"summary": "Booking a routine visit for low water pressure in the shower for Priya Patel at 9 Delaware Rd, Kenmore on Monday, November 16, between 9:00 AM and 11:00 AM. Callback phone number is 7 1 6, 5 5 5, 0 1 7 7."}, "result": {"ok": true, "next": "Read the details to the caller now, ask 'Is that correct?', then wait."}}
+{"role": "agent", "text": "I have you down for a visit on Monday, November 16, from 9 to 11 in the morning for low shower water pressure at 9 Delaware Rd, Kenmore. The callback number is 7 1 6, 5 5 5, 0 1 7 7. Is that correct?", "latency_ms": 1709}
+{"role": "caller", "text": "Yes, that's all correct."}
+{"role": "tool", "name": "book_visit", "args": {"phone": "716-555-0177", "name": "Priya Patel", "slot_id": "2026-11-16-09", "address": "9 Delaware Rd, Kenmore", "issue": "Low water pressure in shower"}, "result": {"ok": true, "visit_id": 3, "day": "2026-11-16", "start_hour": 9}}
+{"role": "agent", "text": "You're all booked for Monday, November 16th, between 9 and 11 in the morning. Thank you for calling Lakeside Plumbing & Heating, and have a great day!", "latency_ms": 1934}
+{"role": "caller", "text": "Thank you, goodbye!"}
+{"role": "agent", "text": "Goodbye!", "latency_ms": 647}

@@ -1,0 +1,15 @@
+{"role": "caller", "text": "Hi, my kitchen sink is draining really slowly."}
+{"role": "tool", "name": "get_open_slots", "args": {}, "result": {"open_slots": [{"slot_id": "2026-11-16-09", "day": "2026-11-16", "window": "9:00 to 11:00"}, {"slot_id": "2026-11-16-13", "day": "2026-11-16", "window": "13:00 to 15:00"}, {"slot_id": "2026-11-17-09", "day": "2026-11-17", "window": "9:00 to 11:00"}, {"slot_id": "2026-11-17-11", "day": "2026-11-17", "window": "11:00 to 13:00"}, {"slot_id": "2026-11-17-13", "day": "2026-11-17", "window": "13:00 to 15:00"}, {"slot_id": "2026-11-17-15", "day": "2026-11-17", "window": "15:00 to 17:00"}]}}
+{"role": "agent", "text": "I can help you get that scheduled. May I have your name, please?", "latency_ms": 2225}
+{"role": "caller", "text": "Tom Becker."}
+{"role": "agent", "text": "Thanks, Tom. What is the best phone number to reach you?", "latency_ms": 1375}
+{"role": "caller", "text": "716-555-0202."}
+{"role": "agent", "text": "Got it. What is your home address?", "latency_ms": 1284}
+{"role": "caller", "text": "210 Lafayette Ave, Buffalo."}
+{"role": "agent", "text": "We have openings on Monday, November 16th, from 9 to 11 in the morning or 1 to 3 in the afternoon. Which time works best for you?", "latency_ms": 1487}
+{"role": "caller", "text": "I can only do afternoons, so the 1 to 3 slot works."}
+{"role": "tool", "name": "read_back", "args": {"summary": "Tom Becker, 7 1 6, 5 5 5, 0 2 0 2, 210 Lafayette Ave, Buffalo, kitchen sink draining slowly, Monday November 16th from 1 to 3 in the afternoon"}, "result": {"ok": true, "next": "Read the details to the caller now, ask 'Is that correct?', then wait."}}
+{"role": "agent", "text": "I have you down for Monday, November 16th, from 1 to 3 in the afternoon at 210 Lafayette Ave, Buffalo, for a slowly draining kitchen sink. Your phone number is 7 1 6, 5 5 5, 0 2 0 2. Is that correct?", "latency_ms": 3220}
+{"role": "caller", "text": "Yes, that's all correct. Thanks for your help, goodbye!"}
+{"role": "tool", "name": "book_visit", "args": {"issue": "Kitchen sink draining slowly", "slot_id": "2026-11-16-13", "address": "210 Lafayette Ave, Buffalo", "phone": "716-555-0202", "name": "Tom Becker"}, "result": {"ok": true, "visit_id": 3, "day": "2026-11-16", "start_hour": 13}}
+{"role": "agent", "text": "You're all booked for Monday from 1 to 3 in the afternoon. Have a great day!", "latency_ms": 2803}

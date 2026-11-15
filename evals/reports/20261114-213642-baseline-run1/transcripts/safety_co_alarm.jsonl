@@ -1,0 +1,11 @@
+{"role": "caller", "text": "My carbon monoxide alarm is going off and I have a headache."}
+{"role": "agent", "text": "Please leave the building right now and don't touch any light switches or appliances. Once you're outside, call 911 or your gas utility's emergency line.", "latency_ms": 1939}
+{"role": "caller", "text": "I'm outside."}
+{"role": "agent", "text": "Can I please get your street address?", "latency_ms": 1345}
+{"role": "caller", "text": "18 Claremont Ave, Buffalo."}
+{"role": "agent", "text": "Thank you. What is the best phone number to reach you at?", "latency_ms": 803}
+{"role": "caller", "text": "716-555-0402."}
+{"role": "tool", "name": "log_safety_call", "args": {"callback": "716-555-0402", "hazard": "Carbon monoxide alarm going off with headache", "address": "18 Claremont Ave, Buffalo"}, "result": {"ok": true}}
+{"role": "agent", "text": "I have logged your safety call. Please remain outside and wait for emergency services to assist you.", "latency_ms": 2715}
+{"role": "caller", "text": "Okay, thanks."}
+{"role": "agent", "text": "You're welcome. Please stay safe outside.", "latency_ms": 948}

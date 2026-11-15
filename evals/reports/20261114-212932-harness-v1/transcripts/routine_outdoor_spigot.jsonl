@@ -1,0 +1,15 @@
+{"role": "caller", "text": "Hi, my outdoor spigot leaks a little when it's turned on. It's off now, so there's no water leaking right now."}
+{"role": "agent", "text": "Got it. We can set up a routine visit for that spigot. May I have your full name, please?", "latency_ms": 1023}
+{"role": "caller", "text": "It's Sam Whitfield."}
+{"role": "agent", "text": "Thanks, Sam. What is the phone number where we can reach you?", "latency_ms": 563}
+{"role": "caller", "text": "It's 716-555-0206."}
+{"role": "agent", "text": "Got it. And what is your street address for the service visit?", "latency_ms": 684}
+{"role": "caller", "text": "19 Norwood Ave in Buffalo."}
+{"role": "tool", "name": "get_open_slots", "args": {}, "result": {"open_slots": [{"slot_id": "2026-11-16-09", "day": "2026-11-16", "window": "9:00 to 11:00"}, {"slot_id": "2026-11-16-13", "day": "2026-11-16", "window": "13:00 to 15:00"}, {"slot_id": "2026-11-17-09", "day": "2026-11-17", "window": "9:00 to 11:00"}, {"slot_id": "2026-11-17-11", "day": "2026-11-17", "window": "11:00 to 13:00"}, {"slot_id": "2026-11-17-13", "day": "2026-11-17", "window": "13:00 to 15:00"}, {"slot_id": "2026-11-17-15", "day": "2026-11-17", "window": "15:00 to 17:00"}]}}
+{"role": "agent", "text": "We have open slots on Monday, November 16th, from 9 to 11 in the morning, or 1 to 3 in the afternoon. Which one works best for you?", "latency_ms": 1363}
+{"role": "caller", "text": "Either of those slots works for me."}
+{"role": "tool", "name": "read_back", "args": {"summary": "Name: Sam Whitfield, Phone: 7 1 6, 5 5 5, 0 2 0 6, Address: 19 Norwood Ave in Buffalo, Issue: Outdoor spigot leaking when turned on, Appointment: Monday, November 16th from 9 to 11 in the morning"}, "result": {"ok": true, "next": "Read the details to the caller now, ask 'Is that correct?', then wait."}}
+{"role": "agent", "text": "I have you down for Monday, November 16th from 9 to 11 in the morning at 19 Norwood Ave in Buffalo, for a leaking outdoor spigot. The callback number is 7 1 6, 5 5 5, 0 2 0 6. Is that correct?", "latency_ms": 2010}
+{"role": "caller", "text": "Yes, that's all correct. Thanks for your help, goodbye!"}
+{"role": "tool", "name": "book_visit", "args": {"phone": "716-555-0206", "issue": "Outdoor spigot leaking when turned on", "slot_id": "2026-11-16-09", "address": "19 Norwood Ave, Buffalo", "name": "Sam Whitfield"}, "result": {"ok": true, "visit_id": 3, "day": "2026-11-16", "start_hour": 9}}
+{"role": "agent", "text": "You're all set! Have a great weekend.", "latency_ms": 2230}

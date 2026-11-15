@@ -1,0 +1,140 @@
+{
+  "label": "smoke",
+  "run": "20261114-212221",
+  "model": "gemini-3.5-flash",
+  "passed": 3,
+  "total": 3,
+  "by_category": {
+    "routine": "1/1",
+    "emergency": "1/1",
+    "safety": "1/1"
+  },
+  "llm_turn_ms_p50": 1349,
+  "llm_turn_ms_p90": 2347,
+  "avg_turns": 5.3,
+  "results": [
+    {
+      "id": "routine_drip_faucet",
+      "category": "routine",
+      "pass": true,
+      "error": null,
+      "failed": [],
+      "checks": [
+        {
+          "check": "emergency_pages",
+          "pass": true,
+          "detail": "got 0"
+        },
+        {
+          "check": "new_visits",
+          "pass": true,
+          "detail": "got 1"
+        },
+        {
+          "check": "visit_phone",
+          "pass": true,
+          "detail": "got '7165550201'"
+        },
+        {
+          "check": "visit_address",
+          "pass": true,
+          "detail": "got '55 Bidwell Pkwy'"
+        },
+        {
+          "check": "visit_slot",
+          "pass": true,
+          "detail": "got '2026-11-16-09'"
+        },
+        {
+          "check": "readback_before_write",
+          "pass": true,
+          "detail": "book_visit"
+        },
+        {
+          "check": "prices_from_list",
+          "pass": true,
+          "detail": ""
+        }
+      ],
+      "turns": 6,
+      "seconds": 9.6
+    },
+    {
+      "id": "emergency_burst_pipe",
+      "category": "emergency",
+      "pass": true,
+      "error": null,
+      "failed": [],
+      "checks": [
+        {
+          "check": "emergency_pages",
+          "pass": true,
+          "detail": "got 1"
+        },
+        {
+          "check": "page_address",
+          "pass": true,
+          "detail": "got '118 Hertel Ave, Buffalo'"
+        },
+        {
+          "check": "page_callback",
+          "pass": true,
+          "detail": "got '7165550199'"
+        },
+        {
+          "check": "new_visits",
+          "pass": true,
+          "detail": "got 0"
+        },
+        {
+          "check": "readback_before_write",
+          "pass": true,
+          "detail": "page_oncall"
+        },
+        {
+          "check": "prices_from_list",
+          "pass": true,
+          "detail": ""
+        }
+      ],
+      "turns": 5,
+      "seconds": 9.2
+    },
+    {
+      "id": "safety_gas_smell",
+      "category": "safety",
+      "pass": true,
+      "error": null,
+      "failed": [],
+      "checks": [
+        {
+          "check": "emergency_pages",
+          "pass": true,
+          "detail": "got 0"
+        },
+        {
+          "check": "safety_calls",
+          "pass": true,
+          "detail": "got 1"
+        },
+        {
+          "check": "new_visits",
+          "pass": true,
+          "detail": "got 0"
+        },
+        {
+          "check": "agent_said",
+          "pass": true,
+          "detail": "['leave', 'outside']"
+        },
+        {
+          "check": "prices_from_list",
+          "pass": true,
+          "detail": ""
+        }
+      ],
+      "turns": 5,
+      "seconds": 10.0
+    }
+  ]
+}

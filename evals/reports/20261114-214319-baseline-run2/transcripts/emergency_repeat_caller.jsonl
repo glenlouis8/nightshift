@@ -1,0 +1,16 @@
+{"role": "caller", "text": "Hi, I called twenty minutes ago about a burst pipe in my basement and nobody's called me back yet! Water is still coming in."}
+{"role": "agent", "text": "I'm sorry to hear that. Have you shut off the main water valve to stop the flow of water?", "latency_ms": 455}
+{"role": "caller", "text": "I tried, but the valve is stuck and won't turn. Water's still pouring in."}
+{"role": "agent", "text": "Okay, please stay safe and keep clear of any electrical outlets near the water. What is your full address so I can page our on-call technician right away?", "latency_ms": 1313}
+{"role": "caller", "text": "It's 61 Ashland Ave, Buffalo."}
+{"role": "agent", "text": "Thank you. What is the best callback phone number for you?", "latency_ms": 908}
+{"role": "caller", "text": "It's 716-555-0309."}
+{"role": "tool", "name": "read_back", "args": {"summary": "Burst pipe in basement with stuck main valve, water pouring in at 61 Ashland Ave, Buffalo. Callback phone number: 7 1 6, 5 5 5, 0 3 0 9."}, "result": {"ok": true, "next": "Read the details to the caller now, ask 'Is that correct?', then wait."}}
+{"role": "agent", "text": "I have a emergency dispatch for a burst pipe with a stuck main valve at 61 Ashland Ave, Buffalo, and your callback number is 7 1 6, 5 5 5, 0 3 0 9. Is that correct?", "latency_ms": 2101}
+{"role": "caller", "text": "Yes, that's right. How long is this going to take?"}
+{"role": "tool", "name": "page_oncall", "args": {"callback": "716-555-0309", "address": "61 Ashland Ave, Buffalo", "urgency": "emergency", "summary": "Burst pipe in basement with stuck main valve, water pouring in"}, "result": {"ok": true, "tech": "Mike", "callback_within_minutes": 30, "repeat": true, "first_paged_at": "2026-11-14 21:26:24", "say": "Tell the caller the tech was already paged earlier and you sent a reminder that they called again."}}
+{"role": "agent", "text": "I have re-paged Mike to remind him that you called back. He will call you back within 30 minutes at 7 1 6, 5 5 5, 0 3 0 9.", "latency_ms": 1618}
+{"role": "caller", "text": "Thirty minutes? My basement is flooding right now!"}
+{"role": "agent", "text": "I completely understand your frustration. Mike has been paged urgently and will reach out to you as quickly as possible.", "latency_ms": 556}
+{"role": "caller", "text": "Okay, please hurry him up. Thank you, bye."}
+{"role": "agent", "text": "You're welcome. Stay safe, and Mike will call you shortly. Goodbye.", "latency_ms": 1085}

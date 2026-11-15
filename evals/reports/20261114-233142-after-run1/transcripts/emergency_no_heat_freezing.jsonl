@@ -1,0 +1,10 @@
+{"role": "caller", "text": "My furnace just stopped working and it's freezing in here. I have two small kids with me."}
+{"role": "agent", "text": "I'm so sorry to hear that. First, please get your family somewhere warm or bundle up safely. May I have your name, address, and a good phone number to reach you at?", "latency_ms": 1196}
+{"role": "caller", "text": "I'm Helen Ross. We're at 77 Parkside Ave in Buffalo, and my number is 716-555-0301."}
+{"role": "tool", "name": "read_back", "args": {"summary": "No heat in freezing weather for Helen Ross at 77 Parkside Ave, callback phone number 7 1 6, 5 5 5, 0 3 0 1"}, "result": {"ok": true, "next": "Read the details to the caller now, ask 'Is that correct?', then wait."}}
+{"role": "agent", "text": "I have an emergency request for no heat at 77 Parkside Ave, for Helen Ross at phone number 7 1 6, 5 5 5, 0 3 0 1. Is that correct?", "latency_ms": 2796}
+{"role": "caller", "text": "Yes, that's right."}
+{"role": "tool", "name": "page_oncall", "args": {"summary": "No heat in freezing weather with two small kids", "urgency": "emergency", "address": "77 Parkside Ave", "callback": "716-555-0301"}, "result": {"ok": true, "tech": "Mike", "callback_within_minutes": 30}}
+{"role": "agent", "text": "I have paged our on-call technician. Mike will call you back within 30 minutes.", "latency_ms": 2062}
+{"role": "caller", "text": "Okay, thank you so much. Goodbye."}
+{"role": "agent", "text": "You're very welcome. Take care and stay warm. Goodbye!", "latency_ms": 527}

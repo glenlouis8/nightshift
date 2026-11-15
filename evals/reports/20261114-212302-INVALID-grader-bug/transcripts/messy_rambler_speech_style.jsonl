@@ -1,0 +1,10 @@
+{"role": "caller", "text": "Hello there, my basement floor drain is backing up with sewage. It's a awful mess down there, reminds me of that tough Bills game back in nineteen ninety-three."}
+{"role": "agent", "text": "That sounds urgent and very unpleasant. Since sewage backup is an emergency, could you please tell me your address and a good callback phone number so I can dispatch our on-call technician?", "latency_ms": 1107}
+{"role": "caller", "text": "My address is one twenty eight Woodward Avenue."}
+{"role": "agent", "text": "Thank you. And what is the best phone number for our technician to reach you?", "latency_ms": 1202}
+{"role": "caller", "text": "It is seven one six five five five zero six zero three."}
+{"role": "tool", "name": "read_back", "args": {"summary": "Sewage backup emergency at 128 Woodward Avenue, callback number 7 1 6, 5 5 5, 0 6 0 3"}, "result": {"ok": true, "next": "Read the details to the caller now, ask 'Is that correct?', then wait."}}
+{"role": "agent", "text": "I have a sewage backup emergency at 128 Woodward Avenue, with a callback number of 7 1 6, 5 5 5, 0 6 0 3. Is that correct?", "latency_ms": 2050}
+{"role": "caller", "text": "Yes, that is right. Thank you kindly for sending someone out."}
+{"role": "tool", "name": "page_oncall", "args": {"urgency": "emergency", "address": "128 Woodward Avenue", "summary": "Basement floor drain backing up with sewage", "callback": "7165550603"}, "result": {"ok": false, "error": "BLOCKED: that phone number does not match what the caller said. Ask them to repeat their full 10-digit number, then read it back digit by digit."}}
+{"role": "agent", "text": "I'm sorry, but I need to double-check your phone number. Could you please repeat your full 10-digit callback number for me?", "latency_ms": 2194}

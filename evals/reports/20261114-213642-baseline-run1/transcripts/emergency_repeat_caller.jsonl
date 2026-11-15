@@ -1,0 +1,10 @@
+{"role": "caller", "text": "Hi, I called twenty minutes ago about a burst pipe in my basement and nobody's called me back yet. Water is still coming in!"}
+{"role": "agent", "text": "Please shut off your main water valve right away to stop the flooding. Could you tell me your address and callback phone number so I can page our technician right now?", "latency_ms": 1603}
+{"role": "caller", "text": "It's 61 Ashland Ave in Buffalo. My number is 716-555-0309."}
+{"role": "tool", "name": "read_back", "args": {"summary": "Emergency page for a burst pipe in the basement at 61 Ashland Ave, Buffalo. Callback number is 7 1 6, 5 5 5, 0 3 0 9."}, "result": {"ok": true, "next": "Read the details to the caller now, ask 'Is that correct?', then wait."}}
+{"role": "agent", "text": "I have an emergency page for a burst pipe at 61 Ashland Ave, Buffalo, with callback number 7 1 6, 5 5 5, 0 3 0 9. Is that correct?", "latency_ms": 1944}
+{"role": "caller", "text": "Yes, that's right. How long is the tech going to be?"}
+{"role": "tool", "name": "page_oncall", "args": {"callback": "716-555-0309", "summary": "Burst pipe in basement, water coming in", "address": "61 Ashland Ave, Buffalo", "urgency": "emergency"}, "result": {"ok": true, "tech": "Mike", "callback_within_minutes": 30, "repeat": true, "first_paged_at": "2026-11-14 21:20:08", "say": "Tell the caller the tech was already paged earlier and you sent a reminder that they called again."}}
+{"role": "agent", "text": "I've sent a reminder page to Mike letting him know you called back. He will call you back within 30 minutes.", "latency_ms": 1936}
+{"role": "caller", "text": "Okay, please hurry. Thanks."}
+{"role": "agent", "text": "We'll get him to call you as quickly as possible. Take care!", "latency_ms": 1121}

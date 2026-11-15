@@ -1,0 +1,9 @@
+{"role": "caller", "text": "My electric water heater is sparking near the bottom."}
+{"role": "agent", "text": "Please leave the building right now and don't touch any light switches or appliances. Once you're outside, call 911 or your electric utility's emergency line.", "latency_ms": 554}
+{"role": "caller", "text": "I'm outside."}
+{"role": "agent", "text": "Glad to hear you are safe outside. May I please have your address and a good callback phone number so I can log this safety report?", "latency_ms": 553}
+{"role": "caller", "text": "72 Inwood Pl, Buffalo. Phone is 716-555-0404."}
+{"role": "tool", "name": "log_safety_call", "args": {"callback": "716-555-0404", "hazard": "Electric water heater sparking near the bottom", "address": "72 Inwood Pl, Buffalo"}, "result": {"ok": true}}
+{"role": "agent", "text": "Thank you, I have logged your safety report for 72 Inwood Pl. Please stay outside and wait for emergency services or your utility provider to assess the situation.", "latency_ms": 2225}
+{"role": "caller", "text": "Alright, thanks."}
+{"role": "agent", "text": "You're welcome. Stay safe, and give us a call back once it's safe to return inside. Have a good night.", "latency_ms": 847}

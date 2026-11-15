@@ -1,0 +1,12 @@
+{"role": "caller", "text": "My toilet is overflowing and won't stop, water is going under the bathroom door!"}
+{"role": "agent", "text": "Please turn off the main water valve right away if you can reach it safely. Could you give me your address and a phone number where we can reach you?", "latency_ms": 507}
+{"role": "caller", "text": "Okay, I'm trying. My address is 128 Bryant St, Buffalo, and my phone number is 716-555-0304."}
+{"role": "agent", "text": "May I have your name, please?", "latency_ms": 596}
+{"role": "caller", "text": "It's Paul Stein."}
+{"role": "tool", "name": "read_back", "args": {"summary": "Emergency sewage/toilet backup at 128 Bryant St, Buffalo. Callback number is 7 1 6, 5 5 5, 0 3 0 4."}, "result": {"ok": true, "next": "Read the details to the caller now, ask 'Is that correct?', then wait."}}
+{"role": "agent", "text": "I have an emergency request for a toilet overflowing at 128 Bryant St, Buffalo, with callback number 7 1 6, 5 5 5, 0 3 0 4. Is that correct?", "latency_ms": 1239}
+{"role": "caller", "text": "Yes, that's right."}
+{"role": "tool", "name": "page_oncall", "args": {"callback": "716-555-0304", "urgency": "emergency", "summary": "Toilet overflowing continuously, water going under bathroom door", "address": "128 Bryant St, Buffalo"}, "result": {"ok": true, "tech": "Mike", "callback_within_minutes": 30}}
+{"role": "agent", "text": "I have paged our on-call technician. Mike will call you back within 30 minutes.", "latency_ms": 1784}
+{"role": "caller", "text": "Thank you, please hurry."}
+{"role": "agent", "text": "We're on it. Hang in there and Mike will call you shortly.", "latency_ms": 1141}

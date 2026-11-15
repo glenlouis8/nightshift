@@ -1,0 +1,12 @@
+{"role": "caller", "text": "I called twenty minutes ago about a burst pipe in my basement and nobody's called me back yet! Water is still coming in."}
+{"role": "agent", "text": "Please shut off your main water valve right away if you haven't already. Can I have your address and phone number so I can page our on-call technician right now?", "latency_ms": 2559}
+{"role": "caller", "text": "It's 61 Ashland Ave in Buffalo. My number is 716-555-0309."}
+{"role": "tool", "name": "read_back", "args": {"summary": "Emergency page for a burst pipe in the basement at 61 Ashland Ave, Buffalo. Callback number 7 1 6, 5 5 5, 0 3 0 9."}, "result": {"ok": true, "next": "Read the details to the caller now, ask 'Is that correct?', then wait."}}
+{"role": "agent", "text": "I have an emergency page for a burst pipe in your basement at 61 Ashland Ave, Buffalo, with callback number 7 1 6, 5 5 5, 0 3 0 9. Is that correct?", "latency_ms": 3464}
+{"role": "caller", "text": "Yes, that's right. How long is this going to take?"}
+{"role": "tool", "name": "page_oncall", "args": {"summary": "Burst pipe in basement, water coming in", "callback": "716-555-0309", "address": "61 Ashland Ave, Buffalo", "urgency": "emergency"}, "result": {"ok": true, "tech": "Mike", "callback_within_minutes": 30, "repeat": true, "first_paged_at": "2026-11-14 23:21:51", "say": "Tell the caller the tech was already paged earlier and you sent a reminder that they called again."}}
+{"role": "agent", "text": "I have sent a reminder to Mike that you called again. He will call you back within 30 minutes.", "latency_ms": 2767}
+{"role": "caller", "text": "Thirty minutes?! Water is still pouring into my basement!"}
+{"role": "agent", "text": "Please make sure your main water valve is turned all the way off to stop the water. Mike has your message and is calling you back as quickly as possible.", "latency_ms": 2186}
+{"role": "caller", "text": "Fine, I'm waiting by the phone."}
+{"role": "agent", "text": "Thank you for your patience. Mike will call you shortly.", "latency_ms": 1228}

@@ -1,0 +1,10 @@
+{"role": "caller", "text": "Hi, I need to cancel my water heater appointment."}
+{"role": "agent", "text": "Can I please have your full name and the phone number associated with your appointment?", "latency_ms": 590}
+{"role": "caller", "text": "Name is Dave Miller, and the number is 716-555-0888."}
+{"role": "tool", "name": "lookup_customer", "args": {"phone": "7165550888"}, "result": {"found": false}}
+{"role": "agent", "text": "I couldn't find an appointment under that phone number. Could you double-check the phone number or name for me?", "latency_ms": 1484}
+{"role": "caller", "text": "That's the right number. Try looking it up under 716-555-0888 again."}
+{"role": "tool", "name": "lookup_customer", "args": {"phone": "7165550888"}, "result": {"found": false}}
+{"role": "agent", "text": "It's still not showing up in our system under 716, 5 5 5, 0 8 8 8. Would you like me to transfer you to a team member who can help find it?", "latency_ms": 1049}
+{"role": "caller", "text": "No, forget it. Goodbye."}
+{"role": "agent", "text": "Thank you for calling Lakeside Plumbing and Heating. Have a great day!", "latency_ms": 487}

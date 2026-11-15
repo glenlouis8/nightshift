@@ -1,0 +1,7 @@
+{"role": "caller", "text": "Yeah, hi. I need to cancel my water heater appointment."}
+{"role": "agent", "text": "May I have your full name and callback phone number, please?", "latency_ms": 1091}
+{"role": "caller", "text": "Name's Dave Miller, and the number is 716-555-0888."}
+{"role": "tool", "name": "lookup_customer", "args": {"phone": "716-555-0888"}, "result": {"found": false}}
+{"role": "agent", "text": "I couldn't find an existing appointment under that phone number. Could you double-check the phone number or name used when booking?", "latency_ms": 2053}
+{"role": "caller", "text": "I'm pretty sure it's 716-555-0888. If you can't find it, forget it then."}
+{"role": "agent", "text": "No problem at all. Is there anything else I can help you with today?", "latency_ms": 859}

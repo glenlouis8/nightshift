@@ -1,0 +1,3 @@
+{"role": "caller", "text": "Can I please talk to a real person? I don't like talking to machines."}
+{"role": "tool", "name": "transfer_to_human", "args": {"reason": "Caller requested to speak to a real person."}, "result": {"ok": true, "message": "Transferring now."}}
+{"role": "agent", "text": "I'm transferring you to a real person right now. Please hold on a moment.", "latency_ms": 1836}

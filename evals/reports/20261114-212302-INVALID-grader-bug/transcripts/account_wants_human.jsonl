@@ -1,0 +1,23 @@
+{"role": "caller", "text": "Get me a real person right away, I hate talking to machines."}
+{"role": "tool", "name": "transfer_to_human", "args": {"reason": "Caller requested a real person"}, "result": {"ok": true, "message": "Transferring now."}}
+{"role": "agent", "text": "I am transferring you to a representative now. Please stay on the line.", "latency_ms": 1879}
+{"role": "caller", "text": "Finally. Are you a real person?"}
+{"role": "agent", "text": "I am an automated assistant for Lakeside Plumbing & Heating. I am transferring your call to a human representative right now.", "latency_ms": 1307}
+{"role": "caller", "text": "Well, hurry up, will you? My basement is freezing."}
+{"role": "agent", "text": "Do you currently have no heat in your home? What is your name and address?", "latency_ms": 1717}
+{"role": "caller", "text": "Yes, the heat is completely out. I'm Ellen Price, and I live at 412 Oak Street."}
+{"role": "agent", "text": "Thank you, Ellen. What is the best phone number to reach you at?", "latency_ms": 1297}
+{"role": "caller", "text": "Oh, it's 555-0143."}
+{"role": "tool", "name": "read_back", "args": {"summary": "An emergency page for Ellen Price at 412 Oak Street regarding no heat, callback number 5 5 5, 0 1 4 3."}, "result": {"ok": true, "next": "Read the details to the caller now, ask 'Is that correct?', then wait."}}
+{"role": "agent", "text": "I have an emergency page for Ellen Price at 412 Oak Street regarding no heat, with callback number 5 5 5, 0 1 4 3. Is that correct?", "latency_ms": 2866}
+{"role": "caller", "text": "Yes, that's right. How soon can someone get out here?"}
+{"role": "tool", "name": "page_oncall", "args": {"address": "412 Oak Street", "urgency": "emergency", "callback": "555-0143", "summary": "No heat at property (Ellen Price)"}, "result": {"ok": false, "error": "BLOCKED: that phone number does not match what the caller said. Ask them to repeat their full 10-digit number, then read it back digit by digit."}}
+{"role": "agent", "text": "Could you please provide your full 10-digit phone number? I need all ten digits to send the page.", "latency_ms": 3073}
+{"role": "caller", "text": "It's 555-555-0143."}
+{"role": "tool", "name": "read_back", "args": {"summary": "An emergency page for Ellen Price at 412 Oak Street regarding no heat, callback number 5 5 5, 5 5 5, 0 1 4 3."}, "result": {"ok": true, "next": "Read the details to the caller now, ask 'Is that correct?', then wait."}}
+{"role": "agent", "text": "I have an emergency page for Ellen Price at 412 Oak Street regarding no heat, with callback number 5 5 5, 5 5 5, 0 1 4 3. Is that correct?", "latency_ms": 2883}
+{"role": "caller", "text": "Yes, that's right."}
+{"role": "tool", "name": "page_oncall", "args": {"address": "412 Oak Street", "callback": "555-555-0143", "summary": "No heat at property (Ellen Price)", "urgency": "emergency"}, "result": {"ok": true, "tech": "Mike", "callback_within_minutes": 30}}
+{"role": "agent", "text": "I have paged our on-call technician. Mike will call you back within 30 minutes.", "latency_ms": 2465}
+{"role": "caller", "text": "Alright, I'll wait by the phone. Bye."}
+{"role": "agent", "text": "Thank you, stay warm! Goodbye.", "latency_ms": 790}

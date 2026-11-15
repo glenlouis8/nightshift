@@ -1,0 +1,16 @@
+{"role": "caller", "text": "My kitchen faucet is dripping. My address is 50 Oakland Pl, Buffalo."}
+{"role": "tool", "name": "get_open_slots", "args": {}, "result": {"open_slots": [{"slot_id": "2026-11-16-09", "day": "2026-11-16", "window": "9:00 to 11:00"}, {"slot_id": "2026-11-16-13", "day": "2026-11-16", "window": "13:00 to 15:00"}, {"slot_id": "2026-11-17-09", "day": "2026-11-17", "window": "9:00 to 11:00"}, {"slot_id": "2026-11-17-11", "day": "2026-11-17", "window": "11:00 to 13:00"}, {"slot_id": "2026-11-17-13", "day": "2026-11-17", "window": "13:00 to 15:00"}, {"slot_id": "2026-11-17-15", "day": "2026-11-17", "window": "15:00 to 17:00"}]}}
+{"role": "agent", "text": "I can help you schedule a visit to fix that dripping faucet. May I please have your name and phone number?", "latency_ms": 1585}
+{"role": "caller", "text": "I'm Megan Hall and my number is 716-555-0601."}
+{"role": "agent", "text": "We have open windows on Monday, November 16th, from 9 to 11 in the morning, or 1 to 3 in the afternoon. Which one works best for you?", "latency_ms": 1086}
+{"role": "caller", "text": "I'll take the first one."}
+{"role": "tool", "name": "read_back", "args": {"summary": "Routine visit for Megan Hall at 50 Oakland Pl, Buffalo, phone 7 1 6, 5 5 5, 0 6 0 1, for a dripping kitchen faucet on Monday, November 16th, from 9 to 11 in the morning."}, "result": {"ok": true, "next": "Read the details to the caller now, ask 'Is that correct?', then wait."}}
+{"role": "agent", "text": "I have a routine visit for Megan Hall at 50 Oakland Pl, Buffalo, phone 7 1 6, 5 5 5, 0 6 0 1, for a dripping kitchen faucet on Monday, November 16th, from 9 to 11 in the morning. Is that correct?", "latency_ms": 2627}
+{"role": "caller", "text": "Wait, sorry, it's 52 Oakland Pl, not 50. Everything else is right."}
+{"role": "tool", "name": "read_back", "args": {"summary": "Routine visit for Megan Hall at 52 Oakland Pl, Buffalo, phone 7 1 6, 5 5 5, 0 6 0 1, for a dripping kitchen faucet on Monday, November 16th, from 9 to 11 in the morning."}, "result": {"ok": true, "next": "Read the details to the caller now, ask 'Is that correct?', then wait."}}
+{"role": "agent", "text": "Thank you for updating that. I have a routine visit for Megan Hall at 52 Oakland Pl, Buffalo, phone 7 1 6, 5 5 5, 0 6 0 1, for a dripping kitchen faucet on Monday, November 16th, from 9 to 11 in the morning. Is that correct?", "latency_ms": 2350}
+{"role": "caller", "text": "Yes, that's correct."}
+{"role": "tool", "name": "book_visit", "args": {"address": "52 Oakland Pl, Buffalo", "name": "Megan Hall", "slot_id": "2026-11-16-09", "issue": "dripping kitchen faucet", "phone": "716-555-0601"}, "result": {"ok": true, "visit_id": 3, "day": "2026-11-16", "start_hour": 9}}
+{"role": "agent", "text": "You're all booked for Monday, November 16th, from 9 to 11 in the morning. Is there anything else I can help you with today?", "latency_ms": 2305}
+{"role": "caller", "text": "No, that's everything. Thank you, goodbye!"}
+{"role": "agent", "text": "Thank you for calling Lakeside Plumbing & Heating. Have a great day, goodbye!", "latency_ms": 925}

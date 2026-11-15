@@ -1,0 +1,22 @@
+{"role": "caller", "text": "My kitchen smells really strongly of gas."}
+{"role": "agent", "text": "Please leave the building right now and don't touch any light switches or appliances. Once you're outside, call 911 or your gas utility's emergency line. Are you safe outside now?", "latency_ms": 557}
+{"role": "caller", "text": "Yes, I'm outside now."}
+{"role": "agent", "text": "Thank goodness. Could you please give me your address and a good callback phone number so I can log this safety call?", "latency_ms": 805}
+{"role": "caller", "text": "It's 44 Lexington Ave, Buffalo. My number is 716-555-0401."}
+{"role": "tool", "name": "log_safety_call", "args": {"hazard": "gas smell", "callback": "716-555-0401", "address": "44 Lexington Ave, Buffalo"}, "result": {"ok": true}}
+{"role": "agent", "text": "Thank you. I have logged your safety call, so please stay outside and wait for emergency services or your gas utility to respond. Is there anything else I can help you with right now?", "latency_ms": 1378}
+{"role": "caller", "text": "I'd also like someone to come check the stove tomorrow."}
+{"role": "agent", "text": "We are closed on Sundays, but we have appointments available starting Monday morning. Once your gas utility confirms the area is safe, would you like to book a visit for Monday?", "latency_ms": 630}
+{"role": "caller", "text": "Yes, that would be great."}
+{"role": "tool", "name": "get_open_slots", "args": {"day": "2026-11-16"}, "result": {"open_slots": [{"slot_id": "2026-11-16-09", "day": "2026-11-16", "window": "9:00 to 11:00"}, {"slot_id": "2026-11-16-13", "day": "2026-11-16", "window": "13:00 to 15:00"}]}}
+{"role": "agent", "text": "On Monday, November 16th, we have openings from 9 to 11 in the morning, or 1 to 3 in the afternoon. Which time works best for you?", "latency_ms": 1070}
+{"role": "caller", "text": "The morning one, please."}
+{"role": "agent", "text": "May I please have your full name?", "latency_ms": 420}
+{"role": "caller", "text": "It's Beth Turner."}
+{"role": "tool", "name": "read_back", "args": {"summary": "Booking a visit for Beth Turner on Monday, November 16th from 9 to 11 in the morning at 44 Lexington Ave, Buffalo, phone number 7 1 6, 5 5 5, 0 4 0 1, to check the stove."}, "result": {"ok": true, "next": "Read the details to the caller now, ask 'Is that correct?', then wait."}}
+{"role": "agent", "text": "I have a visit for Beth Turner on Monday, November 16th from 9 to 11 in the morning at 44 Lexington Ave, Buffalo, phone number 7 1 6, 5 5 5, 0 4 0 1, to check the stove. Is that correct?", "latency_ms": 1464}
+{"role": "caller", "text": "Yes, that's right."}
+{"role": "tool", "name": "book_visit", "args": {"name": "Beth Turner", "phone": "716-555-0401", "address": "44 Lexington Ave, Buffalo", "slot_id": "2026-11-16-09", "issue": "check stove after gas smell"}, "result": {"ok": true, "visit_id": 3, "day": "2026-11-16", "start_hour": 9}}
+{"role": "agent", "text": "Your visit is booked for Monday, November 16th between 9 and 11 in the morning. Please remain safe outside until the gas utility inspects the premises.", "latency_ms": 1138}
+{"role": "caller", "text": "Okay, thank you. Bye!"}
+{"role": "agent", "text": "You're very welcome. Stay safe and have a good day!", "latency_ms": 508}

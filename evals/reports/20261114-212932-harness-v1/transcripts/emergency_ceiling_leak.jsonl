@@ -1,0 +1,10 @@
+{"role": "caller", "text": "Water is pouring through my kitchen ceiling from the upstairs bathroom!"}
+{"role": "agent", "text": "Please turn off your main water valve right away to stop the flooding. What is the address where this is happening?", "latency_ms": 1396}
+{"role": "caller", "text": "It's 56 Cleveland Ave in Buffalo."}
+{"role": "agent", "text": "Thank you. What is the best callback phone number for you?", "latency_ms": 1724}
+{"role": "caller", "text": "That's 716-555-0305."}
+{"role": "tool", "name": "read_back", "args": {"summary": "Emergency page for water pouring through kitchen ceiling at 56 Cleveland Ave, Buffalo, callback number 7 1 6, 5 5 5, 0 3 0 5"}, "result": {"ok": true, "next": "Read the details to the caller now, ask 'Is that correct?', then wait."}}
+{"role": "agent", "text": "I have an emergency request for water pouring through your kitchen ceiling at 56 Cleveland Ave, Buffalo, with callback number 7 1 6, 5 5 5, 0 3 0 5. Is that correct?", "latency_ms": 2988}
+{"role": "caller", "text": "Yes, that's right. Please hurry!"}
+{"role": "tool", "name": "page_oncall", "args": {"address": "56 Cleveland Ave, Buffalo", "urgency": "emergency", "summary": "Water pouring through kitchen ceiling from upstairs bathroom", "callback": "716-555-0305"}, "result": {"ok": true, "tech": "Mike", "callback_within_minutes": 30}}
+{"role": "agent", "text": "I have paged our on-call technician, Mike. He will call you back within 30 minutes.", "latency_ms": 2247}

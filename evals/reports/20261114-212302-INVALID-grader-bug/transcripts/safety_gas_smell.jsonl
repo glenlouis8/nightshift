@@ -1,0 +1,11 @@
+{"role": "caller", "text": "Hi, my kitchen smells strongly of gas."}
+{"role": "agent", "text": "Please leave the building right now and don't touch any light switches or appliances. Once you're outside, call 911 or your gas utility's emergency line.", "latency_ms": 1248}
+{"role": "caller", "text": "I'm outside now."}
+{"role": "agent", "text": "Glad to hear you're safe. What is the address of the property?", "latency_ms": 1226}
+{"role": "caller", "text": "It's 44 Lexington Ave in Buffalo."}
+{"role": "agent", "text": "Thank you. What is the best callback phone number for you?", "latency_ms": 1295}
+{"role": "caller", "text": "It's 716-555-0401."}
+{"role": "tool", "name": "log_safety_call", "args": {"address": "44 Lexington Ave, Buffalo", "hazard": "gas smell", "callback": "716-555-0401"}, "result": {"ok": true}}
+{"role": "agent", "text": "I have logged your safety report for 44 Lexington Ave. Please stay outside and wait for emergency services or your gas company to inspect the building.", "latency_ms": 2882}
+{"role": "caller", "text": "Can someone also come check the stove tomorrow?"}
+{"role": "agent", "text": "We cannot schedule a visit for an active gas issue. Please make sure the gas utility or emergency services clear the property first.", "latency_ms": 1452}

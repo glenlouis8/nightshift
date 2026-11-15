@@ -1,0 +1,15 @@
+{"role": "caller", "text": "A pipe under my kitchen sink just burst and it's spraying water everywhere!"}
+{"role": "agent", "text": "Please turn off your main water valve right away to stop the flooding. Can I get your full name and the address where this is happening?", "latency_ms": 936}
+{"role": "caller", "text": "I'm Glen Moss. The address is 44 Elmwood Ave, Buffalo."}
+{"role": "agent", "text": "Thanks, Glen. What is the best callback phone number to reach you at?", "latency_ms": 1346}
+{"role": "caller", "text": "716 555 010"}
+{"role": "tool", "name": "read_back", "args": {"summary": "Paging the on-call technician for Glen Moss at 44 Elmwood Ave, Buffalo, phone number 7 1 6, 5 5 5, 0 1 0, for a burst pipe under the kitchen sink."}, "result": {"ok": true, "next": "Read the details to the caller now, ask 'Is that correct?', then wait."}}
+{"role": "agent", "text": "I have Glen Moss at 44 Elmwood Ave, Buffalo, phone number 7 1 6, 5 5 5, 0 1 0, for a burst pipe under the kitchen sink. Is that correct?", "latency_ms": 4015}
+{"role": "caller", "text": "Almost, the phone number is 716-555-0100."}
+{"role": "tool", "name": "read_back", "args": {"summary": "Paging the on-call technician for Glen Moss at 44 Elmwood Ave, Buffalo, phone number 7 1 6, 5 5 5, 0 1 0 0, for a burst pipe under the kitchen sink."}, "result": {"ok": true, "next": "Read the details to the caller now, ask 'Is that correct?', then wait."}}
+{"role": "agent", "text": "Thank you. I have Glen Moss at 44 Elmwood Ave, Buffalo, phone 7 1 6, 5 5 5, 0 1 0 0, for a burst pipe. Is that correct?", "latency_ms": 2866}
+{"role": "caller", "text": "Yes, that's right."}
+{"role": "tool", "name": "page_oncall", "args": {"callback": "7165550100", "summary": "Burst pipe under kitchen sink spraying water everywhere", "urgency": "emergency", "address": "44 Elmwood Ave, Buffalo"}, "result": {"ok": true, "tech": "Mike", "callback_within_minutes": 30}}
+{"role": "agent", "text": "I have paged our on-call technician. Mike will call you back within 30 minutes.", "latency_ms": 1802}
+{"role": "caller", "text": "Thanks, I'll wait by the phone. Bye."}
+{"role": "agent", "text": "You're welcome, Glen. Stay safe and have a good evening.", "latency_ms": 1046}

@@ -1,0 +1,17 @@
+{"role": "caller", "text": "Hi, my kitchen sink has been draining really slowly."}
+{"role": "agent", "text": "I can help you schedule a routine visit for that. May I have your name, please?", "latency_ms": 844}
+{"role": "caller", "text": "Tom Becker."}
+{"role": "agent", "text": "Thanks, Tom. What is the best phone number to reach you at?", "latency_ms": 887}
+{"role": "caller", "text": "716-555-0202."}
+{"role": "agent", "text": "Got it. And what is your street address?", "latency_ms": 802}
+{"role": "caller", "text": "210 Lafayette Ave, Buffalo."}
+{"role": "tool", "name": "get_open_slots", "args": {}, "result": {"open_slots": [{"slot_id": "2026-11-16-09", "day": "2026-11-16", "window": "9:00 to 11:00"}, {"slot_id": "2026-11-16-13", "day": "2026-11-16", "window": "13:00 to 15:00"}, {"slot_id": "2026-11-17-09", "day": "2026-11-17", "window": "9:00 to 11:00"}, {"slot_id": "2026-11-17-11", "day": "2026-11-17", "window": "11:00 to 13:00"}, {"slot_id": "2026-11-17-13", "day": "2026-11-17", "window": "13:00 to 15:00"}, {"slot_id": "2026-11-17-15", "day": "2026-11-17", "window": "15:00 to 17:00"}]}}
+{"role": "agent", "text": "We have openings on Monday, November 16th, from 9 to 11 in the morning, or 1 to 3 in the afternoon. Which one works best for you?", "latency_ms": 2303}
+{"role": "caller", "text": "I can only do afternoons, so the 1 to 3 works for me."}
+{"role": "tool", "name": "read_back", "args": {"summary": "Routine visit for Tom Becker on Monday, November 16th from 1 to 3 in the afternoon at 210 Lafayette Ave, Buffalo, for a slow kitchen sink drain. Callback phone number is 7 1 6, 5 5 5, 0 2 0 2."}, "result": {"ok": true, "next": "Read the details to the caller now, ask 'Is that correct?', then wait."}}
+{"role": "agent", "text": "I have you down for a routine visit on Monday, November 16th from 1 to 3 in the afternoon at 210 Lafayette Ave, Buffalo, for a slow kitchen sink drain. Callback number is 7 1 6, 5 5 5, 0 2 0 2. Is that correct?", "latency_ms": 3051}
+{"role": "caller", "text": "Yep, that's all correct."}
+{"role": "tool", "name": "book_visit", "args": {"issue": "Kitchen sink draining slowly", "phone": "716-555-0202", "address": "210 Lafayette Ave, Buffalo", "slot_id": "2026-11-16-13", "name": "Tom Becker"}, "result": {"ok": true, "visit_id": 3, "day": "2026-11-16", "start_hour": 13}}
+{"role": "agent", "text": "You are all booked for Monday between 1 and 3 in the afternoon. Is there anything else I can help you with today?", "latency_ms": 2036}
+{"role": "caller", "text": "Nope, that's everything. Thanks!"}
+{"role": "agent", "text": "You're very welcome. Have a great weekend!", "latency_ms": 648}

@@ -1,0 +1,9 @@
+{"role": "caller", "text": "Hi, I'm Bill Carter. I was just wondering how much it costs to replace a whole bathroom's plumbing?"}
+{"role": "tool", "name": "get_pricing", "args": {}, "result": {"prices_usd": {"diagnostic_visit": 89, "after_hours_emergency_fee": 150, "drain_cleaning": 175, "water_heater_flush": 120}}}
+{"role": "agent", "text": "We offer a diagnostic visit for $89 to evaluate the job and provide an exact estimate. Would you like to schedule a visit for Monday or Tuesday?", "latency_ms": 1846}
+{"role": "caller", "text": "I don't want to book anything right now. I just need a ballpark cost to replace a whole bathroom's plumbing."}
+{"role": "agent", "text": "We don't have a set price for full bathroom replacement because every job varies. Our standard diagnostic visit is $89 to evaluate the work in person and give you an exact quote.", "latency_ms": 1355}
+{"role": "caller", "text": "Look, I get it varies, but surely you must have a rough ballpark figure. What does a job like that usually run?"}
+{"role": "agent", "text": "Because every home's layout and scope is different, we can't quote estimates over the phone without seeing the space. Would you like me to transfer you to our office team or have someone call you back on Monday?", "latency_ms": 1702}
+{"role": "caller", "text": "No, I don't need a callback. Thanks anyway. Goodbye."}
+{"role": "agent", "text": "You're welcome, Bill. Have a great weekend!", "latency_ms": 1020}

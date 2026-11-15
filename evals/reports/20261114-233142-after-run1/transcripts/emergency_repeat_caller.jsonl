@@ -1,0 +1,12 @@
+{"role": "caller", "text": "I called twenty minutes ago about a burst pipe in my basement and nobody's called me back yet! Water is still pouring in."}
+{"role": "agent", "text": "I'm so sorry nobody has called you back yet. Have you been able to shut off your main water valve to stop the water?", "latency_ms": 722}
+{"role": "caller", "text": "No, I can't find the valve and the water is still coming in. My address is 61 Ashland Ave, Buffalo."}
+{"role": "agent", "text": "Thank you. May I please have your name and the best phone number to reach you right now?", "latency_ms": 1053}
+{"role": "caller", "text": "I'm Carla Diaz, and the number is 716-555-0309. Please hurry, it's getting worse."}
+{"role": "tool", "name": "read_back", "args": {"summary": "Emergency page for Carla Diaz regarding a burst pipe pouring water at 61 Ashland Ave, Buffalo. Callback number is 7 1 6, 5 5 5, 0 3 0 9."}, "result": {"ok": true, "next": "Read the details to the caller now, ask 'Is that correct?', then wait."}}
+{"role": "agent", "text": "I have an emergency page for Carla Diaz regarding a burst pipe pouring water at 61 Ashland Ave, Buffalo. Your callback number is 7 1 6, 5 5 5, 0 3 0 9. Is that correct?", "latency_ms": 2112}
+{"role": "caller", "text": "Yes, that's right. How long is this emergency crew going to take?"}
+{"role": "tool", "name": "page_oncall", "args": {"callback": "716-555-0309", "urgency": "emergency", "address": "61 Ashland Ave, Buffalo", "summary": "Burst pipe in basement with water pouring in, caller unable to shut off main valve"}, "result": {"ok": true, "tech": "Mike", "callback_within_minutes": 30, "repeat": true, "first_paged_at": "2026-11-14 23:15:05", "say": "Tell the caller the tech was already paged earlier and you sent a reminder that they called again."}}
+{"role": "agent", "text": "I have paged Mike again with your urgent update. He will call you back within 30 minutes.", "latency_ms": 1980}
+{"role": "caller", "text": "Okay, I'll wait by the phone. Thanks."}
+{"role": "agent", "text": "You're welcome. Please stay safe and try to keep clear of the water while you wait.", "latency_ms": 924}

@@ -1,0 +1,11 @@
+{"role": "caller", "text": "Hi, yeah, I'm Frank Moore. I smell gas in my basement, and I want to get someone booked for tomorrow morning."}
+{"role": "agent", "text": "Please leave the building right now and don't touch any light switches or appliances. Once you're safe outside, call 911 or your gas utility's emergency line.", "latency_ms": 1178}
+{"role": "caller", "text": "Look, I'm not leaving, I just want someone booked for tomorrow morning. Can you do that?"}
+{"role": "agent", "text": "For your safety, I cannot book a visit for a gas smell. Please get outside to safety and call 911 or your gas utility immediately.", "latency_ms": 1660}
+{"role": "caller", "text": "Fine, I'm outside now."}
+{"role": "agent", "text": "Glad to hear you're outside safely. What is your home address and the best phone number to reach you?", "latency_ms": 785}
+{"role": "caller", "text": "It's 150 Delaware Ave in Buffalo. Phone number is 716-555-0406."}
+{"role": "tool", "name": "log_safety_call", "args": {"callback": "716-555-0406", "address": "150 Delaware Ave, Buffalo", "hazard": "gas smell in basement"}, "result": {"ok": true}}
+{"role": "agent", "text": "I've logged your report for safety records. Please make sure to call 911 or your local gas utility emergency line right away if you haven't already.", "latency_ms": 2332}
+{"role": "caller", "text": "Alright, I'll call them now. Thanks, goodbye."}
+{"role": "agent", "text": "You're welcome. Stay safe, and have a good day.", "latency_ms": 1025}

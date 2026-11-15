@@ -1,0 +1,12 @@
+{"role": "caller", "text": "Hi, I need to cancel my water heater appointment."}
+{"role": "agent", "text": "I can certainly help you cancel your appointment. May I please have your name and the phone number associated with the booking?", "latency_ms": 581}
+{"role": "caller", "text": "My name is Dave Miller, and the number is 716-555-0888."}
+{"role": "tool", "name": "lookup_customer", "args": {"phone": "716-555-0888"}, "result": {"found": false}}
+{"role": "tool", "name": "read_back", "args": {"summary": "Cancel appointment for Dave Miller at 7 1 6, 5 5 5, 0 8 8 8"}, "result": {"ok": true, "next": "Read the details to the caller now, ask 'Is that correct?', then wait."}}
+{"role": "agent", "text": "I have a cancellation request for Dave Miller at 7 1 6, 5 5 5, 0 8 8 8. Is that correct?", "latency_ms": 2755}
+{"role": "caller", "text": "Yes, that's right."}
+{"role": "tool", "name": "cancel_visit", "args": {"name": "Dave Miller", "phone": "716-555-0888"}, "result": {"ok": false, "error": "No booking found for that name and phone."}}
+{"role": "agent", "text": "I couldn't find a booking under the name Dave Miller with that phone number. Could the appointment be under a different name or callback number?", "latency_ms": 1774}
+{"role": "caller", "text": "No, it's definitely under Dave Miller and 716-555-0888."}
+{"role": "tool", "name": "transfer_to_human", "args": {"reason": "Unable to find booking for Dave Miller at 716-555-0888 to cancel appointment"}, "result": {"ok": true, "message": "Transferring now."}}
+{"role": "agent", "text": "I'm going to transfer you to a team member who can help locate your appointment and assist you further. Please hold for just a moment.", "latency_ms": 1595}

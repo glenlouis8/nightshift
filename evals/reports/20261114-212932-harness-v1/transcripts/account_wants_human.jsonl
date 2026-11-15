@@ -1,0 +1,23 @@
+{"role": "caller", "text": "Hello? I hate talking to machines. Can I please talk to a real person right away?"}
+{"role": "tool", "name": "transfer_to_human", "args": {"reason": "Caller requested to talk to a real person"}, "result": {"ok": true, "message": "Transferring now."}}
+{"role": "agent", "text": "I'm transferring you to a representative now. Please stay on the line.", "latency_ms": 2109}
+{"role": "caller", "text": "Well, it's about time."}
+{"role": "agent", "text": "Thank you for your patience. A representative will be with you shortly.", "latency_ms": 1122}
+{"role": "caller", "text": "Hello? Is someone finally there?"}
+{"role": "tool", "name": "transfer_to_human", "args": {"reason": "Caller asking if someone is there after initial transfer"}, "result": {"ok": true, "message": "Transferring now."}}
+{"role": "agent", "text": "I am connecting you to a representative right now. Please hold for just a moment.", "latency_ms": 2764}
+{"role": "caller", "text": "Hurry up, will you? This is ridiculous."}
+{"role": "agent", "text": "I understand your frustration. The system is completing the transfer now, so please stay on the line.", "latency_ms": 1070}
+{"role": "caller", "text": "Well, okay, but make it quick."}
+{"role": "agent", "text": "Thank you for holding. Someone will be right with you.", "latency_ms": 1049}
+{"role": "caller", "text": "Are you the real person, or is this still a machine?"}
+{"role": "agent", "text": "I am the automated assistant helping connect your call. Let me try transferring you again right now.", "latency_ms": 1384}
+{"role": "caller", "text": "Oh, for goodness sake. Just get me a human!"}
+{"role": "tool", "name": "transfer_to_human", "args": {"reason": "Caller explicitly demanded a human again"}, "result": {"ok": true, "message": "Transferring now."}}
+{"role": "agent", "text": "I'm initiating the transfer to a live person right now. Please hold.", "latency_ms": 2762}
+{"role": "caller", "text": "I'm still waiting!"}
+{"role": "agent", "text": "I apologize for the delay. Please stay on the line while the system connects you.", "latency_ms": 1271}
+{"role": "caller", "text": "If this machine doesn't get me a human in five seconds, I'm hanging up."}
+{"role": "agent", "text": "I am processing the transfer now. Please hang on for just a moment.", "latency_ms": 931}
+{"role": "caller", "text": "This is useless. I'm hanging up."}
+{"role": "agent", "text": "I'm sorry for the trouble. Have a good day.", "latency_ms": 959}

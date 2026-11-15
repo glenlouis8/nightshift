@@ -1,0 +1,10 @@
+{"role": "caller", "text": "Hi, I have no water at all in my house. Nothing comes out of any tap."}
+{"role": "agent", "text": "I can help you with that right away. What is your full name and the address of your home?", "latency_ms": 559}
+{"role": "caller", "text": "My name is Nina Alvarez, and the address is 33 Woodward Ave in Buffalo."}
+{"role": "agent", "text": "Thank you, Nina. What is the best callback phone number to reach you at?", "latency_ms": 809}
+{"role": "caller", "text": "It's 716-555-0303."}
+{"role": "tool", "name": "read_back", "args": {"summary": "Emergency no water at 33 Woodward Ave, Buffalo, callback 7 1 6, 5 5 5, 0 3 0 3 for Nina Alvarez"}, "result": {"ok": true, "next": "Read the details to the caller now, ask 'Is that correct?', then wait."}}
+{"role": "agent", "text": "I have an emergency request for no water at 33 Woodward Ave in Buffalo, with a callback number of 7 1 6, 5 5 5, 0 3 0 3 for Nina Alvarez. Is that correct?", "latency_ms": 1513}
+{"role": "caller", "text": "Yes, that's correct. Thank you, goodbye."}
+{"role": "tool", "name": "page_oncall", "args": {"urgency": "emergency", "summary": "No water at all in the house", "callback": "716-555-0303", "address": "33 Woodward Ave, Buffalo"}, "result": {"ok": true, "tech": "Mike", "callback_within_minutes": 30}}
+{"role": "agent", "text": "I have paged our on-call technician. Mike will call you back within 30 minutes.", "latency_ms": 1587}

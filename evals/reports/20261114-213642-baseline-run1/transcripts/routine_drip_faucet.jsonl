@@ -1,0 +1,17 @@
+{"role": "caller", "text": "Hi, my bathroom faucet has been dripping for a week and I need to get it fixed."}
+{"role": "agent", "text": "I can help you schedule a visit to fix your dripping faucet. May I have your full name, please?", "latency_ms": 1253}
+{"role": "caller", "text": "My name is Maria Lopez."}
+{"role": "agent", "text": "Thanks, Maria. What is the best phone number to reach you at?", "latency_ms": 920}
+{"role": "caller", "text": "It's 716-555-0201."}
+{"role": "agent", "text": "Thank you. And what is the service address where we'll be fixing the faucet?", "latency_ms": 1188}
+{"role": "caller", "text": "It's 55 Bidwell Pkwy in Buffalo."}
+{"role": "tool", "name": "get_open_slots", "args": {}, "result": {"open_slots": [{"slot_id": "2026-11-16-09", "day": "2026-11-16", "window": "9:00 to 11:00"}, {"slot_id": "2026-11-16-13", "day": "2026-11-16", "window": "13:00 to 15:00"}, {"slot_id": "2026-11-17-09", "day": "2026-11-17", "window": "9:00 to 11:00"}, {"slot_id": "2026-11-17-11", "day": "2026-11-17", "window": "11:00 to 13:00"}, {"slot_id": "2026-11-17-13", "day": "2026-11-17", "window": "13:00 to 15:00"}, {"slot_id": "2026-11-17-15", "day": "2026-11-17", "window": "15:00 to 17:00"}]}}
+{"role": "agent", "text": "We have openings on Monday, November 16th from 9 to 11 in the morning or 1 to 3 in the afternoon. Do either of those work for you?", "latency_ms": 2641}
+{"role": "caller", "text": "I'll take the morning one, please."}
+{"role": "tool", "name": "read_back", "args": {"summary": "Booking for Maria Lopez at 55 Bidwell Pkwy, Buffalo, phone number 7 1 6, 5 5 5, 0 2 0 1, for a dripping bathroom faucet on Monday, November 16th from 9 to 11 in the morning."}, "result": {"ok": true, "next": "Read the details to the caller now, ask 'Is that correct?', then wait."}}
+{"role": "agent", "text": "I have a booking for Maria Lopez at 55 Bidwell Pkwy, Buffalo, phone number 7 1 6, 5 5 5, 0 2 0 1, for a dripping bathroom faucet on Monday, November 16th from 9 to 11 in the morning. Is that correct?", "latency_ms": 3796}
+{"role": "caller", "text": "Yes, that's correct."}
+{"role": "tool", "name": "book_visit", "args": {"slot_id": "2026-11-16-09", "address": "55 Bidwell Pkwy, Buffalo", "name": "Maria Lopez", "phone": "716-555-0201", "issue": "Dripping bathroom faucet"}, "result": {"ok": true, "visit_id": 3, "day": "2026-11-16", "start_hour": 9}}
+{"role": "agent", "text": "You're all set! We have scheduled your visit for Monday, November 16th between 9 and 11 in the morning.", "latency_ms": 2398}
+{"role": "caller", "text": "Thank you so much. Goodbye!"}
+{"role": "agent", "text": "You're welcome! Have a great day.", "latency_ms": 873}

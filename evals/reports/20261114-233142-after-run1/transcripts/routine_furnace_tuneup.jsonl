@@ -1,0 +1,15 @@
+{"role": "caller", "text": "Hi, I'm Rachel Green and I'd like to get a furnace tune-up before winter."}
+{"role": "tool", "name": "get_open_slots", "args": {}, "result": {"open_slots": [{"slot_id": "2026-11-16-09", "day": "2026-11-16", "window": "9:00 to 11:00"}, {"slot_id": "2026-11-16-13", "day": "2026-11-16", "window": "13:00 to 15:00"}, {"slot_id": "2026-11-17-09", "day": "2026-11-17", "window": "9:00 to 11:00"}, {"slot_id": "2026-11-17-11", "day": "2026-11-17", "window": "11:00 to 13:00"}, {"slot_id": "2026-11-17-13", "day": "2026-11-17", "window": "13:00 to 15:00"}, {"slot_id": "2026-11-17-15", "day": "2026-11-17", "window": "15:00 to 17:00"}]}}
+{"role": "agent", "text": "I can certainly help you schedule a furnace tune-up. May I please have your phone number?", "latency_ms": 2213}
+{"role": "caller", "text": "It's 716-555-0208."}
+{"role": "agent", "text": "Thank you. What is the street address for the service?", "latency_ms": 1127}
+{"role": "caller", "text": "It's 401 Richmond Ave, Buffalo."}
+{"role": "agent", "text": "We have open times on Monday, November 16th, including 9 to 11 in the morning and 1 to 3 in the afternoon. Which window works best for you?", "latency_ms": 925}
+{"role": "caller", "text": "I'll take the first one, 9 to 11."}
+{"role": "tool", "name": "read_back", "args": {"summary": "Furnace tune-up for Rachel Green at 401 Richmond Ave, Buffalo. Phone: 7 1 6, 5 5 5, 0 2 0 8. Scheduled for Monday, November 16th from 9 to 11 in the morning."}, "result": {"ok": true, "next": "Read the details to the caller now, ask 'Is that correct?', then wait."}}
+{"role": "agent", "text": "I have a furnace tune-up for Rachel Green at 401 Richmond Ave, Buffalo. Your callback number is 7 1 6, 5 5 5, 0 2 0 8, for Monday, November 16th from 9 to 11 in the morning. Is that correct?", "latency_ms": 2287}
+{"role": "caller", "text": "Yes, that's all correct."}
+{"role": "tool", "name": "book_visit", "args": {"name": "Rachel Green", "slot_id": "2026-11-16-09", "address": "401 Richmond Ave, Buffalo", "issue": "Furnace tune-up", "phone": "716-555-0208"}, "result": {"ok": true, "visit_id": 3, "day": "2026-11-16", "start_hour": 9}}
+{"role": "agent", "text": "You are all set for Monday, November 16th, between 9 and 11 in the morning. Is there anything else I can help you with today?", "latency_ms": 2069}
+{"role": "caller", "text": "No, that's everything. Thank you so much, bye-bye!"}
+{"role": "agent", "text": "You're very welcome. Have a wonderful day!", "latency_ms": 745}

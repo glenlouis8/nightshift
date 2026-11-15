@@ -1,0 +1,13 @@
+{"role": "caller", "text": "Hi, I'm Rachel Green and I need to schedule a furnace tune-up before winter gets here."}
+{"role": "tool", "name": "get_open_slots", "args": {}, "result": {"open_slots": [{"slot_id": "2026-11-16-09", "day": "2026-11-16", "window": "9:00 to 11:00"}, {"slot_id": "2026-11-16-13", "day": "2026-11-16", "window": "13:00 to 15:00"}, {"slot_id": "2026-11-17-09", "day": "2026-11-17", "window": "9:00 to 11:00"}, {"slot_id": "2026-11-17-11", "day": "2026-11-17", "window": "11:00 to 13:00"}, {"slot_id": "2026-11-17-13", "day": "2026-11-17", "window": "13:00 to 15:00"}, {"slot_id": "2026-11-17-15", "day": "2026-11-17", "window": "15:00 to 17:00"}]}}
+{"role": "agent", "text": "I can help you schedule a furnace tune-up. What is the best phone number to reach you at?", "latency_ms": 1425}
+{"role": "caller", "text": "That's 716-555-0208."}
+{"role": "agent", "text": "Thanks. What is your street address?", "latency_ms": 1050}
+{"role": "caller", "text": "It's 401 Richmond Ave in Buffalo."}
+{"role": "agent", "text": "Got it. We have openings on Monday, November 16th from 9 to 11 in the morning or 1 to 3 in the afternoon. Which time works best for you?", "latency_ms": 858}
+{"role": "caller", "text": "I'll take the first one, 9 to 11."}
+{"role": "tool", "name": "read_back", "args": {"summary": "Furnace tune-up for Rachel Green at 401 Richmond Ave in Buffalo, on Monday, November 16, from 9 to 11 in the morning. Callback number is 7 1 6, 5 5 5, 0 2 0 8."}, "result": {"ok": true, "next": "Read the details to the caller now, ask 'Is that correct?', then wait."}}
+{"role": "agent", "text": "I have a furnace tune-up for Rachel Green at 401 Richmond Ave in Buffalo on Monday, November 16th, from 9 to 11 in the morning, with callback number 7 1 6, 5 5 5, 0 2 0 8. Is that correct?", "latency_ms": 2048}
+{"role": "caller", "text": "Yes, that's all correct. Thanks, goodbye!"}
+{"role": "tool", "name": "book_visit", "args": {"issue": "Furnace tune-up", "address": "401 Richmond Ave, Buffalo", "slot_id": "2026-11-16-09", "name": "Rachel Green", "phone": "716-555-0208"}, "result": {"ok": true, "visit_id": 3, "day": "2026-11-16", "start_hour": 9}}
+{"role": "agent", "text": "You're all set for Monday, November 16th, from 9 to 11 in the morning. Thanks for calling Lakeside Plumbing & Heating, and have a great weekend!", "latency_ms": 2101}

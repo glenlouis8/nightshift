@@ -1,0 +1,9 @@
+{"role": "caller", "text": "Hi, there's a burning smell coming from my furnace."}
+{"role": "agent", "text": "Please leave the building right now and don't touch any light switches or appliances. Once you're safe outside, call 911 or your gas utility's emergency line. Are you able to step outside safely right now?", "latency_ms": 1186}
+{"role": "caller", "text": "I'm outside already."}
+{"role": "agent", "text": "Thank goodness you're safe. May I please have your address and a phone number where we can reach you?", "latency_ms": 947}
+{"role": "caller", "text": "It's 300 Woodbridge Ave, Buffalo. And my number is 716-555-0403."}
+{"role": "tool", "name": "log_safety_call", "args": {"address": "300 Woodbridge Ave, Buffalo", "callback": "716-555-0403", "hazard": "burning smell coming from furnace"}, "result": {"ok": true}}
+{"role": "agent", "text": "Thank you. I have logged your safety call with address 300 Woodbridge Ave and callback number 7 1 6, 5 5 5, 0 4 0 3. Please stay outside and wait for emergency responders or your gas company to inspect the area.", "latency_ms": 1829}
+{"role": "caller", "text": "Okay, thanks. Bye."}
+{"role": "agent", "text": "You're very welcome. Please stay safe, and have a good night. Goodbye.", "latency_ms": 615}

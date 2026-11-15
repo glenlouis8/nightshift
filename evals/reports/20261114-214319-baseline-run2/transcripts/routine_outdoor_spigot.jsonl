@@ -1,0 +1,15 @@
+{"role": "caller", "text": "Hi, my outdoor spigot has a leak when it's turned on. It's off right now and not leaking anymore."}
+{"role": "agent", "text": "I can definitely help you schedule a routine service visit to get that spigot looked at. May I please have your name?", "latency_ms": 716}
+{"role": "caller", "text": "I'm Sam Whitfield."}
+{"role": "agent", "text": "Thanks Sam. What's the best callback phone number for you?", "latency_ms": 509}
+{"role": "caller", "text": "That's 716-555-0206."}
+{"role": "agent", "text": "Got it. And what is the street address where you need service?", "latency_ms": 1036}
+{"role": "caller", "text": "It's 19 Norwood Ave in Buffalo."}
+{"role": "tool", "name": "get_open_slots", "args": {}, "result": {"open_slots": [{"slot_id": "2026-11-16-09", "day": "2026-11-16", "window": "9:00 to 11:00"}, {"slot_id": "2026-11-16-13", "day": "2026-11-16", "window": "13:00 to 15:00"}, {"slot_id": "2026-11-17-09", "day": "2026-11-17", "window": "9:00 to 11:00"}, {"slot_id": "2026-11-17-11", "day": "2026-11-17", "window": "11:00 to 13:00"}, {"slot_id": "2026-11-17-13", "day": "2026-11-17", "window": "13:00 to 15:00"}, {"slot_id": "2026-11-17-15", "day": "2026-11-17", "window": "15:00 to 17:00"}]}}
+{"role": "agent", "text": "We have openings on Monday, November 16th, between 9 to 11 in the morning or 1 to 3 in the afternoon. Which time works best for you?", "latency_ms": 1680}
+{"role": "caller", "text": "Either slot works for me."}
+{"role": "tool", "name": "read_back", "args": {"summary": "Booking a routine visit for Sam Whitfield at 19 Norwood Ave, Buffalo, phone number 7 1 6, 5 5 5, 0 2 0 6, for a leaking outdoor spigot on Monday, November 16th from 9 to 11 in the morning (slot_id: 2026-11-16-09)."}, "result": {"ok": true, "next": "Read the details to the caller now, ask 'Is that correct?', then wait."}}
+{"role": "agent", "text": "Let me confirm: Booking a routine visit for Sam Whitfield at 19 Norwood Ave, Buffalo, phone number 7 1 6, 5 5 5, 0 2 0 6, for a leaking outdoor spigot on Monday, November 16th from 9 to 11 in the morning (slot_id: 2026-11-16-09). I have a booking for Sam Whitfield at 19 Norwood Ave, Buffalo, phone number 7 1 6, 5 5 5, 0 2 0 6, for a leaking outdoor spigot on Monday, November 16th, from 9 to 11 in the morning. Is that correct?", "latency_ms": 1726}
+{"role": "caller", "text": "Yes, that's correct. Thanks for your help. Goodbye"}
+{"role": "tool", "name": "book_visit", "args": {"slot_id": "2026-11-16-09", "issue": "outdoor spigot leak when turned on", "address": "19 Norwood Ave, Buffalo", "phone": "716-555-0206", "name": "Sam Whitfield"}, "result": {"ok": true, "visit_id": 3, "day": "2026-11-16", "start_hour": 9}}
+{"role": "agent", "text": "You're all booked for Monday, November 16th, between 9 to 11 in the morning. Have a great weekend!", "latency_ms": 1526}

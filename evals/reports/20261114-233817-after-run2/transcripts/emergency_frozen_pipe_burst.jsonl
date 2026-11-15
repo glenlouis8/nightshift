@@ -1,0 +1,10 @@
+{"role": "caller", "text": "A frozen pipe in my garage just burst and it's spraying water everywhere!"}
+{"role": "agent", "text": "Please turn off your main water shutoff valve right away to stop the flooding. What is your address and the best phone number to reach you?", "latency_ms": 1472}
+{"role": "caller", "text": "I already turned it off. It's 15 Saranac Ave, Buffalo, and my number is 716-555-0306."}
+{"role": "tool", "name": "read_back", "args": {"summary": "Emergency page for a burst frozen pipe in the garage at 15 Saranac Ave, Buffalo. Callback number 7 1 6, 5 5 5, 0 3 0 6."}, "result": {"ok": true, "next": "Read the details to the caller now, ask 'Is that correct?', then wait."}}
+{"role": "agent", "text": "I have an emergency request for a burst frozen pipe in your garage at 15 Saranac Ave, Buffalo, with callback number 7 1 6, 5 5 5, 0 3 0 6. Is that correct?", "latency_ms": 3305}
+{"role": "caller", "text": "Yes, that's right."}
+{"role": "tool", "name": "page_oncall", "args": {"address": "15 Saranac Ave, Buffalo", "callback": "716-555-0306", "summary": "Burst frozen pipe in garage spraying water", "urgency": "emergency"}, "result": {"ok": true, "tech": "Mike", "callback_within_minutes": 30}}
+{"role": "agent", "text": "I've paged our on-call technician. Mike will call you back within 30 minutes.", "latency_ms": 2200}
+{"role": "caller", "text": "Great, thanks. Bye."}
+{"role": "agent", "text": "You're welcome. Stay safe, and Mike will call you shortly. Goodbye!", "latency_ms": 1104}

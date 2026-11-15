@@ -1,0 +1,14 @@
+{"role": "caller", "text": "Hello there. My basement floor drain is backing up with sewage and it's making an awful mess."}
+{"role": "agent", "text": "I'm so sorry to hear that. Because sewage backup is an emergency, we should get an on-call technician out to you right away. What is your full address?", "latency_ms": 642}
+{"role": "caller", "text": "It is on one twenty eight Woodward Avenue. Did you see that finish by the Bills today? Unbelievable."}
+{"role": "agent", "text": "That was a great game! What is the best phone number to reach you at?", "latency_ms": 860}
+{"role": "caller", "text": "The number is seven one six five five five zero six zero three."}
+{"role": "agent", "text": "Got it. Could I also get your name so I have everything for the technician?", "latency_ms": 1112}
+{"role": "caller", "text": "My name is Walter."}
+{"role": "tool", "name": "read_back", "args": {"summary": "Emergency page for Walter regarding a sewage backup in the basement at 128 Woodward Avenue. Callback number: 7 1 6, 5 5 5, 0 6 0 3."}, "result": {"ok": true, "next": "Read the details to the caller now, ask 'Is that correct?', then wait."}}
+{"role": "agent", "text": "I have an emergency request for Walter regarding a basement sewage backup at 128 Woodward Avenue, with a callback number of 7 1 6, 5 5 5, 0 6 0 3. Is that correct?", "latency_ms": 1795}
+{"role": "caller", "text": "That sounds right. How long until someone gets here?"}
+{"role": "tool", "name": "page_oncall", "args": {"summary": "Sewage backup in basement floor drain for Walter", "callback": "7165550603", "urgency": "emergency", "address": "128 Woodward Avenue"}, "result": {"ok": true, "tech": "Mike", "callback_within_minutes": 30}}
+{"role": "agent", "text": "I have paged Mike, our on-call technician. He will call you back within 30 minutes.", "latency_ms": 1687}
+{"role": "caller", "text": "Alright, thank you kindly. I will wait by the phone. Goodbye."}
+{"role": "agent", "text": "You're welcome, Walter. Take care and stay safe. Goodbye.", "latency_ms": 958}

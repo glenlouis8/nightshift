@@ -1,0 +1,18 @@
+{"role": "caller", "text": "Hi, my bathroom sink is draining really slowly."}
+{"role": "agent", "text": "I can certainly help you schedule a service visit for that slow drain. May I please have your full name?", "latency_ms": 943}
+{"role": "caller", "text": "It's Ian Ford."}
+{"role": "agent", "text": "Thanks, Ian. What is the best phone number to reach you at?", "latency_ms": 979}
+{"role": "caller", "text": "It's 716-555-0602."}
+{"role": "agent", "text": "Got it. And what is your service address?", "latency_ms": 537}
+{"role": "caller", "text": "400 Hoyt St, Buffalo."}
+{"role": "tool", "name": "get_open_slots", "args": {}, "result": {"open_slots": [{"slot_id": "2026-11-16-09", "day": "2026-11-16", "window": "9:00 to 11:00"}, {"slot_id": "2026-11-16-13", "day": "2026-11-16", "window": "13:00 to 15:00"}, {"slot_id": "2026-11-17-09", "day": "2026-11-17", "window": "9:00 to 11:00"}, {"slot_id": "2026-11-17-11", "day": "2026-11-17", "window": "11:00 to 13:00"}, {"slot_id": "2026-11-17-13", "day": "2026-11-17", "window": "13:00 to 15:00"}, {"slot_id": "2026-11-17-15", "day": "2026-11-17", "window": "15:00 to 17:00"}]}}
+{"role": "agent", "text": "Thank you. We have openings on Monday, November 16th, from 9 to 11 in the morning or 1 to 3 in the afternoon. Which window works best for you?", "latency_ms": 1229}
+{"role": "caller", "text": "Let's go with the earliest slot, Monday morning from 9 to 11."}
+{"role": "tool", "name": "read_back", "args": {"summary": "Booking a routine service visit for Ian Ford at 400 Hoyt St, Buffalo, for a slow bathroom sink drain on Monday, November 16th, from 9 to 11 in the morning. Callback phone number is 7 1 6, 5 5 5, 0 6 0 2."}, "result": {"ok": true, "next": "Read the details to the caller now, ask 'Is that correct?', then wait."}}
+{"role": "agent", "text": "I have a routine service visit for Ian Ford at 400 Hoyt St, Buffalo, for a slow bathroom sink drain on Monday, November 16th, from 9 to 11 in the morning. Your phone number is 7 1 6, 5 5 5, 0 6 0 2. Is that correct?", "latency_ms": 2268}
+{"role": "caller", "text": "Actually, change of plans. Can we do the latest slot on the second business day instead?"}
+{"role": "tool", "name": "read_back", "args": {"summary": "Booking a routine service visit for Ian Ford at 400 Hoyt St, Buffalo, for a slow bathroom sink drain on Tuesday, November 17th, from 3 to 5 in the afternoon. Callback phone number is 7 1 6, 5 5 5, 0 6 0 2."}, "result": {"ok": true, "next": "Read the details to the caller now, ask 'Is that correct?', then wait."}}
+{"role": "agent", "text": "Sure, we can do Tuesday, November 17th, from 3 to 5 in the afternoon for Ian Ford at 400 Hoyt St, Buffalo, for the slow bathroom sink drain, with callback number 7 1 6, 5 5 5, 0 6 0 2. Is that correct?", "latency_ms": 2135}
+{"role": "caller", "text": "Yes, that's correct. Thanks!"}
+{"role": "tool", "name": "book_visit", "args": {"issue": "slow bathroom sink drain", "phone": "716-555-0602", "name": "Ian Ford", "address": "400 Hoyt St, Buffalo", "slot_id": "2026-11-17-15"}, "result": {"ok": true, "visit_id": 3, "day": "2026-11-17", "start_hour": 15}}
+{"role": "agent", "text": "You are all booked for Tuesday, November 17th, from 3 to 5 in the afternoon. Thanks for calling Lakeside Plumbing & Heating, and have a great day!", "latency_ms": 1801}

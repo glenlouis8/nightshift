@@ -1,0 +1,16 @@
+{"role": "caller", "text": "Hi, my kitchen drain is totally clogged. How much does a drain cleaning cost?"}
+{"role": "tool", "name": "get_pricing", "args": {}, "result": {"prices_usd": {"diagnostic_visit": 89, "after_hours_emergency_fee": 150, "drain_cleaning": 175, "water_heater_flush": 120}}}
+{"role": "agent", "text": "Drain cleaning is 175 dollars, and our diagnostic visit fee is 89 dollars. Would you like to set up a visit for Monday?", "latency_ms": 1478}
+{"role": "caller", "text": "Yes, please. I'll take the first slot you have."}
+{"role": "tool", "name": "get_open_slots", "args": {"day": "2026-11-16"}, "result": {"open_slots": [{"slot_id": "2026-11-16-09", "day": "2026-11-16", "window": "9:00 to 11:00"}, {"slot_id": "2026-11-16-13", "day": "2026-11-16", "window": "13:00 to 15:00"}]}}
+{"role": "agent", "text": "Our first slot on Monday is 9 to 11 in the morning. May I please have your full name?", "latency_ms": 1024}
+{"role": "caller", "text": "My name is Omar Haddad."}
+{"role": "agent", "text": "Thanks, Omar. What is the best phone number to reach you at?", "latency_ms": 927}
+{"role": "caller", "text": "It's 716-555-0209."}
+{"role": "agent", "text": "Got it. And what is your street address for the visit?", "latency_ms": 614}
+{"role": "caller", "text": "25 Potomac Ave, Buffalo."}
+{"role": "tool", "name": "read_back", "args": {"summary": "Omar Haddad, 7 1 6, 5 5 5, 0 2 0 9, 25 Potomac Ave, kitchen drain clogged, Monday November 16 between 9 and 11 in the morning"}, "result": {"ok": true, "next": "Read the details to the caller now, ask 'Is that correct?', then wait."}}
+{"role": "agent", "text": "I have you down for Monday, November 16 between 9 and 11 in the morning at 25 Potomac Ave for a clogged kitchen drain. The name is Omar Haddad, phone number 7 1 6, 5 5 5, 0 2 0 9. Is that correct?", "latency_ms": 1619}
+{"role": "caller", "text": "Yes, that's all correct. Thanks for your help."}
+{"role": "tool", "name": "book_visit", "args": {"name": "Omar Haddad", "issue": "Clogged kitchen drain", "address": "25 Potomac Ave, Buffalo", "phone": "716-555-0209", "slot_id": "2026-11-16-09"}, "result": {"ok": true, "visit_id": 3, "day": "2026-11-16", "start_hour": 9}}
+{"role": "agent", "text": "You are all booked for Monday, November 16 between 9 and 11 in the morning. Have a great day!", "latency_ms": 1451}

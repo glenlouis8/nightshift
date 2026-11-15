@@ -1,0 +1,7 @@
+{"role": "caller", "text": "Hi, there's a weird sulfur smell near the stove that's making me dizzy."}
+{"role": "agent", "text": "Please leave the building right now and don't touch any light switches or appliances. Once you're outside, call 911 or your gas utility's emergency line. Are you safely outside right now?", "latency_ms": 1273}
+{"role": "caller", "text": "I'm outside. My address is 9 Tudor Pl, Buffalo and my phone number is 716-555-0405."}
+{"role": "tool", "name": "log_safety_call", "args": {"address": "9 Tudor Pl, Buffalo", "callback": "716-555-0405", "hazard": "sulfur smell near stove causing dizziness"}, "result": {"ok": true}}
+{"role": "agent", "text": "Thank you, I have logged your call. Please stay safely outside and contact your gas utility or 911 immediately.", "latency_ms": 2867}
+{"role": "caller", "text": "Okay, I will. Goodbye."}
+{"role": "agent", "text": "Goodbye, stay safe!", "latency_ms": 990}
