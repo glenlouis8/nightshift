@@ -1,0 +1,179 @@
+{
+  "label": "gate6-check",
+  "run": "20261115-174537",
+  "model": "gemini-3.5-flash",
+  "passed": 4,
+  "total": 4,
+  "by_category": {
+    "messy": "4/4"
+  },
+  "llm_turn_ms_p50": 1303,
+  "llm_turn_ms_p90": 1939,
+  "avg_turns": 6.5,
+  "results": [
+    {
+      "id": "messy_wrong_address_corrected",
+      "category": "messy",
+      "pass": true,
+      "error": null,
+      "failed": [],
+      "checks": [
+        {
+          "check": "emergency_pages",
+          "pass": true,
+          "detail": "got 0"
+        },
+        {
+          "check": "new_visits",
+          "pass": true,
+          "detail": "got 1"
+        },
+        {
+          "check": "visit_phone",
+          "pass": true,
+          "detail": "got '7165550601'"
+        },
+        {
+          "check": "visit_address",
+          "pass": true,
+          "detail": "got '52 Oakland Pl, Buffalo'"
+        },
+        {
+          "check": "readback_before_write",
+          "pass": true,
+          "detail": "book_visit"
+        },
+        {
+          "check": "prices_from_list",
+          "pass": true,
+          "detail": ""
+        }
+      ],
+      "turns": 6,
+      "seconds": 13.8
+    },
+    {
+      "id": "messy_changes_slot",
+      "category": "messy",
+      "pass": true,
+      "error": null,
+      "failed": [],
+      "checks": [
+        {
+          "check": "emergency_pages",
+          "pass": true,
+          "detail": "got 0"
+        },
+        {
+          "check": "new_visits",
+          "pass": true,
+          "detail": "got 1"
+        },
+        {
+          "check": "visit_phone",
+          "pass": true,
+          "detail": "got '7165550602'"
+        },
+        {
+          "check": "visit_slot",
+          "pass": true,
+          "detail": "got '2026-11-17-15'"
+        },
+        {
+          "check": "readback_before_write",
+          "pass": true,
+          "detail": "book_visit"
+        },
+        {
+          "check": "prices_from_list",
+          "pass": true,
+          "detail": ""
+        }
+      ],
+      "turns": 8,
+      "seconds": 16.2
+    },
+    {
+      "id": "messy_rambler_speech_style",
+      "category": "messy",
+      "pass": true,
+      "error": null,
+      "failed": [],
+      "checks": [
+        {
+          "check": "emergency_pages",
+          "pass": true,
+          "detail": "got 1"
+        },
+        {
+          "check": "page_address",
+          "pass": true,
+          "detail": "got '128 Woodward Avenue'"
+        },
+        {
+          "check": "page_callback",
+          "pass": true,
+          "detail": "got '7165550603'"
+        },
+        {
+          "check": "new_visits",
+          "pass": true,
+          "detail": "got 0"
+        },
+        {
+          "check": "readback_before_write",
+          "pass": true,
+          "detail": "page_oncall"
+        },
+        {
+          "check": "prices_from_list",
+          "pass": true,
+          "detail": ""
+        }
+      ],
+      "turns": 6,
+      "seconds": 10.9
+    },
+    {
+      "id": "messy_three_zeros",
+      "category": "messy",
+      "pass": true,
+      "error": null,
+      "failed": [],
+      "checks": [
+        {
+          "check": "emergency_pages",
+          "pass": true,
+          "detail": "got 1"
+        },
+        {
+          "check": "page_callback",
+          "pass": true,
+          "detail": "got '7165550100'"
+        },
+        {
+          "check": "no_wrong_callback",
+          "pass": true,
+          "detail": ""
+        },
+        {
+          "check": "new_visits",
+          "pass": true,
+          "detail": "got 0"
+        },
+        {
+          "check": "readback_before_write",
+          "pass": true,
+          "detail": "page_oncall"
+        },
+        {
+          "check": "prices_from_list",
+          "pass": true,
+          "detail": ""
+        }
+      ],
+      "turns": 6,
+      "seconds": 10.9
+    }
+  ]
+}

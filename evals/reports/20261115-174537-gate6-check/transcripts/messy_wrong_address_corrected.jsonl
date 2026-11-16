@@ -1,0 +1,16 @@
+{"role": "caller", "text": "My kitchen faucet is dripping. My address is 50 Oakland Pl, Buffalo."}
+{"role": "tool", "name": "get_open_slots", "args": {}, "result": {"open_slots": [{"slot_id": "2026-11-16-09", "day": "2026-11-16", "window": "9:00 to 11:00"}, {"slot_id": "2026-11-16-13", "day": "2026-11-16", "window": "13:00 to 15:00"}, {"slot_id": "2026-11-17-09", "day": "2026-11-17", "window": "9:00 to 11:00"}, {"slot_id": "2026-11-17-11", "day": "2026-11-17", "window": "11:00 to 13:00"}, {"slot_id": "2026-11-17-13", "day": "2026-11-17", "window": "13:00 to 15:00"}, {"slot_id": "2026-11-17-15", "day": "2026-11-17", "window": "15:00 to 17:00"}]}}
+{"role": "agent", "text": "I can help you schedule a visit for that dripping faucet. May I have your full name and best callback phone number?", "latency_ms": 1785}
+{"role": "caller", "text": "I'm Megan Hall and my number is 716-555-0601."}
+{"role": "agent", "text": "We have openings tomorrow, Monday, from 9 to 11 in the morning or 1 to 3 in the afternoon. Which window works best for you?", "latency_ms": 1303}
+{"role": "caller", "text": "I'll take the first one, 9 to 11."}
+{"role": "tool", "name": "read_back", "args": {"summary": "Booking a routine visit for Megan Hall at 50 Oakland Pl, Buffalo, for a dripping kitchen faucet on Monday, November 16th, from 9 to 11 in the morning. Callback number is 7 1 6, 5 5 5, 0 6 0 1."}, "result": {"ok": true, "next": "Read the details to the caller now, ask 'Is that correct?', then wait."}}
+{"role": "agent", "text": "I have a routine visit for Megan Hall at 50 Oakland Pl, Buffalo, for a dripping kitchen faucet on Monday, November 16th, from 9 to 11 in the morning. Your phone number is 7 1 6, 5 5 5, 0 6 0 1. Is that correct?", "latency_ms": 2438}
+{"role": "caller", "text": "Wait, sorry, it's 52 Oakland Pl, not 50."}
+{"role": "tool", "name": "read_back", "args": {"summary": "Booking a routine visit for Megan Hall at 52 Oakland Pl, Buffalo, for a dripping kitchen faucet on Monday, November 16th, from 9 to 11 in the morning. Callback number is 7 1 6, 5 5 5, 0 6 0 1."}, "result": {"ok": true, "next": "Read the details to the caller now, ask 'Is that correct?', then wait."}}
+{"role": "agent", "text": "Thank you for the correction. That's Megan Hall at 52 Oakland Pl, Buffalo, for a dripping kitchen faucet on Monday, November 16th, from 9 to 11 in the morning, phone number 7 1 6, 5 5 5, 0 6 0 1. Is that correct?", "latency_ms": 1939}
+{"role": "caller", "text": "Yes, that's correct."}
+{"role": "tool", "name": "book_visit", "args": {"slot_id": "2026-11-16-09", "name": "Megan Hall", "address": "52 Oakland Pl, Buffalo", "issue": "kitchen faucet dripping", "phone": "716-555-0601"}, "result": {"ok": true, "visit_id": 3, "day": "2026-11-16", "start_hour": 9}}
+{"role": "agent", "text": "Your visit has been booked for Monday, November 16th, between 9 and 11 in the morning. Is there anything else I can help you with today?", "latency_ms": 1923}
+{"role": "caller", "text": "No, that's everything. Thank you, bye!"}
+{"role": "agent", "text": "You're welcome! Have a great day and stay warm. Goodbye!", "latency_ms": 728}
