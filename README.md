@@ -149,6 +149,12 @@ Measured on 16 real browser calls (73 turns), by me talking to the agent: **p50 
 
 </details>
 
+## Next
+
+- Write held-out scenarios the agent has never been tuned on, to get a score that is not a dev-set score.
+- Fix the voice bug where a short pause splits one sentence into two turns.
+- Cut voice latency (p50 is 2.4 s now) by trying a faster model and streaming the reply to text-to-speech.
+
 ## Run it
 
 Needs Python 3.12+ and [uv](https://docs.astral.sh/uv/).
