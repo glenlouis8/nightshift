@@ -76,7 +76,7 @@ Two guards also check the reply before the caller hears it:
 ## Eval results
 
 <div align="center">
-<img src="docs/images/results.jpg" alt="Grouped bar chart of pass rate by category. Baseline: routine, emergency and injection 100%, safety and account 91.7%, messy 75%. After fixes: 100% everywhere except messy at 87.5%." width="760">
+<img src="docs/images/results.jpg" alt="Grouped bar chart of pass rate by category. Baseline: routine, emergency and injection 100%, safety and account 91.7%, messy 75%. After fixes: 100% in every category." width="760">
 </div>
 
 | | run 1 | run 2 | total |
