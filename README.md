@@ -149,15 +149,6 @@ Measured on 16 real browser calls (73 turns), by me talking to the agent: **p50 
 
 </details>
 
-## Known limits
-
-- English only. Runs locally, no phone number: voice mode uses the browser.
-- Safety detection in code is a keyword list plus a "gas near smell/leak" pattern. Unusual phrasing relies on the model calling `log_safety_call`.
-- The evals use a text-mode simulated caller, so they don't cover speech recognition errors or turn-taking.
-- Voice latency was measured by one person on 16 calls, so the p90 is rough. The repetition judge is uncalibrated and nothing judges tone.
-- The 5 code-enforced gates have 14 unit tests (`uv run pytest`). The price rule is checked by the evals only.
-- Known voice bug: a short pause mid-sentence can split one sentence into two turns, and the agent answers both.
-
 ## Run it
 
 Needs Python 3.12+ and [uv](https://docs.astral.sh/uv/).
