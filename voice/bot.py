@@ -1,6 +1,7 @@
 """Voice mode: Pipecat belt around the SAME handle_turn used in text mode."""
 
 import asyncio  # lets slow work run without freezing audio
+import time
 import os  # read API keys from environment
 
 from dotenv import load_dotenv  # load keys from .env
@@ -43,7 +44,8 @@ from agent.db import init_db
 load_dotenv(override=True)
 
 FILLER_AFTER_SECS = 1.5  # agent slower than this -> say "One moment."
-FILLER_GAP_SECS = 0.9  # pause between "One moment." and the real answer
+FILLER_SPEAK_SECS = 1.1  # how long "One moment." takes to say
+FILLER_GAP_SECS = 0.9  # silence between "One moment." and the real answer
 IDLE_AFTER_SECS = 8.0  # caller silent this long -> ask if they are still there
 MAX_NUDGES = 2  # ask at most twice per call
 
@@ -81,13 +83,18 @@ class NightShiftBrain(FrameProcessor):
             asyncio.to_thread(handle_turn, self.conn, self.session, content)
         )
         # Slow turn (over FILLER_AFTER_SECS)? Say "One moment." while the agent keeps working.
+        filler_at = None
         done, _ = await asyncio.wait({work}, timeout=FILLER_AFTER_SECS)
         if not done:
             self.filler_used = True
+            filler_at = time.monotonic()
             await self.push_frame(TTSSpeakFrame("One moment."))
         reply = await work
-        if self.filler_used:
-            await asyncio.sleep(FILLER_GAP_SECS)  # let "One moment." finish, then a small pause
+        if filler_at is not None:
+            # wait until filler is spoken PLUS a gap, counted from when filler started
+            wait = filler_at + FILLER_SPEAK_SECS + FILLER_GAP_SECS - time.monotonic()
+            if wait > 0:
+                await asyncio.sleep(wait)
 
         # Put the reply on the belt: start signal, the text, end signal. ElevenLabs speaks it.
         await self.push_frame(LLMFullResponseStartFrame())
