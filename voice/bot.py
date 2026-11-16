@@ -43,9 +43,9 @@ from agent.db import init_db
 
 load_dotenv(override=True)
 
-FILLER_AFTER_SECS = 1.5  # agent slower than this -> say "One moment."
+FILLER_AFTER_SECS = 3.0  # agent slower than this -> say "One moment."
 FILLER_SPEAK_SECS = 1.1  # how long "One moment." takes to say
-FILLER_GAP_SECS = 0.9  # silence between "One moment." and the real answer
+FILLER_GAP_SECS = 0.5  # silence between "One moment." and the real answer
 IDLE_AFTER_SECS = 8.0  # caller silent this long -> ask if they are still there
 MAX_NUDGES = 2  # ask at most twice per call
 
