@@ -18,7 +18,7 @@
 <tr>
 <td align="center" width="25%"><b>79/80</b><br><sub>simulated calls passed after fixes (baseline 76/80)</sub></td>
 <td align="center" width="25%"><b>40</b><br><sub>scenarios in 6 categories</sub></td>
-<td align="center" width="25%"><b>4</b><br><sub>rules enforced in code</sub></td>
+<td align="center" width="25%"><b>5</b><br><sub>rules enforced in code</sub></td>
 <td align="center" width="25%"><b>5</b><br><sub>agent bugs found by the evals</sub></td>
 </tr>
 </table>
@@ -66,6 +66,7 @@ An agent that books jobs and wakes people up at 2 AM can't rely on "the prompt t
 3. **Callers only touch their own bookings.** Reschedule and cancel need a name and phone number that match the same customer.
 4. **Prices only from the price list.** The agent quotes numbers from `get_pricing()` and nowhere else. This one is set in the prompt and checked by the evals (every dollar amount the agent says must be on the list), not hard-blocked in code.
 5. **Phone numbers must come from the caller.** Before any booking or page, the code checks that the phone number the model passed actually appears in what the caller said. If the model changed or invented a digit, the action is blocked and the agent asks the caller to repeat the number.
+6. **Short phone numbers are not read back.** If the caller's last message has 7 to 9 digits (a number with digits missing), the read-back is blocked and the agent asks for the full 10-digit number. Found by reading an eval transcript where a 9-digit number slid into the read-back and only the caller's correction saved it.
 
 Two guards also check the reply before the caller hears it:
 
@@ -146,6 +147,16 @@ flowchart LR
 - **Read-back never spoken.** The agent recorded the details for confirmation but only said "Is that correct?", so the caller confirmed details they never heard. Fixed with the read-back guard in code.
 - **A digit filled in by the model.** The caller said a phone number ending in three zeros. The model "corrected" it to four and tried to page with the wrong number. In a later call it even read the number back correctly and still sent four zeros to the tool. Fixed with gate 5: Deepgram now writes spoken numbers as digits, and the code blocks any phone number the caller never said. Re-tested by voice: the page was blocked and the agent asked for the number again.
 
+## Voice latency
+
+Measured on 16 real browser voice calls (73 turns), by me talking to the agent. Latency is the time from the caller finishing a sentence to the bot starting to speak, so it includes turn detection, speech-to-text, the agent, and text-to-speech.
+
+- **p50 2.4 s, p90 5.8 s, max 8.1 s.** That is slow for a phone call. Slow turns were mostly the ones with tool calls.
+- **Where the time goes** (read from the per-turn breakdown on 2 calls, 14 turns): the agent (`handle_turn`, so Gemini plus tool rounds) was about 0.6 to 1.9 s per turn. Everything else was roughly 0.5 s: 0.2 s end-of-speech wait, about 0.1 s speech-to-text, about 0.15 s text-to-speech. The agent's own timer matched Pipecat's "turn detection" bucket almost exactly, because Pipecat cannot see inside a custom agent step.
+- **Not fixed yet.** Thinking is already set to low. Next ideas: a faster model (would need the 40 evals rerun) and streaming the reply to text-to-speech.
+- **"One moment."** If the agent takes more than 1.5 s, the bot says "One moment." and then gives the real answer after a short pause. This does not make the answer faster. The filler turns are logged separately so they do not make the numbers look better (2 filler turns in these 16 calls, too few to report).
+- **Silence.** If the caller says nothing for 8 s, the bot asks "Are you still there?", at most twice per call.
+
 ## Known limits
 
 - English only.
@@ -153,8 +164,9 @@ flowchart LR
 - Runs locally. There is no phone number; voice mode uses the browser.
 - Safety detection in code is a keyword list plus a "gas near smell/leak" pattern. Unusual phrasing still relies on the model calling `log_safety_call`, which then locks the lane.
 - The evals use a simulated caller in text mode. They don't cover speech recognition errors or turn-taking.
-- Voice latency (p50 / p90) is not measured yet, and there is no tone or repetition judge yet. Numbers go in this README only once they are measured.
-- The 4 code-enforced gates have unit tests (`uv run pytest`). The price rule is checked by the evals only.
+- Voice latency was measured by one person on 16 calls, so the p90 is rough. There is no tone or repetition judge yet. Numbers go in this README only once they are measured.
+- The 5 code-enforced gates have unit tests (11 tests, `uv run pytest`). The price rule is checked by the evals only.
+- Known voice bug: a short pause mid-sentence can split one sentence into two turns, and the agent answers both.
 
 ## Run it
 
