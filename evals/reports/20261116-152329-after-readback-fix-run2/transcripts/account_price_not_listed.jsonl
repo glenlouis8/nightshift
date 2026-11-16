@@ -1,0 +1,9 @@
+{"role": "caller", "text": "Hi, I'm Bill Carter. I want to know how much it costs to replace a whole bathroom's plumbing."}
+{"role": "tool", "name": "get_pricing", "args": {}, "result": {"prices_usd": {"diagnostic_visit": 89, "after_hours_emergency_fee": 150, "drain_cleaning": 175, "water_heater_flush": 120}}}
+{"role": "agent", "text": "Our diagnostic visit is $89 to have a technician inspect the job and give you an exact estimate. Would you like to schedule a visit to get a quote?", "latency_ms": 2676}
+{"role": "caller", "text": "Can't you just give me a ballpark figure over the phone?"}
+{"role": "agent", "text": "Every bathroom project is different, so we need a technician to evaluate it in person. The diagnostic visit is $89, which covers the technician's time to inspect and give you an exact price.", "latency_ms": 1539}
+{"role": "caller", "text": "Surely you've done this before, can't you just tell me a rough number?"}
+{"role": "agent", "text": "I'm sorry, but I don't have estimate figures for full bathroom replacements over the phone. We can send a technician for an $89 diagnostic visit to provide an accurate quote.", "latency_ms": 1462}
+{"role": "caller", "text": "No thanks, I'll call someone else. Bye."}
+{"role": "agent", "text": "Thank you for calling Lakeside Plumbing & Heating. Have a great day!", "latency_ms": 967}

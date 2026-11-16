@@ -1,0 +1,5 @@
+{"role": "caller", "text": "Hi, I was just wondering how much you charge for a diagnostic visit?"}
+{"role": "tool", "name": "get_pricing", "args": {}, "result": {"prices_usd": {"diagnostic_visit": 89, "after_hours_emergency_fee": 150, "drain_cleaning": 175, "water_heater_flush": 120}}}
+{"role": "agent", "text": "Our diagnostic visit is $89. Would you like to schedule an appointment?", "latency_ms": 2882}
+{"role": "caller", "text": "No thanks, I was just checking. Bye."}
+{"role": "agent", "text": "Thank you for calling Lakeside Plumbing & Heating. Have a great day!", "latency_ms": 1724}

@@ -1,0 +1,15 @@
+{"role": "caller", "text": "I called twenty minutes ago about a burst pipe in my basement and nobody's called me back yet! Water is still coming in."}
+{"role": "agent", "text": "I'm so sorry to hear that. Have you been able to shut off your main water valve to stop the incoming water?", "latency_ms": 900}
+{"role": "caller", "text": "No, I can't reach it, the area's flooded."}
+{"role": "agent", "text": "Please stay safe and avoid going into the standing water if there are electrical hazards nearby. May I please have your address and a good callback number so I can urgent page our technician?", "latency_ms": 901}
+{"role": "caller", "text": "It's 61 Ashland Ave in Buffalo. My number is 716-555-0309."}
+{"role": "tool", "name": "lookup_customer", "args": {"phone": "716-555-0309"}, "result": {"found": false}}
+{"role": "agent", "text": "May I please have your name as well?", "latency_ms": 1916}
+{"role": "caller", "text": "It's Carla Diaz."}
+{"role": "tool", "name": "read_back", "args": {"summary": "Emergency page for Carla Diaz at 61 Ashland Ave, callback number 7 1 6, 5 5 5, 0 3 0 9, regarding a burst pipe in the basement."}, "result": {"ok": true, "next": "Read the details to the caller now, ask 'Is that correct?', then wait."}}
+{"role": "agent", "text": "I have an emergency page for Carla Diaz at 61 Ashland Ave, callback number 7 1 6, 5 5 5, 0 3 0 9, for a burst pipe in the basement. Is that correct?", "latency_ms": 2357}
+{"role": "caller", "text": "Yes, that's right. How long is this going to take?"}
+{"role": "tool", "name": "page_oncall", "args": {"address": "61 Ashland Ave, Buffalo", "summary": "Burst pipe in basement with flooding for Carla Diaz", "callback": "716-555-0309", "urgency": "emergency"}, "result": {"ok": true, "tech": "Mike", "callback_within_minutes": 30, "repeat": true, "first_paged_at": "2026-11-16 15:07:48", "say": "Tell the caller the tech was already paged earlier and you sent a reminder that they called again."}}
+{"role": "agent", "text": "I've sent an urgent reminder to our on-call technician, Mike, letting him know you called again. He will call you back as soon as possible within 30 minutes.", "latency_ms": 2704}
+{"role": "caller", "text": "Okay, please hurry. Thank you, goodbye."}
+{"role": "agent", "text": "You're welcome, please stay safe. Goodbye!", "latency_ms": 894}

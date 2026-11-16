@@ -1,0 +1,10 @@
+{"role": "caller", "text": "I called twenty minutes ago about a burst pipe in my basement and nobody's called me back yet! Water is still pouring in."}
+{"role": "agent", "text": "I'm so sorry to hear that. First, please make sure to shut off your main water valve right away if you haven't already.\n\nCould I please get your address and callback phone number so I can urge our on-call technician to respond immediately?", "latency_ms": 1217}
+{"role": "caller", "text": "It's 61 Ashland Ave in Buffalo, and my number is 716-555-0309. Please hurry, my basement is flooding!"}
+{"role": "tool", "name": "read_back", "args": {"summary": "Emergency page for a burst pipe flooding the basement at 61 Ashland Ave, Buffalo. Callback number is 7 1 6, 5 5 5, 0 3 0 9."}, "result": {"ok": true, "next": "Read the details to the caller now, ask 'Is that correct?', then wait."}}
+{"role": "agent", "text": "I have an emergency page for a burst pipe flooding your basement at 61 Ashland Ave, with a callback number of 7 1 6, 5 5 5, 0 3 0 9. Is that correct?", "latency_ms": 5165}
+{"role": "caller", "text": "Yes, that's right. How much longer is this going to take?"}
+{"role": "tool", "name": "page_oncall", "args": {"summary": "Burst pipe in basement causing flooding. Caller called 20 mins ago and needs immediate help.", "callback": "716-555-0309", "address": "61 Ashland Ave, Buffalo", "urgency": "emergency"}, "result": {"ok": true, "tech": "Mike", "callback_within_minutes": 30, "repeat": true, "first_paged_at": "2026-11-16 15:31:02", "say": "Tell the caller the tech was already paged earlier and you sent a reminder that they called again."}}
+{"role": "agent", "text": "I've sent an urgent reminder to Mike, our on-call technician, letting him know you called back. He will call you back as soon as possible, within 30 minutes.", "latency_ms": 2063}
+{"role": "caller", "text": "Okay, I'll be waiting by the phone. Thanks."}
+{"role": "agent", "text": "You're welcome. Please keep that main water valve off, and Mike will be in touch shortly. Have a good evening.", "latency_ms": 1114}

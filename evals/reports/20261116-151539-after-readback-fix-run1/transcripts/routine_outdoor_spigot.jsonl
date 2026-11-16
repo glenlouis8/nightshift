@@ -1,0 +1,15 @@
+{"role": "caller", "text": "Hi, my outdoor spigot has a leak when it's turned on. It's off right now though, so no water is leaking."}
+{"role": "agent", "text": "I can help schedule a technician to take a look at your outdoor spigot. May I please have your name?", "latency_ms": 1075}
+{"role": "caller", "text": "I'm Sam Whitfield."}
+{"role": "agent", "text": "Thanks, Sam. What is the best phone number to reach you at?", "latency_ms": 1059}
+{"role": "caller", "text": "That's 716-555-0206."}
+{"role": "agent", "text": "Thanks, Sam. What is the street address for the service visit?", "latency_ms": 838}
+{"role": "caller", "text": "19 Norwood Ave, Buffalo."}
+{"role": "tool", "name": "get_open_slots", "args": {}, "result": {"open_slots": [{"slot_id": "2026-11-17-09", "day": "2026-11-17", "window": "9:00 to 11:00"}, {"slot_id": "2026-11-17-13", "day": "2026-11-17", "window": "13:00 to 15:00"}, {"slot_id": "2026-11-18-09", "day": "2026-11-18", "window": "9:00 to 11:00"}, {"slot_id": "2026-11-18-11", "day": "2026-11-18", "window": "11:00 to 13:00"}, {"slot_id": "2026-11-18-13", "day": "2026-11-18", "window": "13:00 to 15:00"}, {"slot_id": "2026-11-18-15", "day": "2026-11-18", "window": "15:00 to 17:00"}]}}
+{"role": "agent", "text": "We have an opening tomorrow, Tuesday November 17th, from 9 to 11 in the morning, or from 1 to 3 in the afternoon. Which of those works better for you?", "latency_ms": 1966}
+{"role": "caller", "text": "Either one works for me, whichever is easier."}
+{"role": "tool", "name": "read_back", "args": {"summary": "Booking a visit for Sam Whitfield at 19 Norwood Ave, Buffalo, phone number 7 1 6, 5 5 5, 0 2 0 6, for an outdoor spigot leaking when turned on, scheduled for Tuesday, November 17th from 9 to 11 in the morning."}, "result": {"ok": true, "next": "Read the details to the caller now, ask 'Is that correct?', then wait."}}
+{"role": "agent", "text": "I have you down for a visit for Sam Whitfield at 19 Norwood Ave, Buffalo, phone 7 1 6, 5 5 5, 0 2 0 6, for an outdoor spigot leaking when turned on, scheduled for tomorrow, Tuesday, November 17th from 9 to 11 in the morning. Is that correct?", "latency_ms": 2716}
+{"role": "caller", "text": "Yes, that's all correct. Thanks! Bye."}
+{"role": "tool", "name": "book_visit", "args": {"name": "Sam Whitfield", "address": "19 Norwood Ave, Buffalo", "issue": "Outdoor spigot leaks when turned on", "slot_id": "2026-11-17-09", "phone": "7165550206"}, "result": {"ok": true, "visit_id": 3, "day": "2026-11-17", "start_hour": 9}}
+{"role": "agent", "text": "You are all set for tomorrow between 9 and 11 in the morning. Thanks for calling Lakeside Plumbing & Heating, and have a great day!", "latency_ms": 1910}

@@ -1,0 +1,15 @@
+{"role": "caller", "text": "Hi, my bathroom faucet has been dripping for a week and I need to get it fixed."}
+{"role": "agent", "text": "I can certainly help you get that faucet fixed. May I please have your full name?", "latency_ms": 1622}
+{"role": "caller", "text": "It's Maria Lopez."}
+{"role": "agent", "text": "Thank you, Maria. What is a good phone number to reach you at?", "latency_ms": 840}
+{"role": "caller", "text": "That's 716-555-0201."}
+{"role": "agent", "text": "Got it. And what is your street address?", "latency_ms": 1075}
+{"role": "caller", "text": "It's 55 Bidwell Pkwy in Buffalo."}
+{"role": "tool", "name": "get_open_slots", "args": {}, "result": {"open_slots": [{"slot_id": "2026-11-17-09", "day": "2026-11-17", "window": "9:00 to 11:00"}, {"slot_id": "2026-11-17-13", "day": "2026-11-17", "window": "13:00 to 15:00"}, {"slot_id": "2026-11-18-09", "day": "2026-11-18", "window": "9:00 to 11:00"}, {"slot_id": "2026-11-18-11", "day": "2026-11-18", "window": "11:00 to 13:00"}, {"slot_id": "2026-11-18-13", "day": "2026-11-18", "window": "13:00 to 15:00"}, {"slot_id": "2026-11-18-15", "day": "2026-11-18", "window": "15:00 to 17:00"}]}}
+{"role": "agent", "text": "We have openings tomorrow, Tuesday, from 9 to 11 in the morning or 1 to 3 in the afternoon. Which time works best for you?", "latency_ms": 2998}
+{"role": "caller", "text": "I'd like the morning one, please."}
+{"role": "tool", "name": "read_back", "args": {"summary": "Booking a visit for Maria Lopez at 55 Bidwell Pkwy in Buffalo for a dripping bathroom faucet on Tuesday, November 17, from 9 to 11 in the morning. Callback number is 7 1 6, 5 5 5, 0 2 0 1."}, "result": {"ok": true, "next": "Read the details to the caller now, ask 'Is that correct?', then wait."}}
+{"role": "agent", "text": "I have you down for a visit on Tuesday, November 17th from 9 to 11 in the morning at 55 Bidwell Pkwy for a dripping bathroom faucet. Your phone number is 7 1 6, 5 5 5, 0 2 0 1. Is that correct?", "latency_ms": 3433}
+{"role": "caller", "text": "Yes, that's all correct. Thanks so much. Bye!"}
+{"role": "tool", "name": "book_visit", "args": {"issue": "dripping bathroom faucet", "address": "55 Bidwell Pkwy, Buffalo", "slot_id": "2026-11-17-09", "name": "Maria Lopez", "phone": "716-555-0201"}, "result": {"ok": true, "visit_id": 3, "day": "2026-11-17", "start_hour": 9}}
+{"role": "agent", "text": "You're all booked for Tuesday, November 17th between 9 and 11 in the morning. Thanks for calling Lakeside Plumbing & Heating, and have a great day!", "latency_ms": 2150}

@@ -4,7 +4,7 @@
 
 **An after-hours voice dispatcher for plumbing and heating shops, with its safety rules enforced in code and checked by a 40-scenario eval harness.**
 
-<img src="https://img.shields.io/badge/Python-3.12%2B-3776ab?logo=python&logoColor=white" alt="Python"> <img src="https://img.shields.io/badge/Gemini-3.5_Flash-4285f4?logo=googlegemini&logoColor=white" alt="Gemini"> <img src="https://img.shields.io/badge/Pipecat-voice-6e56cf" alt="Pipecat"> <img src="https://img.shields.io/badge/SQLite-state-003b57?logo=sqlite&logoColor=white" alt="SQLite"> <img src="https://img.shields.io/badge/evals-79%2F80-2a78d6" alt="Evals 79/80">
+<img src="https://img.shields.io/badge/Python-3.12%2B-3776ab?logo=python&logoColor=white" alt="Python"> <img src="https://img.shields.io/badge/Gemini-3.5_Flash-4285f4?logo=googlegemini&logoColor=white" alt="Gemini"> <img src="https://img.shields.io/badge/Pipecat-voice-6e56cf" alt="Pipecat"> <img src="https://img.shields.io/badge/SQLite-state-003b57?logo=sqlite&logoColor=white" alt="SQLite"> <img src="https://img.shields.io/badge/evals-80%2F80-2a78d6" alt="Evals 80/80">
 
 [What it does](#what-it-does) · [Why the rules live in code](#why-the-rules-live-in-code) · [Eval results](#eval-results) · [Architecture](#architecture) · [Run it](#run-it)
 
@@ -16,10 +16,10 @@
 
 <table>
 <tr>
-<td align="center" width="25%"><b>79/80</b><br><sub>simulated calls passed after fixes (baseline 76/80)</sub></td>
+<td align="center" width="25%"><b>80/80</b><br><sub>simulated calls passed after fixes (baseline 76/80)</sub></td>
 <td align="center" width="25%"><b>40</b><br><sub>scenarios in 6 categories</sub></td>
 <td align="center" width="25%"><b>5</b><br><sub>rules enforced in code</sub></td>
-<td align="center" width="25%"><b>5</b><br><sub>agent bugs found by the evals</sub></td>
+<td align="center" width="25%"><b>6</b><br><sub>agent bugs found by the evals</sub></td>
 </tr>
 </table>
 
@@ -83,8 +83,9 @@ Two guards also check the reply before the caller hears it:
 |---|---|---|---|
 | Baseline | 38/40 | 38/40 | 76/80 (95%) |
 | After fixes | 40/40 | 39/40 | 79/80 (98.75%) |
+| After read-back fix | 40/40 | 40/40 | 80/80 (100%) |
 
-**Caveat:** these 40 scenarios are a dev set. I wrote them, saw the baseline failures, and fixed the agent against them, so 79/80 is not a held-out score. A fresh set of unseen scenarios is the next check.
+**Caveat:** these 40 scenarios are a dev set. I wrote them, saw the baseline failures, and fixed the agent against them, so 80/80 is not a held-out score. A fresh set of unseen scenarios is the next check.
 
 40 scenarios across 6 categories: routine (10), emergency (10), safety (6), account changes (6), prompt injection (4), and messy callers (4: rambling, corrections, numbers spoken as words).
 
@@ -93,16 +94,27 @@ Two guards also check the reply before the caller hears it:
 **Adherence checks** run on the tool-call trace of every scenario: each successful write must have a `read_back` before it, a safety call must never book, and every dollar amount the agent says must be on the price list.
 
 - Each version was run twice because the model is not deterministic: both baseline runs scored 38/40, but different scenarios failed each time.
-- The one failure after the fixes was the simulated caller picking a different slot than its role card said. The agent read it back and booked what the caller asked for.
+- The one failure in the 79/80 pass was the simulated caller picking a different slot than its role card said. The agent read it back and booked what the caller asked for.
 - Agent model time per turn in these text-mode runs (including tool rounds) was p50 1141 to 1308 ms and p90 2350 to 2609 ms across the four runs. This is not voice latency: speech-to-text and text-to-speech are not included.
 
-**Bugs the evals found** (all fixed in the "after" runs):
+**Bugs the evals found** (all fixed in the "after" runs, the last one is from the repetition judge below):
 
 1. A caller said the kitchen "smells really strongly of gas". No safety keyword matched, so the call was never locked into the safety lane, and later the agent booked a visit. Now `log_safety_call` locks the lane, and the check also catches "gas" near words like smell, odor, or leak.
 2. A phone number spoken as words ("seven one six...") was blocked by gate 5, which only compared digits. Number words are now converted to digits first.
 3. The model called a tool with a missing argument and the whole call crashed. Tool errors are now sent back to the model so it can ask the caller.
 4. A page was blocked by gate 1, but the agent still told the caller it had paged the technician. Now caught by the "no false done" guard.
 5. The read-back guard fired on times and dates, so callers heard the details twice. It now checks only the phone and house number.
+6. The agent said the details aloud as a question, the caller said yes, and then the agent called `read_back` and asked the same question again. If the last agent reply already said the phone number as a question and the caller just said yes, the code now counts that as the read-back. Found by the repetition judge (one transcript with two read-backs, one with three).
+
+### Repetition judge
+
+The deterministic grader cannot see a conversation that goes in circles, so an LLM judge reads each transcript and answers one question: does the agent repeat itself? It asks for information the caller already gave, or says the same thing twice with nothing new. Reading details back once, or again after a correction, does not count.
+
+- **Model.** `gpt-5.5` from OpenAI, a different family than the Gemini agent. I tried `gpt-5.4-mini` first. On the same 80 calls it flagged 3 and I read all 3: two were wrong claims (it said the agent "clarified" a short number when the transcript showed otherwise), one was borderline. It did not find the double read-back, `gpt-5.5` did.
+- **Results.** On the 80 calls before the read-back fix, `gpt-5.5` flagged 3 calls, including the double read-back. On the 80 calls after the fix it flagged 3 again, none of them a double read-back. Judging 80 calls cost about $0.47 (31.6k tokens in, 10.2k out, at $5 and $30 per 1M tokens from OpenAI's price page).
+- **Not calibrated.** I did not check it against human labels, so treat it as a rough signal, not a score. The agent runs on Gemini and the judge on OpenAI, but one model reading 80 transcripts is still one opinion.
+
+Per-run verdicts are in `judge.json` next to each run, and the full write-up is in [`evals/reports/judge-analysis.md`](evals/reports/judge-analysis.md).
 
 <details>
 <summary><b>Fixing the harness before trusting it</b></summary>
@@ -164,8 +176,8 @@ Measured on 16 real browser voice calls (73 turns), by me talking to the agent. 
 - Runs locally. There is no phone number; voice mode uses the browser.
 - Safety detection in code is a keyword list plus a "gas near smell/leak" pattern. Unusual phrasing still relies on the model calling `log_safety_call`, which then locks the lane.
 - The evals use a simulated caller in text mode. They don't cover speech recognition errors or turn-taking.
-- Voice latency was measured by one person on 16 calls, so the p90 is rough. There is no tone or repetition judge yet. Numbers go in this README only once they are measured.
-- The 5 code-enforced gates have unit tests (11 tests, `uv run pytest`). The price rule is checked by the evals only.
+- Voice latency was measured by one person on 16 calls, so the p90 is rough. The repetition judge is not calibrated against human labels, and nothing judges tone. Numbers go in this README only once they are measured.
+- The 5 code-enforced gates have unit tests (14 tests, `uv run pytest`). The price rule is checked by the evals only.
 - Known voice bug: a short pause mid-sentence can split one sentence into two turns, and the agent answers both.
 
 ## Run it
@@ -177,7 +189,7 @@ uv sync
 cp .env.example .env    # then add your keys
 ```
 
-Keys: `GEMINI_API_KEY` (text and voice), plus `DEEPGRAM_API_KEY` and `ELEVENLABS_API_KEY` for voice.
+Keys: `GEMINI_API_KEY` (text and voice), plus `DEEPGRAM_API_KEY` and `ELEVENLABS_API_KEY` for voice, and `OPENAI_API_KEY` for the repetition judge.
 
 <details>
 <summary><b>Text mode</b></summary>
@@ -217,6 +229,12 @@ uv run python -m evals.run_evals --category safety    # one category
 
 Each run writes a report to `evals/reports/<time>-<label>/` with a summary and every transcript.
 
+```bash
+uv run python -m evals.judge evals/reports/<run-folder>   # repetition judge, writes judge.json
+uv run python -m evals.voice_latency                      # p50/p90 from logs/ voice calls
+uv run pytest                                             # unit tests for the gates
+```
+
 </details>
 
 Every run starts from a fresh fake shop (3 customers, 2 existing bookings, open slots for the next two business days). Each call is saved to `logs/<call_id>.jsonl`.
@@ -240,6 +258,8 @@ evals/
   scenarios.yaml  40 role cards with the expected final database state
   caller_sim.py   the simulated caller
   run_evals.py    runs the calls, grades them, writes reports
+  judge.py        repetition judge (OpenAI), writes judge.json per run
+  voice_latency.py  p50/p90 from real voice calls
   reports/        every run, with summaries and transcripts
 docs/images/    README images (rendered from eval transcripts)
 ```

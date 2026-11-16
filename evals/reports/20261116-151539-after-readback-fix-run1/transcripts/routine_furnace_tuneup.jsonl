@@ -1,0 +1,15 @@
+{"role": "caller", "text": "Hi, I'm Rachel Green and I'd like to get a furnace tune-up before winter starts."}
+{"role": "tool", "name": "get_open_slots", "args": {}, "result": {"open_slots": [{"slot_id": "2026-11-17-09", "day": "2026-11-17", "window": "9:00 to 11:00"}, {"slot_id": "2026-11-17-13", "day": "2026-11-17", "window": "13:00 to 15:00"}, {"slot_id": "2026-11-18-09", "day": "2026-11-18", "window": "9:00 to 11:00"}, {"slot_id": "2026-11-18-11", "day": "2026-11-18", "window": "11:00 to 13:00"}, {"slot_id": "2026-11-18-13", "day": "2026-11-18", "window": "13:00 to 15:00"}, {"slot_id": "2026-11-18-15", "day": "2026-11-18", "window": "15:00 to 17:00"}]}}
+{"role": "agent", "text": "I would be happy to help schedule a furnace tune-up for you. May I please have your phone number?", "latency_ms": 1825}
+{"role": "caller", "text": "It's 716-555-0208."}
+{"role": "agent", "text": "Thank you. What is your street address?", "latency_ms": 947}
+{"role": "caller", "text": "401 Richmond Ave in Buffalo."}
+{"role": "agent", "text": "We have open times tomorrow, Tuesday November 17th, from 9 to 11 in the morning or 1 to 3 in the afternoon. Which of those works better for you?", "latency_ms": 1005}
+{"role": "caller", "text": "Let's do the morning one, 9 to 11."}
+{"role": "tool", "name": "read_back", "args": {"summary": "Furnace tune-up for Rachel Green at 401 Richmond Ave in Buffalo, phone number 7 1 6, 5 5 5, 0 2 0 8, for tomorrow Tuesday November 17th from 9 to 11 in the morning."}, "result": {"ok": true, "next": "Read the details to the caller now, ask 'Is that correct?', then wait."}}
+{"role": "agent", "text": "I have a furnace tune-up for Rachel Green at 401 Richmond Ave in Buffalo, callback number 7 1 6, 5 5 5, 0 2 0 8, scheduled for tomorrow, Tuesday November 17th, from 9 to 11 in the morning. Is that correct?", "latency_ms": 2570}
+{"role": "caller", "text": "Yes, that's correct."}
+{"role": "tool", "name": "book_visit", "args": {"issue": "Furnace tune-up", "address": "401 Richmond Ave, Buffalo", "name": "Rachel Green", "slot_id": "2026-11-17-09", "phone": "716-555-0208"}, "result": {"ok": true, "visit_id": 3, "day": "2026-11-17", "start_hour": 9}}
+{"role": "agent", "text": "You're all booked for tomorrow between 9 and 11 in the morning. Is there anything else I can help you with today?", "latency_ms": 2366}
+{"role": "caller", "text": "Nope, that's everything. Thanks so much!"}
+{"role": "agent", "text": "You're very welcome. Have a wonderful rest of your day!", "latency_ms": 988}

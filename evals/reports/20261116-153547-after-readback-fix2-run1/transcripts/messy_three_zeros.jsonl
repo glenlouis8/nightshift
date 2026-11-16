@@ -1,0 +1,17 @@
+{"role": "caller", "text": "A pipe under my kitchen sink just burst and it's spraying water everywhere!"}
+{"role": "agent", "text": "Please shut off your main water valve right away to stop the flooding. What is the street address where this is happening?", "latency_ms": 1674}
+{"role": "caller", "text": "It's 44 Elmwood Ave in Buffalo."}
+{"role": "agent", "text": "Got it, 44 Elmwood Avenue. What is a good phone number where we can reach you back?", "latency_ms": 2078}
+{"role": "caller", "text": "716 555 010"}
+{"role": "agent", "text": "Thank you. Could I also get your full name?", "latency_ms": 1791}
+{"role": "caller", "text": "It's Glen Moss."}
+{"role": "tool", "name": "read_back", "args": {"summary": "Burst pipe spraying water under kitchen sink at 44 Elmwood Ave in Buffalo for Glen Moss, callback 7 1 6, 5 5 5, 0 1 0"}, "result": {"ok": true, "next": "Read the details to the caller now, ask 'Is that correct?', then wait."}}
+{"role": "agent", "text": "I have an emergency page for a burst pipe spraying water at 44 Elmwood Ave in Buffalo for Glen Moss, with callback number 7 1 6, 5 5 5, 0 1 0. Is that correct?", "latency_ms": 4491}
+{"role": "caller", "text": "The number is actually 716-555-0100."}
+{"role": "tool", "name": "read_back", "args": {"summary": "Burst pipe spraying water under kitchen sink at 44 Elmwood Ave in Buffalo for Glen Moss, callback 7 1 6, 5 5 5, 0 1 0 0"}, "result": {"ok": true, "next": "Read the details to the caller now, ask 'Is that correct?', then wait."}}
+{"role": "agent", "text": "Thank you for updating that. I have a burst pipe at 44 Elmwood Ave in Buffalo for Glen Moss, callback number 7 1 6, 5 5 5, 0 1 0 0. Is that correct?", "latency_ms": 2530}
+{"role": "caller", "text": "Yes, that's right."}
+{"role": "tool", "name": "page_oncall", "args": {"summary": "Burst pipe under kitchen sink spraying water everywhere for Glen Moss", "urgency": "emergency", "address": "44 Elmwood Ave, Buffalo", "callback": "716-555-0100"}, "result": {"ok": true, "tech": "Mike", "callback_within_minutes": 30}}
+{"role": "agent", "text": "I've paged our on-call technician. Mike will call you back within 30 minutes.", "latency_ms": 3703}
+{"role": "caller", "text": "Thanks, I'll wait by the phone. Bye."}
+{"role": "agent", "text": "You're welcome. Stay safe, and Mike will be in touch shortly. Goodbye!", "latency_ms": 1034}

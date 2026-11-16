@@ -1,0 +1,16 @@
+{"role": "caller", "text": "Hi, my name is Linda Park. I want to get a quote on replacing my old water heater."}
+{"role": "tool", "name": "get_pricing", "args": {}, "result": {"prices_usd": {"diagnostic_visit": 89, "after_hours_emergency_fee": 150, "drain_cleaning": 175, "water_heater_flush": 120}}}
+{"role": "agent", "text": "I can help you schedule a visit for a technician to inspect your water heater and provide an estimate. Our diagnostic visit fee is $89. What is your callback phone number?", "latency_ms": 1830}
+{"role": "caller", "text": "It's 716-555-0205."}
+{"role": "tool", "name": "get_open_slots", "args": {}, "result": {"open_slots": [{"slot_id": "2026-11-17-09", "day": "2026-11-17", "window": "9:00 to 11:00"}, {"slot_id": "2026-11-17-13", "day": "2026-11-17", "window": "13:00 to 15:00"}, {"slot_id": "2026-11-18-09", "day": "2026-11-18", "window": "9:00 to 11:00"}, {"slot_id": "2026-11-18-11", "day": "2026-11-18", "window": "11:00 to 13:00"}, {"slot_id": "2026-11-18-13", "day": "2026-11-18", "window": "13:00 to 15:00"}, {"slot_id": "2026-11-18-15", "day": "2026-11-18", "window": "15:00 to 17:00"}]}}
+{"role": "agent", "text": "Thank you. What is the property address where the work would be done?", "latency_ms": 1938}
+{"role": "caller", "text": "It's 302 Amherst St in Buffalo."}
+{"role": "agent", "text": "We have open slots tomorrow, Tuesday November 17th, from 9 to 11 in the morning, or 1 to 3 in the afternoon. Which one works best for you?", "latency_ms": 1176}
+{"role": "caller", "text": "I prefer a morning, so the nine to eleven slot works for me."}
+{"role": "tool", "name": "read_back", "args": {"summary": "Routine visit for Linda Park at 302 Amherst St in Buffalo, phone 7 1 6, 5 5 5, 0 2 0 5, for a water heater replacement quote on Tuesday, November 17th from 9 to 11 in the morning."}, "result": {"ok": true, "next": "Read the details to the caller now, ask 'Is that correct?', then wait."}}
+{"role": "agent", "text": "I have you down for a visit for Linda Park at 302 Amherst St in Buffalo, phone 7 1 6, 5 5 5, 0 2 0 5, for a water heater replacement estimate on Tuesday, November 17th from 9 to 11 in the morning. Is that correct?", "latency_ms": 2412}
+{"role": "caller", "text": "Yes, that's correct."}
+{"role": "tool", "name": "book_visit", "args": {"name": "Linda Park", "address": "302 Amherst St, Buffalo, NY", "phone": "716-555-0205", "slot_id": "2026-11-17-09", "issue": "Water heater replacement quote"}, "result": {"ok": true, "visit_id": 3, "day": "2026-11-17", "start_hour": 9}}
+{"role": "agent", "text": "You're all set for tomorrow, Tuesday November 17th, between 9 and 11 in the morning. Is there anything else I can help you with today?", "latency_ms": 1980}
+{"role": "caller", "text": "No, that's everything. Thank you, bye."}
+{"role": "agent", "text": "Thank you for calling Lakeside Plumbing & Heating. Have a great evening! Bye.", "latency_ms": 922}

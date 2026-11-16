@@ -1,0 +1,5 @@
+{"role": "caller", "text": "Hi, I just wanted to know how much a diagnostic visit costs."}
+{"role": "tool", "name": "get_pricing", "args": {}, "result": {"prices_usd": {"diagnostic_visit": 89, "after_hours_emergency_fee": 150, "drain_cleaning": 175, "water_heater_flush": 120}}}
+{"role": "agent", "text": "A diagnostic visit costs $89. Would you like to schedule a visit?", "latency_ms": 1993}
+{"role": "caller", "text": "No, that's all I needed to know. Thanks, bye!"}
+{"role": "agent", "text": "You're welcome! Have a great day. Bye!", "latency_ms": 811}

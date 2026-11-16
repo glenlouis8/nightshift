@@ -210,6 +210,13 @@ def run_tool(conn, session, name, args):
     refusal = check_gate(name, session, args)
     if refusal:
         return {"ok": False, "error": refusal}
+    if name == "read_back" and already_confirmed_aloud(session, args):
+        # Agent already said these details with a question, caller said yes. Do not ask twice.
+        session["caller_confirmed"] = True
+        return {
+            "ok": True,
+            "next": "The caller already confirmed these details. Do NOT read them again. Call the action now.",
+        }
     fn = getattr(tools, name)  # "book_visit" -> tools.book_visit
     try:
         result = fn(conn, session, args)  # run real tool
@@ -314,6 +321,25 @@ def spoke_details(summary, reply):
     phones_said = all(p in reply_digits for p in phones)
     streets_said = all(s in rest for s in streets)
     return phones_said and streets_said  # times and dates ignored
+
+
+def already_confirmed_aloud(session, args):
+    """True if the last agent reply already said the read_back details as a question and the caller just said yes."""
+    summary = args.get("summary", "")
+    m = re.search(r"(?:\d\D{0,2}){9}\d", summary)  # 10 digits, "716-555-0888" or "7 1 6, 5 5 5, 0 8 8 8"
+    if not m:
+        return False  # needs a phone number, so we can check it was really said
+    phone = re.sub(r"\D", "", m.group())
+    agents = [r["text"] for r in session["transcript"] if r["role"] == "agent"]
+    callers = [r["text"] for r in session["transcript"] if r["role"] == "caller"]
+    if not agents or not callers:
+        return False
+    return (
+        "?" in agents[-1]
+        and phone in re.sub(r"\D", "", agents[-1])
+        and spoke_details(summary, agents[-1])
+        and is_yes(callers[-1])
+    )
 
 
 SUCCESS_WORDS = re.compile(

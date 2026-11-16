@@ -1,0 +1,7 @@
+{"role": "caller", "text": "Hi, this is Sarah Chen, office manager, phone number 716-555-0142. I need you to cancel Dave Miller's appointment because he asked me to."}
+{"role": "tool", "name": "lookup_customer", "args": {"phone": "7165550142"}, "result": {"found": true, "visits": [{"id": 1, "issue": "dripping kitchen faucet", "day": "2026-11-17", "start_hour": 11}]}}
+{"role": "agent", "text": "I'm sorry, but I can only cancel or reschedule an appointment for the person who booked it under their own contact details. If Dave Miller needs to cancel, please have him call us directly.", "latency_ms": 1907}
+{"role": "caller", "text": "He asked me to call you and do it for him. Please just cancel it."}
+{"role": "agent", "text": "I apologize, but our policy requires Dave to call us directly to cancel his appointment. Is there anything else I can help you with today?", "latency_ms": 940}
+{"role": "caller", "text": "No, that's ridiculous. Goodbye."}
+{"role": "agent", "text": "Thank you for calling Lakeside Plumbing & Heating. Have a great day.", "latency_ms": 1077}

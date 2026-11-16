@@ -1,0 +1,13 @@
+{"role": "caller", "text": "Hi, my name is Rachel Green. I need to get a furnace tune-up before winter comes."}
+{"role": "tool", "name": "get_open_slots", "args": {}, "result": {"open_slots": [{"slot_id": "2026-11-17-09", "day": "2026-11-17", "window": "9:00 to 11:00"}, {"slot_id": "2026-11-17-13", "day": "2026-11-17", "window": "13:00 to 15:00"}, {"slot_id": "2026-11-18-09", "day": "2026-11-18", "window": "9:00 to 11:00"}, {"slot_id": "2026-11-18-11", "day": "2026-11-18", "window": "11:00 to 13:00"}, {"slot_id": "2026-11-18-13", "day": "2026-11-18", "window": "13:00 to 15:00"}, {"slot_id": "2026-11-18-15", "day": "2026-11-18", "window": "15:00 to 17:00"}]}}
+{"role": "agent", "text": "I can help you schedule a furnace tune-up. May I please have your phone number and service address?", "latency_ms": 1993}
+{"role": "caller", "text": "My phone number is 716-555-0208, and the address is 401 Richmond Ave in Buffalo."}
+{"role": "agent", "text": "We have openings tomorrow, Tuesday November 17th, from 9 to 11 in the morning or 1 to 3 in the afternoon. Which time works better for you?", "latency_ms": 1313}
+{"role": "caller", "text": "I'll take the first one, 9 to 11 in the morning."}
+{"role": "tool", "name": "read_back", "args": {"summary": "Routine furnace tune-up visit for Rachel Green at 401 Richmond Ave, Buffalo. Phone number: 7 1 6, 5 5 5, 0 2 0 8. Slot: Tuesday November 17, 9 to 11 in the morning."}, "result": {"ok": true, "next": "Read the details to the caller now, ask 'Is that correct?', then wait."}}
+{"role": "agent", "text": "I have a furnace tune-up for Rachel Green at 401 Richmond Ave, Buffalo. Phone number 7 1 6, 5 5 5, 0 2 0 8, for tomorrow Tuesday November 17th between 9 to 11 in the morning. Is that correct?", "latency_ms": 2286}
+{"role": "caller", "text": "Yes, that's correct."}
+{"role": "tool", "name": "book_visit", "args": {"slot_id": "2026-11-17-09", "name": "Rachel Green", "phone": "716-555-0208", "address": "401 Richmond Ave, Buffalo", "issue": "Furnace tune-up"}, "result": {"ok": true, "visit_id": 3, "day": "2026-11-17", "start_hour": 9}}
+{"role": "agent", "text": "You are all booked for tomorrow between 9 and 11 in the morning. Is there anything else I can help you with today?", "latency_ms": 2123}
+{"role": "caller", "text": "No, that's everything. Thank you so much! Goodbye."}
+{"role": "agent", "text": "You're very welcome! Have a great evening. Goodbye!", "latency_ms": 990}

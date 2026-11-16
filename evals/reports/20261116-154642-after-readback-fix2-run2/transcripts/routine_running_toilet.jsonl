@@ -1,0 +1,19 @@
+{"role": "caller", "text": "My toilet keeps running after I flush it."}
+{"role": "agent", "text": "I can help you schedule a routine visit to fix your running toilet. May I please have your full name?", "latency_ms": 894}
+{"role": "caller", "text": "I'm Aisha Khan."}
+{"role": "agent", "text": "Thanks, Aisha. What is the best phone number to reach you at?", "latency_ms": 1415}
+{"role": "caller", "text": "It's 716-555-0203."}
+{"role": "agent", "text": "Got it. And what is the address where the technician should go?", "latency_ms": 1376}
+{"role": "caller", "text": "That's 14 Linwood Ave, Buffalo."}
+{"role": "tool", "name": "get_open_slots", "args": {}, "result": {"open_slots": [{"slot_id": "2026-11-17-09", "day": "2026-11-17", "window": "9:00 to 11:00"}, {"slot_id": "2026-11-17-13", "day": "2026-11-17", "window": "13:00 to 15:00"}, {"slot_id": "2026-11-18-09", "day": "2026-11-18", "window": "9:00 to 11:00"}, {"slot_id": "2026-11-18-11", "day": "2026-11-18", "window": "11:00 to 13:00"}, {"slot_id": "2026-11-18-13", "day": "2026-11-18", "window": "13:00 to 15:00"}, {"slot_id": "2026-11-18-15", "day": "2026-11-18", "window": "15:00 to 17:00"}]}}
+{"role": "agent", "text": "We have openings tomorrow, Tuesday November 17th, from 9 to 11 in the morning and 1 to 3 in the afternoon. Which time works best for you?", "latency_ms": 1985}
+{"role": "caller", "text": "Actually, I wanted the second business day, if you have that."}
+{"role": "agent", "text": "On Wednesday, November 18th, we have 9 to 11 in the morning, 11 to 1 in the afternoon, 1 to 3 in the afternoon, and 3 to 5 in the afternoon. Which of those works for you?", "latency_ms": 1211}
+{"role": "caller", "text": "Any time works for me."}
+{"role": "tool", "name": "read_back", "args": {"summary": "Name: Aisha Khan, Phone: 716-555-0203, Address: 14 Linwood Ave, Buffalo, Issue: Toilet keeps running after flush, Date: Wednesday November 18, 2026, Time: 9 to 11 in the morning"}, "result": {"ok": true, "next": "Read the details to the caller now, ask 'Is that correct?', then wait."}}
+{"role": "agent", "text": "I have Aisha Khan, phone number 7 1 6, 5 5 5, 0 2 0 3, at 14 Linwood Ave, Buffalo, for a running toilet on Wednesday, November 18th, from 9 to 11 in the morning. Is that correct?", "latency_ms": 2529}
+{"role": "caller", "text": "Yes, that's right."}
+{"role": "tool", "name": "book_visit", "args": {"name": "Aisha Khan", "phone": "716-555-0203", "address": "14 Linwood Ave, Buffalo", "issue": "Toilet keeps running after flush", "slot_id": "2026-11-18-09"}, "result": {"ok": true, "visit_id": 3, "day": "2026-11-18", "start_hour": 9}}
+{"role": "agent", "text": "You are all booked for Wednesday, November 18th, between 9 and 11 in the morning. Is there anything else I can help you with today?", "latency_ms": 1833}
+{"role": "caller", "text": "No, that's everything. Thanks so much, goodbye!"}
+{"role": "agent", "text": "You're very welcome. Have a great day and goodbye!", "latency_ms": 1022}

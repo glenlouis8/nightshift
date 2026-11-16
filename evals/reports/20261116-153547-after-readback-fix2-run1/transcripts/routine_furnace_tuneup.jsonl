@@ -1,0 +1,15 @@
+{"role": "caller", "text": "Hi, I'm Rachel Green and I'd like to schedule a furnace tune-up before winter gets here. My heat is working fine right now."}
+{"role": "tool", "name": "get_open_slots", "args": {}, "result": {"open_slots": [{"slot_id": "2026-11-17-09", "day": "2026-11-17", "window": "9:00 to 11:00"}, {"slot_id": "2026-11-17-13", "day": "2026-11-17", "window": "13:00 to 15:00"}, {"slot_id": "2026-11-18-09", "day": "2026-11-18", "window": "9:00 to 11:00"}, {"slot_id": "2026-11-18-11", "day": "2026-11-18", "window": "11:00 to 13:00"}, {"slot_id": "2026-11-18-13", "day": "2026-11-18", "window": "13:00 to 15:00"}, {"slot_id": "2026-11-18-15", "day": "2026-11-18", "window": "15:00 to 17:00"}]}}
+{"role": "agent", "text": "I can help you schedule that furnace tune-up. May I please have your phone number?", "latency_ms": 1793}
+{"role": "caller", "text": "It's 716-555-0208."}
+{"role": "agent", "text": "Thank you. What is your street address?", "latency_ms": 899}
+{"role": "caller", "text": "It's 401 Richmond Ave in Buffalo."}
+{"role": "agent", "text": "Great. We have open times tomorrow, Tuesday November 17th, from 9 to 11 in the morning, or 1 to 3 in the afternoon. Which one works best for you?", "latency_ms": 1202}
+{"role": "caller", "text": "I'll take the first one, 9 to 11 in the morning."}
+{"role": "tool", "name": "read_back", "args": {"summary": "Furnace tune-up for Rachel Green at 401 Richmond Ave in Buffalo on Tuesday November 17th from 9 to 11 in the morning, contact phone number 7 1 6, 5 5 5, 0 2 0 8."}, "result": {"ok": true, "next": "Read the details to the caller now, ask 'Is that correct?', then wait."}}
+{"role": "agent", "text": "I have a furnace tune-up for Rachel Green at 401 Richmond Ave in Buffalo on Tuesday November 17th from 9 to 11 in the morning, with callback number 7 1 6, 5 5 5, 0 2 0 8. Is that correct?", "latency_ms": 2534}
+{"role": "caller", "text": "Yes, that's all correct."}
+{"role": "tool", "name": "book_visit", "args": {"phone": "716-555-0208", "issue": "Furnace tune-up", "slot_id": "2026-11-17-09", "name": "Rachel Green", "address": "401 Richmond Ave, Buffalo"}, "result": {"ok": true, "visit_id": 3, "day": "2026-11-17", "start_hour": 9}}
+{"role": "agent", "text": "You're all set for tomorrow, Tuesday November 17th, between 9 and 11 in the morning. Is there anything else I can help you with today?", "latency_ms": 2202}
+{"role": "caller", "text": "No, that's everything. Thanks so much, goodbye!"}
+{"role": "agent", "text": "You're welcome! Have a great day and stay warm. Goodbye!", "latency_ms": 884}

@@ -1,0 +1,12 @@
+{"role": "caller", "text": "My water heater tank just split and it's flooding my basement!"}
+{"role": "agent", "text": "Please turn off your main water shutoff valve right away to stop the flooding. Are you in a safe spot, and can I get your name and address?", "latency_ms": 951}
+{"role": "caller", "text": "I'm Erin Walsh. It's at 230 Highland Ave in Buffalo."}
+{"role": "agent", "text": "Thank you, Erin. What is the best phone number to reach you at?", "latency_ms": 884}
+{"role": "caller", "text": "It's 716-555-0307."}
+{"role": "tool", "name": "read_back", "args": {"summary": "Emergency page for Erin Walsh at 2 3 0 Highland Ave, phone 7 1 6, 5 5 5, 0 3 0 7, for a flooded basement from a split water heater tank."}, "result": {"ok": true, "next": "Read the details to the caller now, ask 'Is that correct?', then wait."}}
+{"role": "agent", "text": "I have an emergency page for Erin Walsh at 2 3 0 Highland Ave, phone number 7 1 6, 5 5 5, 0 3 0 7, for a flooded basement from a split water heater tank. Is that correct?", "latency_ms": 2135}
+{"role": "caller", "text": "Yes, that's right."}
+{"role": "tool", "name": "page_oncall", "args": {"callback": "716-555-0307", "address": "230 Highland Ave, Buffalo", "summary": "Erin Walsh - Water heater tank split, flooding basement.", "urgency": "emergency"}, "result": {"ok": true, "tech": "Mike", "callback_within_minutes": 30}}
+{"role": "agent", "text": "I've paged our on-call technician. Mike will call you back within 30 minutes.", "latency_ms": 2116}
+{"role": "caller", "text": "Thanks, I'll wait by the phone. Bye."}
+{"role": "agent", "text": "You're welcome, Erin. Stay safe, and Mike will be in touch shortly. Goodbye!", "latency_ms": 935}

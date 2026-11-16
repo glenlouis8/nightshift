@@ -1,0 +1,23 @@
+{"role": "caller", "text": "My bathroom sink is draining really slowly."}
+{"role": "agent", "text": "I can definitely help set up a service visit for your slow drain. May I please have your full name?", "latency_ms": 985}
+{"role": "caller", "text": "Ian Ford."}
+{"role": "agent", "text": "Thanks, Ian. What is the best callback phone number for you?", "latency_ms": 1041}
+{"role": "caller", "text": "716-555-0602."}
+{"role": "agent", "text": "Got it. And what is the street address for the service visit?", "latency_ms": 1200}
+{"role": "caller", "text": "400 Hoyt St, Buffalo."}
+{"role": "tool", "name": "get_open_slots", "args": {}, "result": {"open_slots": [{"slot_id": "2026-11-17-09", "day": "2026-11-17", "window": "9:00 to 11:00"}, {"slot_id": "2026-11-17-13", "day": "2026-11-17", "window": "13:00 to 15:00"}, {"slot_id": "2026-11-18-09", "day": "2026-11-18", "window": "9:00 to 11:00"}, {"slot_id": "2026-11-18-11", "day": "2026-11-18", "window": "11:00 to 13:00"}, {"slot_id": "2026-11-18-13", "day": "2026-11-18", "window": "13:00 to 15:00"}, {"slot_id": "2026-11-18-15", "day": "2026-11-18", "window": "15:00 to 17:00"}]}}
+{"role": "agent", "text": "Thank you. We have openings tomorrow, Tuesday, November 17th, from 9 to 11 in the morning, or from 1 to 3 in the afternoon. Which of those works better for you?", "latency_ms": 1968}
+{"role": "caller", "text": "Let's go with the earliest slot, 9 to 11."}
+{"role": "tool", "name": "read_back", "args": {"summary": "Routine service visit for Ian Ford at 400 Hoyt St, Buffalo, phone 7 1 6, 5 5 5, 0 6 0 2, for a slow bathroom sink drain on Tuesday, November 17 from 9 to 11 in the morning."}, "result": {"ok": true, "next": "Read the details to the caller now, ask 'Is that correct?', then wait."}}
+{"role": "agent", "text": "I have a routine service visit for Ian Ford at 400 Hoyt St, Buffalo, phone 7 1 6, 5 5 5, 0 6 0 2, for a slow bathroom sink drain on Tuesday, November 17 from 9 to 11 in the morning. Is that correct?", "latency_ms": 3440}
+{"role": "caller", "text": "Actually, can we change that? Can we do the latest slot on the second business day instead?"}
+{"role": "tool", "name": "get_open_slots", "args": {}, "result": {"open_slots": [{"slot_id": "2026-11-17-09", "day": "2026-11-17", "window": "9:00 to 11:00"}, {"slot_id": "2026-11-17-13", "day": "2026-11-17", "window": "13:00 to 15:00"}, {"slot_id": "2026-11-18-09", "day": "2026-11-18", "window": "9:00 to 11:00"}, {"slot_id": "2026-11-18-11", "day": "2026-11-18", "window": "11:00 to 13:00"}, {"slot_id": "2026-11-18-13", "day": "2026-11-18", "window": "13:00 to 15:00"}, {"slot_id": "2026-11-18-15", "day": "2026-11-18", "window": "15:00 to 17:00"}]}}
+{"role": "agent", "text": "Sure, the latest slot on Wednesday, November 18th is from 3 to 5 in the afternoon. Let me read the details back for you.", "latency_ms": 2355}
+{"role": "caller", "text": "That sounds good, let's lock that in."}
+{"role": "tool", "name": "read_back", "args": {"summary": "Routine service visit for Ian Ford at 400 Hoyt St, Buffalo, phone 7 1 6, 5 5 5, 0 6 0 2, for a slow bathroom sink drain on Wednesday, November 18 from 3 to 5 in the afternoon."}, "result": {"ok": true, "next": "Read the details to the caller now, ask 'Is that correct?', then wait."}}
+{"role": "agent", "text": "I have a routine service visit for Ian Ford at 400 Hoyt St, Buffalo, phone 7 1 6, 5 5 5, 0 6 0 2, for a slow bathroom sink drain on Wednesday, November 18 from 3 to 5 in the afternoon. Is that correct?", "latency_ms": 4854}
+{"role": "caller", "text": "Yes, that's right."}
+{"role": "tool", "name": "book_visit", "args": {"phone": "716-555-0602", "name": "Ian Ford", "issue": "Slow bathroom sink drain", "slot_id": "2026-11-18-15", "address": "400 Hoyt St, Buffalo"}, "result": {"ok": true, "visit_id": 3, "day": "2026-11-18", "start_hour": 15}}
+{"role": "agent", "text": "You are all set for Wednesday, November 18th between 3 and 5 in the afternoon. Thanks for calling Lakeside Plumbing & Heating!", "latency_ms": 2412}
+{"role": "caller", "text": "Thanks, bye."}
+{"role": "agent", "text": "Have a great day! Goodbye.", "latency_ms": 862}

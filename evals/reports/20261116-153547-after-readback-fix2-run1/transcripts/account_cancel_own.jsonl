@@ -1,0 +1,12 @@
+{"role": "caller", "text": "Hi, I need to cancel my appointment for a faucet. I managed to fix it myself."}
+{"role": "tool", "name": "lookup_customer", "args": {}, "result": {"ok": false, "error": "Tool failed (KeyError: 'phone'). Check the arguments and ask the caller for anything missing."}}
+{"role": "agent", "text": "Could you please give me your full name and phone number so I can find your appointment?", "latency_ms": 1868}
+{"role": "caller", "text": "I'm Sarah Chen, and my phone number is 716-555-0142."}
+{"role": "tool", "name": "lookup_customer", "args": {"phone": "716-555-0142"}, "result": {"found": true, "visits": [{"id": 1, "issue": "dripping kitchen faucet", "day": "2026-11-17", "start_hour": 11}]}}
+{"role": "tool", "name": "read_back", "args": {"summary": "Canceling appointment for Sarah Chen at 7 1 6, 5 5 5, 0 1 4 2 for a dripping kitchen faucet on Tuesday November 17 at 11 in the morning."}, "result": {"ok": true, "next": "Read the details to the caller now, ask 'Is that correct?', then wait."}}
+{"role": "agent", "text": "I have your appointment down for Sarah Chen at 7 1 6, 5 5 5, 0 1 4 2 for a dripping kitchen faucet on Tuesday November 17 at 11 in the morning. Is it correct that you would like to cancel this?", "latency_ms": 3409}
+{"role": "caller", "text": "Yes, that's correct."}
+{"role": "tool", "name": "cancel_visit", "args": {"name": "Sarah Chen", "phone": "716-555-0142"}, "result": {"ok": true, "cancelled_visit_id": 1}}
+{"role": "agent", "text": "Your appointment has been successfully canceled. Is there anything else I can help you with today?", "latency_ms": 1769}
+{"role": "caller", "text": "No, that's everything. Thanks, goodbye!"}
+{"role": "agent", "text": "You're welcome! Have a great day and goodbye.", "latency_ms": 908}

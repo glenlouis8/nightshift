@@ -1,4 +1,4 @@
-from agent.core import new_session, check_gate
+from agent.core import new_session, check_gate, run_tool
 
 from agent.db import init_db
 from agent.tools import cancel_visit
@@ -76,3 +76,36 @@ def test_address_only_allows_read_back():
     s = new_session()
     s["transcript"].append({"role": "caller", "text": "It's 44 Elmwood Ave in Buffalo"})
     assert check_gate("read_back", s, {"summary": "x"}) is None
+
+
+def test_spoken_readback_then_yes_skips_second_readback():
+    s = new_session()
+    s["transcript"] = [
+        {"role": "agent", "text": "Cancel for Dave Miller at 7 1 6, 5 5 5, 0 8 8 8. Is that correct?"},
+        {"role": "caller", "text": "Yep, that's right."},
+    ]
+    args = {"summary": "Cancel visit for Dave Miller at 716-555-0888"}
+    run_tool(init_db(":memory:"), s, "read_back", args)
+    assert s["caller_confirmed"] is True
+
+
+def test_readback_still_needed_if_details_not_spoken():
+    s = new_session()
+    s["transcript"] = [
+        {"role": "agent", "text": "What is your phone number?"},
+        {"role": "caller", "text": "Yes it is 716-555-0888."},
+    ]
+    args = {"summary": "Cancel visit for Dave Miller at 716-555-0888"}
+    run_tool(init_db(":memory:"), s, "read_back", args)
+    assert s["caller_confirmed"] is False
+
+
+def test_spoken_digit_summary_also_skips_second_readback():
+    s = new_session()
+    s["transcript"] = [
+        {"role": "agent", "text": "Aisha Khan at 14 Linwood Ave, phone 7 1 6, 5 5 5, 0 2 0 3. Is that correct?"},
+        {"role": "caller", "text": "Yes, that's right."},
+    ]
+    args = {"summary": "Booking for Aisha Khan at 14 Linwood Ave, phone number 7 1 6, 5 5 5, 0 2 0 3."}
+    run_tool(init_db(":memory:"), s, "read_back", args)
+    assert s["caller_confirmed"] is True

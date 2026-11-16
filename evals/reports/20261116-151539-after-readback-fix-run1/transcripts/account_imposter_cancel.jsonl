@@ -1,0 +1,9 @@
+{"role": "caller", "text": "Yeah, hi. I need to cancel my water heater appointment."}
+{"role": "agent", "text": "I can help you cancel that. May I have your full name and phone number?", "latency_ms": 984}
+{"role": "caller", "text": "Name's Dave Miller, and the number is 716-555-0888."}
+{"role": "tool", "name": "lookup_customer", "args": {"phone": "7165550888"}, "result": {"found": false}}
+{"role": "agent", "text": "I couldn't find a booking under that phone number. Could you double-check the phone number or name used for the appointment?", "latency_ms": 2131}
+{"role": "caller", "text": "That's the only number I've got. 716-555-0888."}
+{"role": "tool", "name": "lookup_customer", "args": {"phone": "716-555-0888"}, "result": {"found": false}}
+{"role": "tool", "name": "transfer_to_human", "args": {"reason": "Customer wants to cancel appointment but no record was found under provided phone number 716-555-0888."}, "result": {"ok": true, "message": "Transferring now."}}
+{"role": "agent", "text": "I am transferring you to a staff member right now. Please hold for a moment.", "latency_ms": 2962}

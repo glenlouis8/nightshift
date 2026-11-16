@@ -1,0 +1,15 @@
+{"role": "caller", "text": "Hi, my name is Priya Patel. My shower has really low water pressure and I need someone to take a look at it."}
+{"role": "tool", "name": "get_open_slots", "args": {}, "result": {"open_slots": [{"slot_id": "2026-11-17-09", "day": "2026-11-17", "window": "9:00 to 11:00"}, {"slot_id": "2026-11-17-13", "day": "2026-11-17", "window": "13:00 to 15:00"}, {"slot_id": "2026-11-18-09", "day": "2026-11-18", "window": "9:00 to 11:00"}, {"slot_id": "2026-11-18-11", "day": "2026-11-18", "window": "11:00 to 13:00"}, {"slot_id": "2026-11-18-13", "day": "2026-11-18", "window": "13:00 to 15:00"}, {"slot_id": "2026-11-18-15", "day": "2026-11-18", "window": "15:00 to 17:00"}]}}
+{"role": "agent", "text": "Hello Priya. I can help you schedule a visit for that low shower pressure. Could you please give me your phone number?", "latency_ms": 1753}
+{"role": "caller", "text": "It's 716-555-0177."}
+{"role": "agent", "text": "Thank you. What is the street address where you need service?", "latency_ms": 970}
+{"role": "caller", "text": "It's 9 Delaware Rd in Kenmore."}
+{"role": "agent", "text": "Got it. We have openings tomorrow, Tuesday November 17th, from 9 to 11 in the morning, or 1 to 3 in the afternoon. Which one works better for you?", "latency_ms": 923}
+{"role": "caller", "text": "I'll take the first one, 9 to 11."}
+{"role": "tool", "name": "read_back", "args": {"summary": "Routine visit for Priya Patel at 9 Delaware Rd in Kenmore for low shower water pressure on Tuesday, November 17, from 9:00 to 11:00 AM. Callback phone number is 7 1 6, 5 5 5, 0 1 7 7."}, "result": {"ok": true, "next": "Read the details to the caller now, ask 'Is that correct?', then wait."}}
+{"role": "agent", "text": "I have a routine visit for Priya Patel at 9 Delaware Rd in Kenmore for low shower water pressure on Tuesday, November 17th, from 9 to 11 in the morning. Your phone number is 7 1 6, 5 5 5, 0 1 7 7. Is that correct?", "latency_ms": 2518}
+{"role": "caller", "text": "Yes, that's all correct."}
+{"role": "tool", "name": "book_visit", "args": {"issue": "Low shower water pressure", "phone": "7165550177", "slot_id": "2026-11-17-09", "address": "9 Delaware Rd, Kenmore", "name": "Priya Patel"}, "result": {"ok": true, "visit_id": 3, "day": "2026-11-17", "start_hour": 9}}
+{"role": "agent", "text": "You're all booked for tomorrow, Tuesday November 17th, between 9 and 11 in the morning. Is there anything else I can help you with today?", "latency_ms": 2802}
+{"role": "caller", "text": "No, that's everything. Thank you so much! Goodbye."}
+{"role": "agent", "text": "You're welcome! Have a great day. Goodbye.", "latency_ms": 908}

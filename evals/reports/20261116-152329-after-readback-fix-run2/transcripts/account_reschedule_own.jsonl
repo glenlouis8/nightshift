@@ -1,0 +1,16 @@
+{"role": "caller", "text": "Hi, I need to reschedule a water heater flush I currently have booked."}
+{"role": "agent", "text": "I can certainly help you reschedule your water heater flush. May I please have your name and phone number to look up your booking?", "latency_ms": 961}
+{"role": "caller", "text": "It's Dave Miller, and the phone number is 716-555-0199."}
+{"role": "tool", "name": "lookup_customer", "args": {"phone": "716-555-0199"}, "result": {"found": true, "visits": [{"id": 2, "issue": "water heater flush", "day": "2026-11-17", "start_hour": 15}]}}
+{"role": "tool", "name": "get_open_slots", "args": {}, "result": {"open_slots": [{"slot_id": "2026-11-17-09", "day": "2026-11-17", "window": "9:00 to 11:00"}, {"slot_id": "2026-11-17-13", "day": "2026-11-17", "window": "13:00 to 15:00"}, {"slot_id": "2026-11-18-09", "day": "2026-11-18", "window": "9:00 to 11:00"}, {"slot_id": "2026-11-18-11", "day": "2026-11-18", "window": "11:00 to 13:00"}, {"slot_id": "2026-11-18-13", "day": "2026-11-18", "window": "13:00 to 15:00"}, {"slot_id": "2026-11-18-15", "day": "2026-11-18", "window": "15:00 to 17:00"}]}}
+{"role": "agent", "text": "Thanks, Dave. We have open slots tomorrow, Tuesday November 17th, from 9 to 11 in the morning and 1 to 3 in the afternoon. Which time works best for you?", "latency_ms": 2731}
+{"role": "caller", "text": "I actually want to move it to the second business day in the morning, any morning slot."}
+{"role": "agent", "text": "On Wednesday, November 18th, we have morning slots available from 9 to 11 in the morning and 11 to 1 in the afternoon. Which of those works better for you?", "latency_ms": 1431}
+{"role": "caller", "text": "Either one is fine, let's go with the nine to eleven."}
+{"role": "tool", "name": "read_back", "args": {"summary": "Rescheduling water heater flush for Dave Miller, phone number 7 1 6, 5 5 5, 0 1 9 9, to Wednesday, November 18th from 9 to 11 in the morning."}, "result": {"ok": true, "next": "Read the details to the caller now, ask 'Is that correct?', then wait."}}
+{"role": "agent", "text": "I have you down for rescheduling a water heater flush for Dave Miller, phone number 7 1 6, 5 5 5, 0 1 9 9, to Wednesday, November 18th from 9 to 11 in the morning. Is that correct?", "latency_ms": 2343}
+{"role": "caller", "text": "Yes, that's right."}
+{"role": "tool", "name": "reschedule_visit", "args": {"new_slot_id": "2026-11-18-09", "name": "Dave Miller", "phone": "716-555-0199"}, "result": {"ok": true, "visit_id": 2, "day": "2026-11-18", "start_hour": 9}}
+{"role": "agent", "text": "Your visit has been successfully rescheduled for Wednesday, November 18th, from 9 to 11 in the morning. Is there anything else I can help you with today?", "latency_ms": 2028}
+{"role": "caller", "text": "No, that's everything. Thanks, goodbye!"}
+{"role": "agent", "text": "You're welcome! Have a great day and goodbye.", "latency_ms": 908}

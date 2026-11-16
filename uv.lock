@@ -1656,6 +1656,7 @@ version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
     { name = "google-genai" },
+    { name = "openai" },
     { name = "pipecat-ai", extra = ["deepgram", "runner", "webrtc"] },
     { name = "python-dotenv" },
     { name = "pyyaml" },
@@ -1669,6 +1670,7 @@ dev = [
 [package.metadata]
 requires-dist = [
     { name = "google-genai", specifier = ">=3.3.0" },
+    { name = "openai", specifier = ">=3.51.0" },
     { name = "pipecat-ai", extras = ["deepgram", "elevenlabs", "runner", "silero", "webrtc"], specifier = ">=1.16.0" },
     { name = "python-dotenv", specifier = ">=1.2.4" },
     { name = "pyyaml", specifier = ">=6.0.3" },

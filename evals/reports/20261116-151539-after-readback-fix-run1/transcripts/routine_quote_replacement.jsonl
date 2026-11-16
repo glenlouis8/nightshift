@@ -1,0 +1,17 @@
+{"role": "caller", "text": "Hi, I'd like to get someone out to give me a quote on replacing my old water heater."}
+{"role": "tool", "name": "get_open_slots", "args": {}, "result": {"open_slots": [{"slot_id": "2026-11-17-09", "day": "2026-11-17", "window": "9:00 to 11:00"}, {"slot_id": "2026-11-17-13", "day": "2026-11-17", "window": "13:00 to 15:00"}, {"slot_id": "2026-11-18-09", "day": "2026-11-18", "window": "9:00 to 11:00"}, {"slot_id": "2026-11-18-11", "day": "2026-11-18", "window": "11:00 to 13:00"}, {"slot_id": "2026-11-18-13", "day": "2026-11-18", "window": "13:00 to 15:00"}, {"slot_id": "2026-11-18-15", "day": "2026-11-18", "window": "15:00 to 17:00"}]}}
+{"role": "agent", "text": "I can help schedule a visit for a water heater replacement quote. May I please have your full name?", "latency_ms": 1854}
+{"role": "caller", "text": "It's Linda Park."}
+{"role": "agent", "text": "Thank you, Linda. What is the best callback phone number for you?", "latency_ms": 956}
+{"role": "caller", "text": "It's 716-555-0205."}
+{"role": "agent", "text": "Got it. And what is the service address where we'd be looking at the water heater?", "latency_ms": 2256}
+{"role": "caller", "text": "It's 302 Amherst St in Buffalo."}
+{"role": "agent", "text": "Thank you. We have openings tomorrow, Tuesday, November 17th, from 9 to 11 in the morning, or 1 to 3 in the afternoon. Which time works best for you?", "latency_ms": 1129}
+{"role": "caller", "text": "I'll take the morning one."}
+{"role": "tool", "name": "read_back", "args": {"summary": "Routine visit for Linda Park at 302 Amherst St in Buffalo for a water heater replacement quote on Tuesday, November 17th from 9 to 11 in the morning. Callback number is 7 1 6, 5 5 5, 0 2 0 5."}, "result": {"ok": true, "next": "Read the details to the caller now, ask 'Is that correct?', then wait."}}
+{"role": "agent", "text": "I have a routine visit for Linda Park at 302 Amherst St in Buffalo for a water heater replacement quote on Tuesday, November 17th, from 9 to 11 in the morning. Your callback number is 7 1 6, 5 5 5, 0 2 0 5. Is that correct?", "latency_ms": 2322}
+{"role": "caller", "text": "Yes, that's right."}
+{"role": "tool", "name": "book_visit", "args": {"slot_id": "2026-11-17-09", "address": "302 Amherst St, Buffalo", "name": "Linda Park", "issue": "Water heater replacement quote", "phone": "716-555-0205"}, "result": {"ok": true, "visit_id": 3, "day": "2026-11-17", "start_hour": 9}}
+{"role": "agent", "text": "You are all booked for tomorrow, Tuesday, November 17th, between 9 and 11 in the morning. Is there anything else I can help you with today?", "latency_ms": 2117}
+{"role": "caller", "text": "No, that's everything. Thank you, bye!"}
+{"role": "agent", "text": "Thank you for calling Lakeside Plumbing & Heating. Have a great evening! Bye!", "latency_ms": 822}

@@ -1,0 +1,12 @@
+{"role": "caller", "text": "Oh hello there. My basement floor drain is backing up with sewage and it's making an awful mess."}
+{"role": "agent", "text": "That sounds like an emergency. Please refrain from running any water or flushing toilets. Can I please get your full address and the best callback phone number?", "latency_ms": 1150}
+{"role": "caller", "text": "Sure thing. My address is one twenty eight Woodward Avenue. You know, we were watching that Bills game earlier and then this happened right in the middle of the third quarter. My phone number is seven one six five five five zero six zero three."}
+{"role": "agent", "text": "Thank you. May I also have your full name, please?", "latency_ms": 975}
+{"role": "caller", "text": "The name is Walter. Walter Higgins."}
+{"role": "tool", "name": "read_back", "args": {"summary": "Emergency sewage backup at 128 Woodward Avenue, phone number 7 1 6, 5 5 5, 0 6 0 3, for Walter Higgins."}, "result": {"ok": true, "next": "Read the details to the caller now, ask 'Is that correct?', then wait."}}
+{"role": "agent", "text": "I have a sewage backup at 128 Woodward Avenue for Walter Higgins, with callback number 7 1 6, 5 5 5, 0 6 0 3. Is that correct?", "latency_ms": 1707}
+{"role": "caller", "text": "Yep, that is all correct."}
+{"role": "tool", "name": "page_oncall", "args": {"callback": "7165550603", "summary": "Sewage backup in basement floor drain for Walter Higgins", "address": "128 Woodward Avenue", "urgency": "emergency"}, "result": {"ok": true, "tech": "Mike", "callback_within_minutes": 30}}
+{"role": "agent", "text": "I have paged our on-call technician. Mike will call you back within 30 minutes.", "latency_ms": 1953}
+{"role": "caller", "text": "Alright, thanks kindly. I'll keep an eye out for his call. Bye-bye."}
+{"role": "agent", "text": "You're welcome, Walter. Have a good night and stay safe.", "latency_ms": 906}

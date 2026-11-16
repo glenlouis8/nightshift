@@ -1,0 +1,14 @@
+{"role": "caller", "text": "A pipe under my kitchen sink just burst and it's spraying water everywhere!"}
+{"role": "agent", "text": "Please turn off your main water valve right away to stop the flooding. Can I get your home address?", "latency_ms": 1600}
+{"role": "caller", "text": "It's 44 Elmwood Ave, Buffalo."}
+{"role": "agent", "text": "Thank you. What is the best phone number to reach you at?", "latency_ms": 928}
+{"role": "caller", "text": "716 555 010"}
+{"role": "agent", "text": "Could you clarify the full phone number for me?", "latency_ms": 2190}
+{"role": "caller", "text": "It's 716-555-0100."}
+{"role": "tool", "name": "read_back", "args": {"summary": "Emergency dispatch for a burst pipe spraying water under kitchen sink at 44 Elmwood Ave, Buffalo, callback number 7 1 6, 5 5 5, 0 1 0 0."}, "result": {"ok": true, "next": "Read the details to the caller now, ask 'Is that correct?', then wait."}}
+{"role": "agent", "text": "I have an emergency page for a burst pipe under the sink at 44 Elmwood Ave, Buffalo, with callback number 7 1 6, 5 5 5, 0 1 0 0. Is that correct?", "latency_ms": 3647}
+{"role": "caller", "text": "Yes, that's right."}
+{"role": "tool", "name": "page_oncall", "args": {"callback": "716-555-0100", "address": "44 Elmwood Ave, Buffalo", "urgency": "emergency", "summary": "Burst pipe under kitchen sink spraying water everywhere"}, "result": {"ok": true, "tech": "Mike", "callback_within_minutes": 30}}
+{"role": "agent", "text": "I've paged our on-call technician. Mike will call you back within 30 minutes.", "latency_ms": 2612}
+{"role": "caller", "text": "Thanks, I'll wait by the phone."}
+{"role": "agent", "text": "You're welcome. Stay safe, and Mike will be in touch shortly.", "latency_ms": 1474}

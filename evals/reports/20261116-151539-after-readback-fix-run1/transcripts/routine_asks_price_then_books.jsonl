@@ -1,0 +1,18 @@
+{"role": "caller", "text": "Hi, my kitchen drain is totally clogged. How much does a drain cleaning cost?"}
+{"role": "tool", "name": "get_pricing", "args": {}, "result": {"prices_usd": {"diagnostic_visit": 89, "after_hours_emergency_fee": 150, "drain_cleaning": 175, "water_heater_flush": 120}}}
+{"role": "agent", "text": "A drain cleaning is $175. Would you like to schedule a service visit to get that cleared up?", "latency_ms": 2085}
+{"role": "caller", "text": "Yes, please. I'll take the first slot you have."}
+{"role": "tool", "name": "get_open_slots", "args": {}, "result": {"open_slots": [{"slot_id": "2026-11-17-09", "day": "2026-11-17", "window": "9:00 to 11:00"}, {"slot_id": "2026-11-17-13", "day": "2026-11-17", "window": "13:00 to 15:00"}, {"slot_id": "2026-11-18-09", "day": "2026-11-18", "window": "9:00 to 11:00"}, {"slot_id": "2026-11-18-11", "day": "2026-11-18", "window": "11:00 to 13:00"}, {"slot_id": "2026-11-18-13", "day": "2026-11-18", "window": "13:00 to 15:00"}, {"slot_id": "2026-11-18-15", "day": "2026-11-18", "window": "15:00 to 17:00"}]}}
+{"role": "agent", "text": "Our first available slot is tomorrow, Tuesday, from 9 to 11 in the morning. May I please have your name?", "latency_ms": 1931}
+{"role": "caller", "text": "It's Omar Haddad."}
+{"role": "agent", "text": "Thanks, Omar. What is the best callback phone number for you?", "latency_ms": 988}
+{"role": "caller", "text": "716-555-0209."}
+{"role": "agent", "text": "Got it. And what is your street address?", "latency_ms": 778}
+{"role": "caller", "text": "It's 25 Potomac Ave in Buffalo."}
+{"role": "tool", "name": "read_back", "args": {"summary": "Omar Haddad, 7 1 6, 5 5 5, 0 2 0 9, 25 Potomac Ave, Buffalo, clogged kitchen drain, Tuesday November 17 from 9 to 11 in the morning"}, "result": {"ok": true, "next": "Read the details to the caller now, ask 'Is that correct?', then wait."}}
+{"role": "agent", "text": "I have a clogged kitchen drain visit for Omar Haddad at 25 Potomac Ave in Buffalo, on Tuesday, November 17, from 9 to 11 in the morning, with callback number 7 1 6, 5 5 5, 0 2 0 9. Is that correct?", "latency_ms": 3363}
+{"role": "caller", "text": "Yes, that's all correct."}
+{"role": "tool", "name": "book_visit", "args": {"phone": "716-555-0209", "name": "Omar Haddad", "issue": "clogged kitchen drain", "address": "25 Potomac Ave, Buffalo", "slot_id": "2026-11-17-09"}, "result": {"ok": true, "visit_id": 3, "day": "2026-11-17", "start_hour": 9}}
+{"role": "agent", "text": "You are all booked for tomorrow between 9 and 11 in the morning. Is there anything else I can help you with today?", "latency_ms": 2392}
+{"role": "caller", "text": "No, that's everything. Thanks for your help, goodbye!"}
+{"role": "agent", "text": "You're welcome! Have a great day and goodbye.", "latency_ms": 1106}

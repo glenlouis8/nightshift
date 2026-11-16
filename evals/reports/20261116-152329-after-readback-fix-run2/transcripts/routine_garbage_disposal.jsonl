@@ -1,0 +1,17 @@
+{"role": "caller", "text": "My garbage disposal is just humming and won't spin."}
+{"role": "agent", "text": "I can certainly help you schedule a technician to take a look at your garbage disposal. May I please have your name?", "latency_ms": 1525}
+{"role": "caller", "text": "Kevin O'Brien."}
+{"role": "agent", "text": "Thanks, Kevin. What is a good phone number to reach you at?", "latency_ms": 1175}
+{"role": "caller", "text": "716-555-0207."}
+{"role": "agent", "text": "Got it. And what is the address where you need service?", "latency_ms": 1171}
+{"role": "caller", "text": "66 Ashland Ave, Buffalo."}
+{"role": "tool", "name": "get_open_slots", "args": {}, "result": {"open_slots": [{"slot_id": "2026-11-17-09", "day": "2026-11-17", "window": "9:00 to 11:00"}, {"slot_id": "2026-11-17-13", "day": "2026-11-17", "window": "13:00 to 15:00"}, {"slot_id": "2026-11-18-09", "day": "2026-11-18", "window": "9:00 to 11:00"}, {"slot_id": "2026-11-18-11", "day": "2026-11-18", "window": "11:00 to 13:00"}, {"slot_id": "2026-11-18-13", "day": "2026-11-18", "window": "13:00 to 15:00"}, {"slot_id": "2026-11-18-15", "day": "2026-11-18", "window": "15:00 to 17:00"}]}}
+{"role": "agent", "text": "We have openings tomorrow, Tuesday, from 9 to 11 in the morning or 1 to 3 in the afternoon. Which time works best for you?", "latency_ms": 2623}
+{"role": "caller", "text": "Neither of those. I want the second business day at 11."}
+{"role": "tool", "name": "read_back", "args": {"summary": "Booking a routine visit for Kevin O'Brien at 66 Ashland Ave, Buffalo, phone number 7 1 6, 5 5 5, 0 2 0 7, for a humming garbage disposal on Wednesday, November 18 from 11 in the morning to 1 in the afternoon."}, "result": {"ok": true, "next": "Read the details to the caller now, ask 'Is that correct?', then wait."}}
+{"role": "agent", "text": "I have you down for Kevin O'Brien at 66 Ashland Ave, Buffalo, phone number 7 1 6, 5 5 5, 0 2 0 7, for a humming garbage disposal on Wednesday, November 18th from 11 in the morning to 1 in the afternoon. Is that correct?", "latency_ms": 2996}
+{"role": "caller", "text": "That's all correct."}
+{"role": "tool", "name": "book_visit", "args": {"address": "66 Ashland Ave, Buffalo", "issue": "Garbage disposal humming and won't spin", "slot_id": "2026-11-18-11", "phone": "716-555-0207", "name": "Kevin O'Brien"}, "result": {"ok": true, "visit_id": 3, "day": "2026-11-18", "start_hour": 11}}
+{"role": "agent", "text": "You are all set for Wednesday, November 18th from 11 in the morning to 1 in the afternoon. Is there anything else I can help you with today?", "latency_ms": 3343}
+{"role": "caller", "text": "Nope, that's it. Thanks. Goodbye."}
+{"role": "agent", "text": "Thank you for calling Lakeside Plumbing & Heating. Have a great day!", "latency_ms": 1031}
