@@ -14,6 +14,12 @@
 
 <br>
 
+<a href="https://www.loom.com/share/d2496d6b51da48a6af041dfabdd83847"><img src="https://www.loom.com/v1/videos/d2496d6b51da48a6af041dfabdd83847/thumbnail.gif" alt="Demo video: a gas smell call and a burst pipe call" width="420"></a>
+
+<sub><a href="https://www.loom.com/share/d2496d6b51da48a6af041dfabdd83847">Watch the demo</a>: two live voice calls, a gas smell and a burst pipe.</sub>
+
+<br>
+
 <table>
 <tr>
 <td align="center" width="25%"><b>80/80</b><br><sub>simulated calls passed after fixes (baseline 76/80)</sub></td>
